@@ -1,10 +1,10 @@
 ## Cristian Baeza Torres - Github Page
 
-Antropólogo Físico, estudiante de postgrado de Ciencia de Datos.
-Presidente de la Sociedad Chilena de Antropología Biologica (SOCHIAB) 2025-2026.
-Colaborador recurrente de la Carrera de Antropología de la Universidad de Concepción.
-Founder en ARIACH (Academia de Robotica e Inteligencia Artificial).
-De Concepción, Chile.
+Antropólogo Físico, estudiante de postgrado de Ciencia de Datos.  
+Presidente de la Sociedad Chilena de Antropología Biologica (SOCHIAB) 2025-2026.  
+Colaborador recurrente de la Carrera de Antropología de la Universidad de Concepción.  
+Founder en ARIACH (Academia de Robotica e Inteligencia Artificial).  
+De Concepción, Chile.  
 
 ### Sobre mí
 Soy antropólogo físico con un enfoque en la ciencia de datos. Me apasiona la intersección entre la antropología y la tecnología, y busco aplicar mis conocimientos para contribuir al avance de la investigación en antropología biológica.
