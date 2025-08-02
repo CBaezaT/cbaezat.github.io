@@ -5,7 +5,6 @@ classes: wide
 permalink: /about/
 author_profile: true
 ---
-# Sobre mí - Cristian Baeza Torres
 
 ## Antropólogo Físico | Magíster en Ciencia de Datos para la Innovación
 

@@ -21,7 +21,7 @@ email: crisbaezatorres@gmail.com
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "Cristian Baeza Torres"
-description              : "Hola! Soy Cristian Baeza T, Antropólogo con mención Física UdeC.
+description              : "Cristian Baeza Torres, Antropólogo Físico UdeC.
   Concepción, Chile. "
 url                      : cbaezat.github.io
 baseurl                  : ##
@@ -106,9 +106,9 @@ analytics:
 
 # Site Author
 author:
-  name   : "Cristian Baeza"
+  name   : "Cristian Baeza Torres"
   avatar : "/assets/images/bio-photo.jpg"
-  bio    : "Hola, soy Cristian Baeza Torres, Antropólogo con Mención Física de la Universidad de Concepción.
+  bio    : "Cristian Baeza Torres, Antropólogo Físico y Estudiante de Magister Ciencia de Datos de la Universidad de Concepción.
   Concepción, Chile."
   links:
    # - label: "Website"
