@@ -15,6 +15,20 @@ Soy antropólogo físico con un enfoque en la ciencia de datos. Me apasiona la i
 - SQL (PostgreSQL)
 - JASP
 
+### Contacto Profesional
+Si deseas contactarme para colaboraciones profesionales, proyectos de investigación o cualquier consulta relacionada con mi trabajo, puedes hacerlo a través de los siguientes medios:
+- [LinkedIn](https://www.linkedin.com/in/cristian-baeza-torres/)
+- [crisbaezatorres@gmail.com](mailto:cristian.baeza.torres@gmail.com)
+- [cbaeza2016@udec.cl](mailto:cbaeza2016@udec.cl)
+---
+O si bien, estas interesado en SOCHIAB, ya sea ser miembro, colaborar, hacer divulgación, puedes contactarnos a través de:
+- [LinkedIn SOCHIAB](https://www.linkedin.com/company/sochiab/)
+- [Instagram SOCHIAB](https://www.instagram.com/sochiab/)
+- [presidencia@sochiab.cl](mailto:presidencia@sochiab.cl)
+- [sochiab.cl](https://sochiab.cl/)
+- [sochiantropologiabiologica@gmail.com](mailto:sochiantropologiabiologica@gmail.com)
+---
+# Cristian Baeza Torres - GitHub Page
 CV
 
 Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
