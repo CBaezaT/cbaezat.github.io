@@ -9,13 +9,9 @@ redirect_from:
   - /about.html
 ---
 
-Soy **Antropólogo Físico** especializado en **Ciencia de Datos para la Innovación**. Mi trabajo se centra en el análisis de datos aplicados a salud pública y antropología física, con especial enfoque en investigación de **sindemias**.
-
-<div class="notice--info">
-  <h4><i class="fas fa-trophy"></i> Logro Destacado</h4>
-  <p><strong>Memoria de Título con Distinción Máxima:</strong> <em>"Sindemia en Chile: Sindemia por COVID-19, enfermedades crónicas no transmisibles y vulnerabilidades socioeconómicas"</em></p>
-  <p><a href="/publications/2022-sindemia-chile" class="btn btn--info btn--small">Leer más</a></p>
-</div>
+Soy **Antropólogo Físico**, estudiante del **Magíster en Ciencia de Datos para la Innovación**.   
+Mi experiencia abarca la colaboración en proyectos de investigación, metodologías cuantitativas y mixtas, utilizando herramientas de ciencia de datos en diferentes contextos y problemáticas.  
+**Me interesa la intersección entre la antropología y la tecnología, sobre todo en trabajos interdisciplonarios que aborden problemáticas complejas y contemporáneas.**.   
 
 ## 🔬 Investigación Actual
 
