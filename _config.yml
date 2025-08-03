@@ -7,12 +7,10 @@
 
 # Theme Settings
 #
-# Review documentation to determine if you should use `theme` or `remote_theme`
-# https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/#installing-the-theme
+# Academic Pages theme
+# https://github.com/academicpages/academicpages.github.io
 
- #theme                  : minimal-mistakes-jekyll
- # remote_theme           : mmistakes/minimal-mistakes
-minimal_mistakes_skin    : "contrast" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+remote_theme: academicpages/academicpages.github.io
 
 # Site Settings
 locale: es
@@ -106,26 +104,41 @@ analytics:
 
 # Site Author
 author:
-  name   : "Cristian Baeza Torres"
-  avatar : "/assets/images/bio-photo.jpg"
-  bio    : "Cristian Baeza Torres, Antropólogo Físico y Estudiante de Magister Ciencia de Datos de la Universidad de Concepción.
-  Concepción, Chile."
-  links:
-   # - label: "Website"
-    #  icon: "fas fa-fw fa-link"
-   #   url: "https://"
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/CrisBaeza_13"
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/CBaezaT"
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      url: "https://www.instagram.com/crisbaeza13/"
-    - label:  "Linkedin"
-      icon: "fab fa-fa fa-linkedin"
-      url: "https://www.linkedin.com/in/cristian-baeza-torres-a56160161/"
+  name             : "Cristian Baeza Torres"
+  avatar           : "/images/profile.png"
+  bio              : "Antropólogo Físico, Magíster en Ciencia de Datos para la Innovación"
+  location         : "Concepción, Chile"
+  employer         : "Universidad de Concepción"
+  pubmed           : 
+  googlescholar    : 
+  email            : "crisbaezatorres@gmail.com"
+  researchgate     : 
+  uri              :
+  bitbucket        :
+  codepen          :
+  dribbble         :
+  flickr           :
+  facebook         :
+  foursquare       :
+  github           : "CBaezaT"
+  google_plus      :
+  keybase          :
+  instagram        : "crisbaeza13"
+  impactstory      : 
+  lastfm           :
+  linkedin         : "cristian-baeza-torres"
+  orcid            : 
+  pinterest        :
+  soundcloud       :
+  stackoverflow    : 
+  steam            :
+  tumblr           :
+  twitter          : "CrisBaeza_13"
+  vine             :
+  weibo            :
+  xing             :
+  youtube          :
+  wikipedia        :
 
 
 # Site Footer
@@ -287,5 +300,20 @@ defaults:
       path: "_pages"
       type: pages
     values:
-      layout: wide
+      layout: single
       author_profile: true
+
+# Collections
+collections:
+  teaching:
+    output: true
+    permalink: /:collection/:name/
+  publications:
+    output: true
+    permalink: /:collection/:name/
+  portfolio:
+    output: true
+    permalink: /:collection/:name/
+  talks:
+    output: true
+    permalink: /:collection/:name/
