@@ -1,26 +1,288 @@
 ---
 permalink: /
-title: "Bienvenido"
-excerpt: "Sobre mí"
+title: "Cristian Baeza Torres"
+excerpt: "Antropólogo Físico | Magíster en Ciencia de Datos para la Innovación"
 author_profile: true
 redirect_from: 
   - /about/
   - /about.html
 ---
 
-Soy Antropólogo Físico especializado en Ciencia de Datos para la Innovación. Mi trabajo se centra en el análisis de datos aplicados a salud pública y antropología física, con especial enfoque en investigación de sindemias.
+<div class="hero-section">
+  <h1 class="hero-title">Bienvenido</h1>
+  <p class="hero-subtitle">Antropólogo Físico especializado en Ciencia de Datos para la Innovación</p>
+  
+  <div class="hero-description">
+    <p>Mi trabajo se centra en el análisis de datos aplicados a salud pública y antropología física, con especial enfoque en investigación de <strong>sindemias</strong>.</p>
+  </div>
+  
+  <div class="cta-buttons">
+    <a href="/publications/" class="btn btn--primary">Ver Publicaciones</a>
+    <a href="/cv/" class="btn btn--inverse">Descargar CV</a>
+  </div>
+</div>
 
-## Investigación actual
+<div class="intro-section">
+  <div class="intro-grid">
+    <div class="intro-item">
+      <h3><i class="fas fa-microscope"></i> Investigación Actual</h3>
+      <p>Estudio de <strong>sindemias</strong>: análisis de las interacciones complejas entre COVID-19, enfermedades crónicas no transmisibles y factores socioeconómicos en Chile.</p>
+    </div>
+    
+    <div class="intro-item">
+      <h3><i class="fas fa-graduation-cap"></i> Formación</h3>
+      <p><strong>Magíster en Ciencia de Datos para la Innovación</strong> (En curso)<br>
+      <strong>Antropólogo Físico</strong> - Universidad de Concepción</p>
+    </div>
+    
+    <div class="intro-item">
+      <h3><i class="fas fa-briefcase"></i> Roles Actuales</h3>
+      <p><strong>Presidente</strong> - SOCHIAB 2025-2026<br>
+      <strong>Colaborador</strong> - Universidad de Concepción<br>
+      <strong>Founder</strong> - ARIACH</p>
+    </div>
+  </div>
+</div>
 
-Mi investigación se centra en el estudio de **sindemias**, particularmente en el análisis de las interacciones complejas entre COVID-19, enfermedades crónicas no transmisibles y factores socioeconómicos en Chile.
+<div class="highlight-section">
+  <h2><i class="fas fa-trophy"></i> Logro Destacado</h2>
+  <div class="highlight-content">
+    <h3>Memoria de Título con Distinción Máxima</h3>
+    <p><em>"Sindemia en Chile: Sindemia por COVID-19, enfermedades crónicas no transmisibles y vulnerabilidades socioeconómicas"</em></p>
+    <p>Un modelo biocultural para entender la crisis sanitaria causada por COVID-19 en Chile.</p>
+    <a href="/publication/2022-sindemia-chile" class="btn btn--info">Leer más</a>
+  </div>
+</div>
 
-## Formación académica
+<!-- Sección de publicaciones recientes -->
+<div class="recent-posts">
+  <h2><i class="fas fa-newspaper"></i> Publicaciones Recientes</h2>
+  
+  {% assign recent_publications = site.publications | reverse | slice: 0, 3 %}
+  {% if recent_publications.size > 0 %}
+    <div class="publications-grid">
+      {% for post in recent_publications %}
+        <div class="publication-card">
+          <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+          <p class="publication-meta">{{ post.date | date: "%Y" }} • {{ post.venue }}</p>
+          <p>{{ post.excerpt | strip_html | truncatewords: 25 }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p>Las publicaciones aparecerán aquí próximamente.</p>
+  {% endif %}
+  
+  <!-- Blog posts recientes como contenido secundario -->
+  {% assign recent_posts = site.posts | slice: 0, 2 %}
+  {% if recent_posts.size > 0 %}
+    <h3><i class="fas fa-blog"></i> Entradas de Blog Recientes</h3>
+    <div class="blog-posts">
+      {% for post in recent_posts %}
+        <div class="blog-card">
+          <h4><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h4>
+          <p class="post-meta">{{ post.date | date: "%B %d, %Y" }}</p>
+          <p>{{ post.excerpt | strip_html | truncatewords: 20 }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+  
+  <div class="view-all">
+    <a href="/publications/" class="btn btn--primary">Ver todas las publicaciones</a>
+    <a href="/year-archive/" class="btn btn--inverse">Ver todo el blog</a>
+  </div>
+</div>
 
-- **Magíster en Ciencia de Datos para la Innovación** - Universidad de Concepción (En curso)
-- **Antropólogo Físico** - Universidad de Concepción
+<style>
+.hero-section {
+  text-align: center;
+  padding: 3rem 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  margin: -1rem -1rem 3rem -1rem;
+  border-radius: 0 0 20px 20px;
+}
 
-## Roles actuales
+.hero-title {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
 
-- **Presidente** - Sociedad Chilena de Antropología Biológica (SOCHIAB) 2025-2026
-- **Colaborador** - Carrera de Antropología, Universidad de Concepción
-- **Founder** - ARIACH (Academia de Robótica e Inteligencia Artificial)
+.hero-subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+.hero-description {
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn--primary {
+  background: #007acc;
+  color: white;
+}
+
+.btn--inverse {
+  background: white;
+  color: #333;
+}
+
+.btn--info {
+  background: #17a2b8;
+  color: white;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.intro-section {
+  margin: 3rem 0;
+}
+
+.intro-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.intro-item {
+  background: #f8f9fa;
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+  border-left: 4px solid #007acc;
+}
+
+.intro-item h3 {
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.intro-item i {
+  color: #007acc;
+  margin-right: 0.5rem;
+}
+
+.highlight-section {
+  background: #f8f9fa;
+  padding: 2rem;
+  border-radius: 10px;
+  margin: 3rem 0;
+  border-left: 4px solid #28a745;
+}
+
+.highlight-content h3 {
+  color: #28a745;
+  margin-bottom: 1rem;
+}
+
+.recent-posts {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 2px solid #e9ecef;
+}
+
+.recent-posts h2 {
+  color: #333;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.recent-posts h2 i {
+  color: #007acc;
+  margin-right: 0.5rem;
+}
+
+.publications-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.publication-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+  border-left: 4px solid #007acc;
+}
+
+.publication-meta {
+  color: #666;
+  font-size: 0.9rem;
+  margin: 0.5rem 0;
+}
+
+.blog-posts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.blog-card {
+  background: #f8f9fa;
+  padding: 1rem;
+  border-radius: 5px;
+  border-left: 3px solid #6c757d;
+}
+
+.post-meta {
+  color: #666;
+  font-size: 0.8rem;
+}
+
+.view-all {
+  text-align: center;
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.2rem;
+  }
+  
+  .intro-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+</style>
