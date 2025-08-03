@@ -10,7 +10,9 @@ redirect_from:
   - /about.html
 ---
 
-Soy **Antropólogo Físico**, estudiante del **Magíster en Ciencia de Datos para la Innovación**. Mi experiencia abarca la colaboración en proyectos de investigación, metodologías cuantitativas y mixtas, utilizando herramientas de ciencia de datos en diferentes contextos y problemáticas. **Me interesa la intersección entre la antropología y la tecnología, sobre todo en trabajos interdisciplinarios que aborden problemáticas complejas y contemporáneas.**   
+Soy **Antropólogo Físico**, estudiante del **Magíster en Ciencia de Datos para la Innovación**.  
+ Mi experiencia abarca la colaboración en proyectos de investigación, metodologías cuantitativas y mixtas, utilizando herramientas de ciencia de datos en diferentes contextos y problemáticas.  
+  **Me interesa la intersección entre la antropología y la tecnología, sobre todo en trabajos interdisciplinarios que aborden problemáticas complejas y contemporáneas.**   
 
 ## 🔬 Investigación Actual
 
