@@ -1,0 +1,31 @@
+# Git
+.git
+.gitignore
+
+# Jekyll
+_site
+.jekyll-cache
+.jekyll-metadata
+.sass-cache
+
+# Ruby
+vendor/bundle/
+.bundle/
+
+# Node
+node_modules/
+package-lock.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Build
+DOC-build/
+trash/
