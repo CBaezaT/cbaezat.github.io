@@ -1,0 +1,52 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'Antropólogo Físico, Estudiante del Magíster en Ciencia de Datos para la Innovación' } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body class="bg-gray-50 text-gray-900">
+    <header class="bg-white shadow-sm">
+      <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <div class="flex justify-between items-center">
+          <a href="/" class="text-2xl font-bold text-gray-900">Cristian Baeza Torres</a>
+          <div class="space-x-6">
+            <a href="/" class="hover:text-blue-600">Inicio</a>
+            <a href="/about" class="hover:text-blue-600">Sobre mí</a>
+            <a href="/blog" class="hover:text-blue-600">Blog</a>
+            <a href="/publications" class="hover:text-blue-600">Publicaciones</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+    
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <slot />
+    </main>
+    
+    <footer class="bg-gray-800 text-white mt-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="flex justify-between items-center">
+          <p>© 2025 Cristian Baeza Torres</p>
+          <div class="space-x-4">
+            <a href="https://twitter.com/CrisBaeza_13" target="_blank" class="hover:text-blue-400">Twitter</a>
+            <a href="https://github.com/CBaezaT" target="_blank" class="hover:text-blue-400">GitHub</a>
+            <a href="https://www.linkedin.com/in/cristian-baeza-torres" target="_blank" class="hover:text-blue-400">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

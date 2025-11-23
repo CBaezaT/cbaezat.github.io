@@ -1,26 +1,25 @@
-FROM ruby:3.1-slim
+FROM node:20-alpine AS build
 
-# Instalar dependencias del sistema
-RUN apt-get update && apt-get install -y \
-    build-essential \
-    git \
-    && rm -rf /var/lib/apt/lists/*
+WORKDIR /app
 
-# Configurar directorio de trabajo
-WORKDIR /site
+# Copiar archivos de dependencias
+COPY package*.json ./
 
-# Copiar Gemfile para instalar dependencias
-COPY Gemfile* ./
+# Instalar dependencias
+RUN npm install
 
-# Instalar bundler y dependencias de Jekyll
-RUN gem install bundler && \
-    bundle install
-
-# Copiar el resto del sitio
+# Copiar el resto del proyecto
 COPY . .
 
-# Puerto para Jekyll
-EXPOSE 4000
+# Build del sitio
+RUN npm run build
 
-# Comando por defecto
-CMD ["bundle", "exec", "jekyll", "serve", "--host", "0.0.0.0", "--livereload", "--force_polling"]
+# Imagen de producción con Nginx
+FROM nginx:alpine
+
+COPY --from=build /app/dist /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]

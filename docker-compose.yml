@@ -1,18 +1,23 @@
-version: '3.8'
-
 services:
-  jekyll:
-    build: .
-    container_name: jekyll-site
+  # Servicio de desarrollo con hot reload
+  dev:
+    image: node:20-alpine
+    container_name: astro-dev
+    working_dir: /app
     ports:
-      - "4000:4000"
-      - "35729:35729"  # Puerto para LiveReload
+      - "4321:4321"
     volumes:
-      - .:/site
-      - bundle_cache:/usr/local/bundle
+      - .:/app
+      - /app/node_modules
     environment:
-      - JEKYLL_ENV=development
-    command: bundle exec jekyll serve --host 0.0.0.0 --livereload --force_polling
+      - NODE_ENV=development
+    command: sh -c "npm install && npm run dev -- --host 0.0.0.0"
 
-volumes:
-  bundle_cache:
+  # Servicio de producción con Nginx
+  prod:
+    build: .
+    container_name: astro-prod
+    ports:
+      - "8080:80"
+    profiles:
+      - production
