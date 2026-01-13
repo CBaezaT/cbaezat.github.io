@@ -2,33 +2,142 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Sobre mí - Cristian Baeza Torres">
-  <div class="max-w-4xl mx-auto">
-    <h1 class="text-4xl font-bold mb-8">Sobre mí</h1>
+<Layout title="About me - Cristian Baeza Torres">
+  <div class="max-w-4xl mx-auto space-y-12">
+    <div class="space-y-2">
+      <h1 class="text-4xl font-bold text-gray-900">About me</h1>
+      <p class="text-lg text-gray-600">Mi trayectoria académica y profesional</p>
+    </div>
     
-    <div class="space-y-6 text-gray-700">
-      <section>
-        <h2 class="text-2xl font-semibold mb-4">Formación Académica</h2>
-        <ul class="list-disc list-inside space-y-2">
-          <li>Magíster en Ciencia de Datos para la Innovación - Universidad de Concepción (en curso)</li>
-          <li>Antropología Física - Universidad de Concepción</li>
+    <div class="space-y-8 text-gray-700">
+      <!-- Introducción -->
+      <section class="space-y-3">
+        <h2 class="text-2xl font-bold text-gray-900">Introducción</h2>
+        <p>
+          Soy antropólogo físico con una pasión por la aplicación de métodos cuantitativos y ciencia de datos 
+          en el estudio de poblaciones humanas. Combino la formación clásica en antropología biológica con 
+          herramientas modernas de análisis de datos.
+        </p>
+      </section>
+
+      <!-- Formación Académica -->
+      <section class="space-y-4">
+        <h2 class="text-2xl font-bold text-gray-900">Formación Académica</h2>
+        <div class="space-y-3">
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h3 class="font-semibold text-gray-900">Magíster en Ciencia de Datos para la Innovación</h3>
+            <p class="text-sm text-gray-600">Universidad de Concepción</p>
+            <p class="text-sm text-gray-500">En curso (2024-2025)</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h3 class="font-semibold text-gray-900">Antropología Física</h3>
+            <p class="text-sm text-gray-600">Universidad de Concepción</p>
+            <p class="text-sm text-gray-500">Egresado</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Áreas de Expertise -->
+      <section class="space-y-4">
+        <h2 class="text-2xl font-bold text-gray-900">Áreas de Expertise</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="bg-green-50 p-4 rounded">
+            <h4 class="font-semibold text-gray-900 mb-2">Antropología Biológica</h4>
+            <p class="text-sm text-gray-600">Análisis de poblaciones, variación humana, adaptación</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded">
+            <h4 class="font-semibold text-gray-900 mb-2">Ciencia de Datos</h4>
+            <p class="text-sm text-gray-600">Machine learning, análisis estadístico, visualización</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded">
+            <h4 class="font-semibold text-gray-900 mb-2">Análisis Cuantitativo</h4>
+            <p class="text-sm text-gray-600">Estadística, modelado, análisis multivariado</p>
+          </div>
+          <div class="bg-red-50 p-4 rounded">
+            <h4 class="font-semibold text-gray-900 mb-2">Programación</h4>
+            <p class="text-sm text-gray-600">Python, R, JavaScript, SQL</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Experiencia Profesional -->
+      <section class="space-y-4">
+        <h2 class="text-2xl font-bold text-gray-900">Experiencia Profesional</h2>
+        <div class="space-y-3">
+          <div class="border-l-4 border-red-600 pl-4">
+            <h3 class="font-semibold text-gray-900">Presidente - SOCHIAB 2025-2026</h3>
+            <p class="text-sm text-gray-600">Sociedad Chilena de Antropología Biológica</p>
+            <p class="text-gray-700 text-sm mt-1">Liderando iniciativas de investigación, educación y promoción de la disciplina en Chile</p>
+          </div>
+          <div class="border-l-4 border-blue-600 pl-4">
+            <h3 class="font-semibold text-gray-900">Colaborador - Universidad de Concepción</h3>
+            <p class="text-sm text-gray-600">Docencia e Investigación</p>
+            <p class="text-gray-700 text-sm mt-1">Enseñanza en análisis cuantitativo y ciencia de datos aplicada</p>
+          </div>
+          <div class="border-l-4 border-purple-600 pl-4">
+            <h3 class="font-semibold text-gray-900">Founder - ARIACH</h3>
+            <p class="text-sm text-gray-600">Red de Investigadores en Antropología</p>
+            <p class="text-gray-700 text-sm mt-1">Promoviendo colaboración interdisciplinaria en investigación antropológica</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Intereses de Investigación -->
+      <section class="space-y-4">
+        <h2 class="text-2xl font-bold text-gray-900">Intereses de Investigación</h2>
+        <ul class="space-y-2">
+          <li class="flex items-start gap-3">
+            <span class="text-blue-600">→</span>
+            <span>Análisis de sindemias: interacciones entre enfermedades y factores socioeconómicos</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-blue-600">→</span>
+            <span>Aplicación de machine learning en epidemiología y antropología</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-blue-600">→</span>
+            <span>Procesamiento de lenguaje natural para análisis cualitativo automatizado</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-blue-600">→</span>
+            <span>Integración de métodos cuantitativos y cualitativos en investigación social</span>
+          </li>
         </ul>
       </section>
 
-      <section>
-        <h2 class="text-2xl font-semibold mb-4">Áreas de Interés</h2>
-        <ul class="list-disc list-inside space-y-2">
-          <li>Antropología Física</li>
-          <li>Ciencia de Datos</li>
-          <li>Análisis Cuantitativo de Poblaciones</li>
-          <li>Machine Learning aplicado a Ciencias Sociales</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2 class="text-2xl font-semibold mb-4">Contacto</h2>
-        <p>Email: <a href="mailto:crisbaezatorres@gmail.com" class="text-blue-600 hover:underline">crisbaezatorres@gmail.com</a></p>
-        <p>Ubicación: Concepción, Chile</p>
+      <!-- Valores -->
+      <section class="bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg p-6 border-l-4 border-blue-600">
+        <h2 class="text-2xl font-bold text-gray-900 mb-4">Mis Valores</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-700">
+          <div class="flex items-start gap-3">
+            <span class="text-2xl">📚</span>
+            <div>
+              <p class="font-semibold">Rigor Científico</p>
+              <p class="text-sm">Investigación meticulosa y basada en evidencia</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="text-2xl">🤝</span>
+            <div>
+              <p class="font-semibold">Colaboración</p>
+              <p class="text-sm">Trabajo interdisciplinario y comunicación abierta</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="text-2xl">💡</span>
+            <div>
+              <p class="font-semibold">Innovación</p>
+              <p class="text-sm">Exploración de nuevos métodos y enfoques</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="text-2xl">🌍</span>
+            <div>
+              <p class="font-semibold">Impacto Social</p>
+              <p class="text-sm">Investigación que contribuya al bien común</p>
+            </div>
+          </div>
+        </div>
       </section>
     </div>
   </div>

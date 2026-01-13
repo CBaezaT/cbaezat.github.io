@@ -1,38 +1,185 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { getUltimosProyectos } from '../data/proyectos';
+const base = import.meta.env.BASE_URL;
+const proyectosRecientes = getUltimosProyectos(3);
 ---
 
 <Layout title="Cristian Baeza Torres - Antropólogo Físico">
-  <div class="text-center space-y-8">
-    <div class="space-y-4">
-      <h1 class="text-5xl font-bold text-gray-900">Cristian Baeza Torres</h1>
-      <p class="text-xl text-gray-600">Antropólogo Físico</p>
-      <p class="text-lg text-gray-500">Estudiante del Magíster en Ciencia de Datos para la Innovación</p>
-      <p class="text-gray-600">Universidad de Concepción - Concepción, Chile</p>
-    </div>
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+    <!-- Columna Izquierda: Información Personal -->
+    <div class="space-y-6">
+      <div class="space-y-3">
+        <h1 class="text-4xl font-bold text-gray-900">Cristian Baeza Torres</h1>
+        <p class="text-base text-gray-500">Antropólogo Físico</p>
+        <p class="text-base text-gray-500">Estudiante Magíster en Ciencia de Datos para la Innovación</p>
+        <p class="text-sm text-gray-600">Universidad de Concepción - Concepción, Chile</p>
+      </div>
 
-    <div class="max-w-3xl mx-auto mt-12">
-      <h2 class="text-3xl font-bold mb-6">Sobre mí</h2>
-      <div class="text-left space-y-4 text-gray-700">
-        <p>
-          Bienvenido a mi sitio web. Soy antropólogo físico con especial interés en la aplicación
-          de métodos cuantitativos y ciencia de datos en el estudio de poblaciones humanas.
-        </p>
-        <p>
-          Actualmente curso el Magíster en Ciencia de Datos para la Innovación en la Universidad
-          de Concepción, donde exploro nuevas formas de integrar técnicas modernas de análisis
-          de datos con la antropología física.
-        </p>
+      <div class="space-y-3">
+        <h2 class="text-xl font-bold text-gray-900">Sobre mí</h2>
+        <div class="space-y-2 text-sm text-gray-700">
+          <p>
+            Soy Cristian Baeza Torres, antropólogo físico con especial interés en la aplicación
+            de métodos cuantitativos y ciencia de datos en el estudio de poblaciones humanas.
+          </p>
+          <p>
+            Actualmente curso el Magíster en Ciencia de Datos para la Innovación en la Universidad
+            de Concepción, donde exploro nuevas formas de integrar Ciencia de datos 
+            con mis conocimientos de antropología física.
+          </p>
+           <p>
+            Puedes ver mis proyectos en esta pagina y contactarme si mi trabajo es de tu interés.
+          </p>
+        </div>
+      </div>
+
+      <div class="space-y-3">
+        <h3 class="text-sm font-semibold text-gray-900">Experiencias</h3>
+        <div class="flex flex-wrap gap-2">
+          <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Antropología</span>
+          <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">Data Science</span>
+          <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Análisis</span>
+        </div>
+      </div>
+
+      <div class="flex gap-3 pt-2">
+        <a href={`${base}/proyectos`} class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition font-medium text-sm">
+          Ver Proyectos
+        </a>
+        <a href={`${base}/contacto`} class="bg-gray-600 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition font-medium text-sm">
+          Contactame
+        </a>
       </div>
     </div>
 
-    <div class="flex justify-center space-x-6 mt-8">
-      <a href="/blog" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition">
-        Ver Blog
-      </a>
-      <a href="/publications" class="bg-gray-600 text-white px-6 py-3 rounded-lg hover:bg-gray-700 transition">
-        Publicaciones
-      </a>
+    <!-- Columna Derecha: Slider Vertical de Proyectos Recientes -->
+    <div class="space-y-3 h-fit">
+      <h2 class="text-xl font-bold text-gray-900">Proyectos Recientes</h2>
+      <div class="relative bg-gradient-to-r from-[#2B396D] to-[#0B0B0B] rounded-lg overflow-hidden shadow-lg h-80">
+        <div class="carousel-container-vertical relative w-full h-full">
+          {proyectosRecientes.map((proyecto, index) => (
+            <div 
+              class={`carousel-slide-vertical absolute w-full h-full p-6 flex flex-col justify-center text-white transition-opacity duration-500 ${index === 0 ? 'opacity-100' : 'opacity-0'}`}
+              id={`vslide${index + 1}`}
+            >
+              <h3 class="text-lg font-bold mb-3">{proyecto.titulo}</h3>
+              <p class="text-gray-200 mb-2 text-sm">
+                {proyecto.descripcionCorta}
+              </p>
+              <p class="text-sm text-gray-300">{proyecto.emoji} {proyecto.estado}</p>
+            </div>
+          ))}
+
+          <!-- Controles Verticales -->
+          <div class="absolute right-4 top-1/2 -translate-y-1/2 flex flex-col gap-2 z-10">
+            <button class="carousel-btn-v-prev bg-white/30 hover:bg-white/50 text-white rounded-full w-10 h-10 flex items-center justify-center transition text-sm">
+              ↑
+            </button>
+            <button class="carousel-btn-v-next bg-white/30 hover:bg-white/50 text-white rounded-full w-10 h-10 flex items-center justify-center transition text-sm">
+              ↓
+            </button>
+          </div>
+
+          <!-- Indicadores Verticales -->
+          <div class="absolute left-4 top-1/2 -translate-y-1/2 flex flex-col gap-2 z-10">
+            {proyectosRecientes.map((_, index) => (
+              <button 
+                class={`carousel-dot-v w-3 h-3 bg-white rounded-full cursor-pointer transition ${index === 0 ? 'opacity-100' : 'opacity-50'}`}
+                data-slide={index + 1}
+              >
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+
+  <script>
+    let currentSlideVertical = 1;
+    const totalSlidesVertical = document.querySelectorAll('.carousel-slide-vertical').length;
+
+    function showSlideVertical(n: number) {
+      if (n > totalSlidesVertical) currentSlideVertical = 1;
+      if (n < 1) currentSlideVertical = totalSlidesVertical;
+
+      // Ocultar todos los slides
+      document.querySelectorAll('.carousel-slide-vertical').forEach(slide => {
+        slide.classList.remove('opacity-100');
+        slide.classList.add('opacity-0');
+      });
+
+      // Actualizar indicadores
+      document.querySelectorAll('.carousel-dot-v').forEach((dot, index) => {
+        if (index + 1 === currentSlideVertical) {
+          dot.classList.add('opacity-100');
+          dot.classList.remove('opacity-50');
+        } else {
+          dot.classList.remove('opacity-100');
+          dot.classList.add('opacity-50');
+        }
+      });
+
+      // Mostrar slide actual
+      const currentElement = document.getElementById(`vslide${currentSlideVertical}`);
+      if (currentElement) {
+        currentElement.classList.remove('opacity-0');
+        currentElement.classList.add('opacity-100');
+      }
+    }
+
+    function nextSlideVertical() {
+      currentSlideVertical++;
+      showSlideVertical(currentSlideVertical);
+    }
+
+    function prevSlideVertical() {
+      currentSlideVertical--;
+      showSlideVertical(currentSlideVertical);
+    }
+
+    function goToSlideVertical(n: number) {
+      currentSlideVertical = n;
+      showSlideVertical(currentSlideVertical);
+    }
+
+    // Agregar event listeners cuando el DOM esté listo
+    document.addEventListener('DOMContentLoaded', () => {
+      // Botón anterior
+      const prevBtn = document.querySelector('.carousel-btn-v-prev');
+      if (prevBtn) {
+        prevBtn.addEventListener('click', prevSlideVertical);
+      }
+
+      // Botón siguiente
+      const nextBtn = document.querySelector('.carousel-btn-v-next');
+      if (nextBtn) {
+        nextBtn.addEventListener('click', nextSlideVertical);
+      }
+
+      // Indicadores
+      document.querySelectorAll('.carousel-dot-v').forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+          currentSlideVertical = index + 1;
+          showSlideVertical(currentSlideVertical);
+        });
+      });
+
+      // Auto-advance slides every 7 seconds
+      setInterval(() => {
+        currentSlideVertical++;
+        showSlideVertical(currentSlideVertical);
+      }, 7000);
+
+      // Inicializar
+      showSlideVertical(currentSlideVertical);
+    });
+  </script>
+
+  <style>
+    .carousel-slide-vertical {
+      will-change: opacity;
+    }
+  </style>
 </Layout>

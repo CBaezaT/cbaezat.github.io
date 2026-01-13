@@ -5,6 +5,7 @@ interface Props {
 }
 
 const { title, description = 'Antropólogo Físico, Estudiante del Magíster en Ciencia de Datos para la Innovación' } = Astro.props;
+const base = import.meta.env.BASE_URL;
 ---
 
 <!doctype html>
@@ -17,33 +18,34 @@ const { title, description = 'Antropólogo Físico, Estudiante del Magíster en 
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class="bg-gray-50 text-gray-900">
-    <header class="bg-white shadow-sm">
+  <body class="bg-gray-50 text-gray-900 min-h-screen flex flex-col">
+    <header class="bg-gradient-to-r from-[#0B0B0B] via-[#2B396D] to-[#E4E4E4] shadow-lg">
       <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <div class="flex justify-between items-center">
-          <a href="/" class="text-2xl font-bold text-gray-900">Cristian Baeza Torres</a>
+          <a href={base} class="text-2xl font-bold text-white">Cristian Baeza Torres</a>
           <div class="space-x-6">
-            <a href="/" class="hover:text-blue-600">Inicio</a>
-            <a href="/about" class="hover:text-blue-600">Sobre mí</a>
-            <a href="/blog" class="hover:text-blue-600">Blog</a>
-            <a href="/publications" class="hover:text-blue-600">Publicaciones</a>
+            <a href={`${base}/about`} class="text-white hover:text-gray-200 transition">About me</a>
+            <a href={`${base}/proyectos`} class="text-white hover:text-gray-200 transition">Proyectos</a>
+            <a href={`${base}/repositorios`} class="text-white hover:text-gray-200 transition">Repositorios</a>
+            <a href={`${base}/docencia`} class="text-white hover:text-gray-200 transition">Docencia</a>
+            <a href={`${base}/contacto`} class="text-white hover:text-gray-200 transition">Contacto</a>
           </div>
         </div>
       </nav>
     </header>
     
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow">
       <slot />
     </main>
     
-    <footer class="bg-gray-800 text-white mt-20">
+    <footer class="bg-gradient-to-r from-[#0B0B0B] via-[#2B396D] to-[#E4E4E4] text-white shadow-lg mt-auto">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div class="flex justify-between items-center">
           <p>© 2025 Cristian Baeza Torres</p>
           <div class="space-x-4">
-            <a href="https://twitter.com/CrisBaeza_13" target="_blank" class="hover:text-blue-400">Twitter</a>
-            <a href="https://github.com/CBaezaT" target="_blank" class="hover:text-blue-400">GitHub</a>
-            <a href="https://www.linkedin.com/in/cristian-baeza-torres" target="_blank" class="hover:text-blue-400">LinkedIn</a>
+            <a href="https://twitter.com/CrisBaeza_13" target="_blank" class="hover:text-gray-200 transition">Twitter</a>
+            <a href="https://github.com/CBaezaT" target="_blank" class="hover:text-gray-200 transition">GitHub</a>
+            <a href="https://www.linkedin.com/in/cristian-baeza-torres" target="_blank" class="hover:text-gray-200 transition">LinkedIn</a>
           </div>
         </div>
       </div>

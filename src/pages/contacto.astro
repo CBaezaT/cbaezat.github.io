@@ -1,0 +1,128 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Contacto - Cristian Baeza Torres">
+  <div class="max-w-2xl mx-auto space-y-12">
+    <div class="space-y-2">
+      <h1 class="text-4xl font-bold text-gray-900">Contacto</h1>
+      <p class="text-lg text-gray-600">Te gustaría conectar conmigo?</p>
+    </div>
+
+    <!-- Información de Contacto -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="bg-white rounded-lg shadow-md p-8 space-y-4">
+        <h3 class="text-lg font-bold text-gray-900">Información de Contacto</h3>
+        
+        <div class="space-y-4">
+          <div class="flex items-start gap-4">
+            <span class="text-2xl">📧</span>
+            <div>
+              <p class="font-semibold text-gray-900">Email</p>
+              <a href="mailto:cbaeza@udec.cl" class="text-blue-600 hover:text-blue-700">cbaeza@udec.cl</a>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <span class="text-2xl">🏢</span>
+            <div>
+              <p class="font-semibold text-gray-900">Institución</p>
+              <p class="text-gray-700">Universidad de Concepción</p>
+              <p class="text-sm text-gray-600">Concepción, Chile</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <span class="text-2xl">📱</span>
+            <div>
+              <p class="font-semibold text-gray-900">Redes Sociales</p>
+              <div class="space-y-1">
+                <a href="https://twitter.com/CrisBaeza_13" target="_blank" rel="noopener noreferrer" class="block text-blue-600 hover:text-blue-700">
+                  Twitter @CrisBaeza_13
+                </a>
+                <a href="https://github.com/CBaezaT" target="_blank" rel="noopener noreferrer" class="block text-blue-600 hover:text-blue-700">
+                  GitHub CBaezaT
+                </a>
+                <a href="https://www.linkedin.com/in/cristian-baeza-torres" target="_blank" rel="noopener noreferrer" class="block text-blue-600 hover:text-blue-700">
+                  LinkedIn
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Formulario de Contacto -->
+      <div class="bg-white rounded-lg shadow-md p-8">
+        <h3 class="text-lg font-bold text-gray-900 mb-6">Envía un mensaje</h3>
+        <form class="space-y-4" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <div>
+            <label for="name" class="block text-sm font-medium text-gray-900 mb-1">Nombre</label>
+            <input type="text" id="name" name="name" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" placeholder="Tu nombre">
+          </div>
+
+          <div>
+            <label for="email" class="block text-sm font-medium text-gray-900 mb-1">Email</label>
+            <input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" placeholder="tu@email.com">
+          </div>
+
+          <div>
+            <label for="subject" class="block text-sm font-medium text-gray-900 mb-1">Asunto</label>
+            <input type="text" id="subject" name="subject" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" placeholder="Asunto de tu mensaje">
+          </div>
+
+          <div>
+            <label for="message" class="block text-sm font-medium text-gray-900 mb-1">Mensaje</label>
+            <textarea id="message" name="message" required rows="5" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" placeholder="Tu mensaje aquí..."></textarea>
+          </div>
+
+          <button type="submit" class="w-full bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition font-medium">
+            Enviar Mensaje
+          </button>
+        </form>
+        <p class="text-xs text-gray-500 mt-4 text-center">
+          Nota: Reemplaza YOUR_FORM_ID con tu ID de Formspree
+        </p>
+      </div>
+    </div>
+
+    <!-- Información Adicional -->
+    <div class="bg-blue-50 rounded-lg p-8 space-y-4">
+      <h3 class="text-lg font-bold text-gray-900">Otros Motivos para Contactarme</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="flex items-start gap-3">
+          <span class="text-blue-600 text-xl">✓</span>
+          <p class="text-gray-700">Colaboraciones académicas y de investigación</p>
+        </div>
+        <div class="flex items-start gap-3">
+          <span class="text-blue-600 text-xl">✓</span>
+          <p class="text-gray-700">Oportunidades de consultoría en data science</p>
+        </div>
+        <div class="flex items-start gap-3">
+          <span class="text-blue-600 text-xl">✓</span>
+          <p class="text-gray-700">Invitaciones para seminarios o presentaciones</p>
+        </div>
+        <div class="flex items-start gap-3">
+          <span class="text-blue-600 text-xl">✓</span>
+          <p class="text-gray-700">Tutoría y mentoría académica</p>
+        </div>
+        <div class="flex items-start gap-3">
+          <span class="text-blue-600 text-xl">✓</span>
+          <p class="text-gray-700">Preguntas sobre antropología física o data science</p>
+        </div>
+        <div class="flex items-start gap-3">
+          <span class="text-blue-600 text-xl">✓</span>
+          <p class="text-gray-700">Feedback y sugerencias sobre el sitio</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tiempo de respuesta -->
+    <div class="bg-gray-50 rounded-lg p-6 border-l-4 border-gray-400">
+      <p class="text-gray-700">
+        <span class="font-semibold">Tiempo de respuesta:</span> Hago mi mejor esfuerzo para responder todos los mensajes 
+        dentro de 48 horas. Por favor, sé paciente si la respuesta demora un poco.
+      </p>
+    </div>
+  </div>
+</Layout>

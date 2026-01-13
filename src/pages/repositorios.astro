@@ -1,0 +1,211 @@
+---
+import Layout from '../layouts/Layout.astro';
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout title="Repositorios - Cristian Baeza Torres">
+  <div class="space-y-12">
+    <div class="space-y-2">
+      <h1 class="text-4xl font-bold text-gray-900">Repositorios</h1>
+      <p class="text-lg text-gray-600">Proyectos y código abierto en GitHub</p>
+    </div>
+
+    <!-- GitHub Profile Card -->
+    <div class="bg-gradient-to-r from-gray-800 to-gray-900 rounded-lg shadow-lg p-8 text-white">
+      <div class="flex items-center gap-6">
+        <div class="w-24 h-24 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-4xl font-bold">
+          CB
+        </div>
+        <div class="flex-1">
+          <h2 class="text-2xl font-bold mb-2">Cristian Baeza Torres</h2>
+          <p class="text-gray-300 mb-4">@CBaezaT</p>
+          <a href="https://github.com/CBaezaT" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg transition">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+            </svg>
+            Ver perfil en GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Repositorios Destacados -->
+    <div class="space-y-6">
+      <h2 class="text-2xl font-bold text-gray-900">Repositorios Destacados</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Repositorio 1 - Análisis de Sindemias -->
+        <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition p-6 border-l-4 border-blue-600">
+          <div class="flex items-start justify-between mb-3">
+            <div class="flex items-center gap-2">
+              <svg class="w-5 h-5 text-gray-600" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+              </svg>
+              <h3 class="text-lg font-bold text-gray-900">Análisis de Sindemias</h3>
+            </div>
+            <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">Python</span>
+          </div>
+          <p class="text-sm text-gray-700 mb-4">
+            Código y análisis de datos para el estudio de sindemias en Chile. Incluye scripts de procesamiento y visualización.
+          </p>
+          <div class="flex items-center gap-4 text-xs text-gray-600">
+            <span class="flex items-center gap-1">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l2.5 7.5H22l-6 4.5 2.5 7.5L12 17l-6.5 4.5L8 14 2 9.5h7.5z"/></svg>
+              Stars
+            </span>
+            <span class="flex items-center gap-1">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+              2024
+            </span>
+          </div>
+          <a href="https://github.com/CBaezaT" target="_blank" rel="noopener noreferrer" class="mt-4 inline-block text-blue-600 hover:text-blue-700 font-medium text-sm">
+            Ver repositorio →
+          </a>
+        </div>
+
+        <!-- Repositorio 2 - Transcripción Automática -->
+        <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition p-6 border-l-4 border-green-600">
+          <div class="flex items-start justify-between mb-3">
+            <div class="flex items-center gap-2">
+              <svg class="w-5 h-5 text-gray-600" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+              </svg>
+              <h3 class="text-lg font-bold text-gray-900">Transcripción Automática</h3>
+            </div>
+            <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded">Python</span>
+          </div>
+          <p class="text-sm text-gray-700 mb-4">
+            Herramientas de NLP para transcripción automática de audio. Implementación con Whisper y procesamiento de texto.
+          </p>
+          <div class="flex items-center gap-4 text-xs text-gray-600">
+            <span class="flex items-center gap-1">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l2.5 7.5H22l-6 4.5 2.5 7.5L12 17l-6.5 4.5L8 14 2 9.5h7.5z"/></svg>
+              Stars
+            </span>
+            <span class="flex items-center gap-1">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+              2021
+            </span>
+          </div>
+          <a href="https://github.com/CBaezaT" target="_blank" rel="noopener noreferrer" class="mt-4 inline-block text-green-600 hover:text-green-700 font-medium text-sm">
+            Ver repositorio →
+          </a>
+        </div>
+
+        <!-- Repositorio 3 - Sitio Web Personal -->
+        <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition p-6 border-l-4 border-purple-600">
+          <div class="flex items-start justify-between mb-3">
+            <div class="flex items-center gap-2">
+              <svg class="w-5 h-5 text-gray-600" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+              </svg>
+              <h3 class="text-lg font-bold text-gray-900">dock-cbaezat.github.io</h3>
+            </div>
+            <span class="text-xs bg-purple-100 text-purple-800 px-2 py-1 rounded">Astro</span>
+          </div>
+          <p class="text-sm text-gray-700 mb-4">
+            Código fuente de este sitio web personal. Construido con Astro, Tailwind CSS y desplegado en GitHub Pages.
+          </p>
+          <div class="flex items-center gap-4 text-xs text-gray-600">
+            <span class="flex items-center gap-1">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l2.5 7.5H22l-6 4.5 2.5 7.5L12 17l-6.5 4.5L8 14 2 9.5h7.5z"/></svg>
+              Stars
+            </span>
+            <span class="flex items-center gap-1">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+              2026
+            </span>
+          </div>
+          <a href="https://github.com/CBaezaT/dock-cbaezat.github.io" target="_blank" rel="noopener noreferrer" class="mt-4 inline-block text-purple-600 hover:text-purple-700 font-medium text-sm">
+            Ver repositorio →
+          </a>
+        </div>
+
+        <!-- Repositorio 4 - Scripts de Análisis -->
+        <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition p-6 border-l-4 border-red-600">
+          <div class="flex items-start justify-between mb-3">
+            <div class="flex items-center gap-2">
+              <svg class="w-5 h-5 text-gray-600" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+              </svg>
+              <h3 class="text-lg font-bold text-gray-900">Scripts de Análisis</h3>
+            </div>
+            <span class="text-xs bg-red-100 text-red-800 px-2 py-1 rounded">R</span>
+          </div>
+          <p class="text-sm text-gray-700 mb-4">
+            Colección de scripts para análisis estadístico en antropología física. Incluye análisis demográficos y visualizaciones.
+          </p>
+          <div class="flex items-center gap-4 text-xs text-gray-600">
+            <span class="flex items-center gap-1">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l2.5 7.5H22l-6 4.5 2.5 7.5L12 17l-6.5 4.5L8 14 2 9.5h7.5z"/></svg>
+              Stars
+            </span>
+            <span class="flex items-center gap-1">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+              2023
+            </span>
+          </div>
+          <a href="https://github.com/CBaezaT" target="_blank" rel="noopener noreferrer" class="mt-4 inline-block text-red-600 hover:text-red-700 font-medium text-sm">
+            Ver repositorio →
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tecnologías que uso -->
+    <div class="bg-gray-50 rounded-lg p-8">
+      <h2 class="text-2xl font-bold text-gray-900 mb-6">Tecnologías que uso</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="flex flex-col items-center p-4 bg-white rounded-lg">
+          <span class="text-3xl mb-2">🐍</span>
+          <span class="text-sm font-medium text-gray-900">Python</span>
+        </div>
+        <div class="flex flex-col items-center p-4 bg-white rounded-lg">
+          <span class="text-3xl mb-2">📊</span>
+          <span class="text-sm font-medium text-gray-900">R</span>
+        </div>
+        <div class="flex flex-col items-center p-4 bg-white rounded-lg">
+          <span class="text-3xl mb-2">💻</span>
+          <span class="text-sm font-medium text-gray-900">JavaScript</span>
+        </div>
+        <div class="flex flex-col items-center p-4 bg-white rounded-lg">
+          <span class="text-3xl mb-2">🗃️</span>
+          <span class="text-sm font-medium text-gray-900">SQL</span>
+        </div>
+        <div class="flex flex-col items-center p-4 bg-white rounded-lg">
+          <span class="text-3xl mb-2">🎨</span>
+          <span class="text-sm font-medium text-gray-900">Tailwind</span>
+        </div>
+        <div class="flex flex-col items-center p-4 bg-white rounded-lg">
+          <span class="text-3xl mb-2">🚀</span>
+          <span class="text-sm font-medium text-gray-900">Astro</span>
+        </div>
+        <div class="flex flex-col items-center p-4 bg-white rounded-lg">
+          <span class="text-3xl mb-2">📈</span>
+          <span class="text-sm font-medium text-gray-900">Pandas</span>
+        </div>
+        <div class="flex flex-col items-center p-4 bg-white rounded-lg">
+          <span class="text-3xl mb-2">🤖</span>
+          <span class="text-sm font-medium text-gray-900">Scikit-learn</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="bg-blue-50 rounded-lg p-8 border-l-4 border-blue-600">
+      <h2 class="text-2xl font-bold text-gray-900 mb-4">¿Quieres colaborar?</h2>
+      <p class="text-gray-700 mb-6">
+        Todos mis proyectos son de código abierto. Si te interesa colaborar en alguno de ellos
+        o tienes alguna idea, no dudes en hacer un fork, abrir un issue o contactarme directamente.
+      </p>
+      <div class="flex gap-4">
+        <a href="https://github.com/CBaezaT" target="_blank" rel="noopener noreferrer" class="bg-gray-800 text-white px-6 py-3 rounded-lg hover:bg-gray-900 transition font-medium">
+          Ver todos mis repositorios
+        </a>
+        <a href={`${base}/contacto`} class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition font-medium">
+          Contactarme
+        </a>
+      </div>
+    </div>
+  </div>
+</Layout>
