@@ -6,7 +6,7 @@ import tailwind from '@astrojs/tailwind';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://cbaezat.github.io',
-  base: '/dock-gh-pages',
+  base: '/',
   integrations: [mdx(), sitemap(), tailwind()],
   markdown: {
     shikiConfig: {
