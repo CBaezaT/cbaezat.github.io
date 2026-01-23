@@ -7,7 +7,7 @@ const base = import.meta.env.BASE_URL;
   <div class="space-y-12">
     <div class="space-y-2">
       <h1 class="text-4xl font-bold text-gray-900">Repositorios</h1>
-      <p class="text-lg text-gray-600">Proyectos y código abierto en GitHub</p>
+      <p class="text-lg text-gray-600">Proyectos y código mantenido en GitHub</p>
     </div>
 
     <!-- GitHub Profile Card -->
@@ -34,77 +34,19 @@ const base = import.meta.env.BASE_URL;
       <h2 class="text-2xl font-bold text-gray-900">Repositorios Destacados</h2>
       
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <!-- Repositorio 1 - Análisis de Sindemias -->
+        <!-- Repositorio 1 - Github Pages -->
         <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition p-6 border-l-4 border-blue-600">
           <div class="flex items-start justify-between mb-3">
             <div class="flex items-center gap-2">
               <svg class="w-5 h-5 text-gray-600" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
               </svg>
-              <h3 class="text-lg font-bold text-gray-900">Análisis de Sindemias</h3>
+              <h3 class="text-lg font-bold text-gray-900">Portfolio y página personal</h3>
             </div>
-            <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">Python</span>
+            <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">Astro</span>
           </div>
           <p class="text-sm text-gray-700 mb-4">
-            Código y análisis de datos para el estudio de sindemias en Chile. Incluye scripts de procesamiento y visualización.
-          </p>
-          <div class="flex items-center gap-4 text-xs text-gray-600">
-            <span class="flex items-center gap-1">
-              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l2.5 7.5H22l-6 4.5 2.5 7.5L12 17l-6.5 4.5L8 14 2 9.5h7.5z"/></svg>
-              Stars
-            </span>
-            <span class="flex items-center gap-1">
-              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
-              2024
-            </span>
-          </div>
-          <a href="https://github.com/CBaezaT" target="_blank" rel="noopener noreferrer" class="mt-4 inline-block text-blue-600 hover:text-blue-700 font-medium text-sm">
-            Ver repositorio →
-          </a>
-        </div>
-
-        <!-- Repositorio 2 - Transcripción Automática -->
-        <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition p-6 border-l-4 border-green-600">
-          <div class="flex items-start justify-between mb-3">
-            <div class="flex items-center gap-2">
-              <svg class="w-5 h-5 text-gray-600" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
-              </svg>
-              <h3 class="text-lg font-bold text-gray-900">Transcripción Automática</h3>
-            </div>
-            <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded">Python</span>
-          </div>
-          <p class="text-sm text-gray-700 mb-4">
-            Herramientas de NLP para transcripción automática de audio. Implementación con Whisper y procesamiento de texto.
-          </p>
-          <div class="flex items-center gap-4 text-xs text-gray-600">
-            <span class="flex items-center gap-1">
-              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l2.5 7.5H22l-6 4.5 2.5 7.5L12 17l-6.5 4.5L8 14 2 9.5h7.5z"/></svg>
-              Stars
-            </span>
-            <span class="flex items-center gap-1">
-              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
-              2021
-            </span>
-          </div>
-          <a href="https://github.com/CBaezaT" target="_blank" rel="noopener noreferrer" class="mt-4 inline-block text-green-600 hover:text-green-700 font-medium text-sm">
-            Ver repositorio →
-          </a>
-        </div>
-
-        <!-- Repositorio 3 - Sitio Web Personal -->
-        <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition p-6 border-l-4 border-purple-600">
-          <div class="flex items-start justify-between mb-3">
-            <div class="flex items-center gap-2">
-              <svg class="w-5 h-5 text-gray-600" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
-              </svg>
-              <h3 class="text-lg font-bold text-gray-900">dock-cbaezat.github.io</h3>
-            </div>
-            <span class="text-xs bg-purple-100 text-purple-800 px-2 py-1 rounded">Astro</span>
-          </div>
-          <p class="text-sm text-gray-700 mb-4">
-            Código fuente de este sitio web personal. Construido con Astro, Tailwind CSS y desplegado en GitHub Pages.
+            Código fuente de este sitio web personal. Construido con Astro, Tailwind CSS y desplegado con Github Pages. Este proyecto fue migrado de Jekyll.
           </p>
           <div class="flex items-center gap-4 text-xs text-gray-600">
             <span class="flex items-center gap-1">
@@ -116,7 +58,65 @@ const base = import.meta.env.BASE_URL;
               2026
             </span>
           </div>
-          <a href="https://github.com/CBaezaT/dock-cbaezat.github.io" target="_blank" rel="noopener noreferrer" class="mt-4 inline-block text-purple-600 hover:text-purple-700 font-medium text-sm">
+          <a href="https://github.com/CBaezaT/cbaezat.github.io" target="_blank" rel="noopener noreferrer" class="mt-4 inline-block text-blue-600 hover:text-blue-700 font-medium text-sm">
+            Ver repositorio →
+          </a>
+        </div>
+
+        <!-- Repositorio 2 - Proyecto Predicción de Ventas - Series de Tiempo -->
+        <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition p-6 border-l-4 border-green-600">
+          <div class="flex items-start justify-between mb-3">
+            <div class="flex items-center gap-2">
+              <svg class="w-5 h-5 text-gray-600" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+              </svg>
+              <h3 class="text-lg font-bold text-gray-900">Proyecto Predicción de Ventas - Series de Tiempo</h3>
+            </div>
+            <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded">Python</span>
+          </div>
+          <p class="text-sm text-gray-700 mb-4">
+            Trabajo competitivo de predicción de ventas para ajuste de stock. Entrega ganadora con el menor WMAE de la competencia. Utiliza modelos de series de tiempos ensamblados con Block Bootstrap.
+          </p>
+          <div class="flex items-center gap-4 text-xs text-gray-600">
+            <span class="flex items-center gap-1">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l2.5 7.5H22l-6 4.5 2.5 7.5L12 17l-6.5 4.5L8 14 2 9.5h7.5z"/></svg>
+              Stars
+            </span>
+            <span class="flex items-center gap-1">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+              2025
+            </span>
+          </div>
+          <a href="https://github.com/CBaezaT/TimeSeries_Sales_Prediction_T2" target="_blank" rel="noopener noreferrer" class="mt-4 inline-block text-green-600 hover:text-green-700 font-medium text-sm">
+            Ver repositorio →
+          </a>
+        </div>
+
+        <!-- Repositorio 3 - Tarea 1 Analisis de Mercado -->
+        <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition p-6 border-l-4 border-purple-600">
+          <div class="flex items-start justify-between mb-3">
+            <div class="flex items-center gap-2">
+              <svg class="w-5 h-5 text-gray-600" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+              </svg>
+              <h3 class="text-lg font-bold text-gray-900">Tarea 1 - Analisis de Mercado y WebScrapping</h3>
+            </div>
+            <span class="text-xs bg-purple-100 text-purple-800 px-2 py-1 rounded">Python</span>
+          </div>
+          <p class="text-sm text-gray-700 mb-4">
+            Código fuente de la tarea 1 de análisis de mercado y webscrapping. Construido con Python. Utiliza un WebScrapper dinamico ensamblado con identificación de productos y analisis exploratorio de datos.
+          </p>
+          <div class="flex items-center gap-4 text-xs text-gray-600">
+            <span class="flex items-center gap-1">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l2.5 7.5H22l-6 4.5 2.5 7.5L12 17l-6.5 4.5L8 14 2 9.5h7.5z"/></svg>
+              Stars
+            </span>
+            <span class="flex items-center gap-1">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+              2026
+            </span>
+          </div>
+          <a href="https://github.com/CBaezaT/Tarea-1-Analitica-de-Datos" target="_blank" rel="noopener noreferrer" class="mt-4 inline-block text-purple-600 hover:text-purple-700 font-medium text-sm">
             Ver repositorio →
           </a>
         </div>
@@ -187,6 +187,22 @@ const base = import.meta.env.BASE_URL;
         <div class="flex flex-col items-center p-4 bg-white rounded-lg">
           <span class="text-3xl mb-2">🤖</span>
           <span class="text-sm font-medium text-gray-900">Scikit-learn</span>
+        </div>
+        <div class="flex flex-col items-center p-4 bg-white rounded-lg">
+          <span class="text-3xl mb-2">🐳</span>
+          <span class="text-sm font-medium text-gray-900">Docker</span>
+        </div>
+        <div class="flex flex-col items-center p-4 bg-white rounded-lg">
+          <span class="text-3xl mb-2">⚙️</span>
+          <span class="text-sm font-medium text-gray-900">GitHub Actions</span>
+        </div>
+        <div class="flex flex-col items-center p-4 bg-white rounded-lg">
+          <span class="text-3xl mb-2">🧠</span>
+          <span class="text-sm font-medium text-gray-900">FastAPI</span>
+        </div>
+        <div class="flex flex-col items-center p-4 bg-white rounded-lg">
+          <span class="text-3xl mb-2">🗄️</span>
+          <span class="text-sm font-medium text-gray-900">PostgreSQL</span>
         </div>
       </div>
     </div>
