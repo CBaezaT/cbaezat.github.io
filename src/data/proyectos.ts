@@ -8,41 +8,45 @@ export interface Proyecto {
   color: string;
   emoji: string;
   año: string;
+  link?: string; // Enlace opcional a la página del proyecto
 }
 
 export const proyectos: Proyecto[] = [
   {
     id: 1,
-    titulo: "Análisis de Sindemias en Chile",
-    descripcion: "Estudio de las interacciones entre COVID-19, enfermedades crónicas y factores socioeconómicos en la población chilena mediante análisis de datos avanzado.",
-    descripcionCorta: "Estudio de interacciones entre COVID-19, enfermedades crónicas y factores socioeconómicos en Chile",
-    tags: ["Data Science", "Epidemiología", "Python"],
-    estado: "En curso - 2025",
-    color: "blue",
-    emoji: "🏆",
-    año: "2025"
-  },
-  {
-    id: 2,
-    titulo: "Transcripción Automática de Audio",
-    descripcion: "Desarrollo de herramientas de procesamiento de lenguaje natural para transcripción y análisis automático de archivos de audio en investigación cualitativa.",
-    descripcionCorta: "Herramientas de procesamiento de lenguaje natural para transcripción y análisis de audio",
-    tags: ["NLP", "Machine Learning", "Python"],
-    estado: "2021 - Activo",
-    color: "green",
-    emoji: "💻",
-    año: "2021"
-  },
-  {
-    id: 3,
-    titulo: "SOCHIAB 2025-2026",
+    titulo: "SOCHIAB - Presidencia 2025-2026",
     descripcion: "Presidente de la Sociedad Chilena de Antropología Biológica, liderando iniciativas de investigación, educación y promoción de la disciplina en Chile.",
     descripcionCorta: "Presidente de la Sociedad Chilena de Antropología Biológica, liderando iniciativas de investigación",
     tags: ["Liderazgo", "Sociedad Científica", "Gestión"],
     estado: "2025 - 2026",
     color: "red",
     emoji: "👥",
-    año: "2025"
+    año: "2025",
+    link: "/proyectos/sochiab-presidencia/"
+  },
+  {
+    id: 2,
+    titulo: "Predicción de Ventas con Series Temporales",
+    descripcion: "Proyecto de consultoría en Data Science para NorthRetail Inc., desarrollando un modelo robusto de predicción de ventas semanales. Modelo híbrido (Prophet + Baselines) con mejora de 14.48% sobre baseline.",
+    descripcionCorta: "Modelo de predicción de ventas semanales con Prophet y XGBoost para retail",
+    tags: ["Data Science", "Machine Learning", "Series Temporales"],
+    estado: "Completado - 2025",
+    color: "blue",
+    emoji: "📊",
+    año: "2025",
+    link: "/proyectos/prediccion-ventas/"
+  },
+  {
+    id: 3,
+    titulo: "Estimación de Sexo Biológico con ML",
+    descripcion: "Aplicación de Machine Learning para estimar el sexo biológico a partir de medidas osteométricas. Análisis sistemático de todas las extremidades con 86.31% de accuracy, superando métodos tradicionales.",
+    descripcionCorta: "Machine Learning para estimación de sexo biológico mediante análisis osteométrico",
+    tags: ["Antropología Forense", "Machine Learning", "Bioarqueología"],
+    estado: "Completado",
+    color: "green",
+    emoji: "🧬",
+    año: "2025",
+    link: "/proyectos/sexo-osteometrico/"
   },
   {
     id: 4,
