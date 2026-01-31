@@ -75,7 +75,7 @@ const proyectosRecientes = getUltimosProyectos(3);
                   </p>
                   {proyecto.link && (
                     <a 
-                      href={proyecto.link}
+                      href={`${base}${proyecto.link}`}
                       class="inline-flex items-center gap-2 bg-white text-blue-900 px-5 py-2.5 rounded-lg hover:bg-gray-100 transition font-medium text-base mt-4"
                     >
                       Ver proyecto
