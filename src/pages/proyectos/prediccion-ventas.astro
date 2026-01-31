@@ -1,0 +1,247 @@
+---
+import Layout from '../../layouts/Layout.astro';
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout title="Predicción de Ventas con Series Temporales - Cristian Baeza Torres">
+  <div class="max-w-4xl mx-auto space-y-8">
+    <!-- Header -->
+    <div class="space-y-4">
+      <a href={`${base}proyectos`} class="text-blue-600 hover:text-blue-700 inline-flex items-center gap-2">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+        </svg>
+        Volver a Proyectos
+      </a>
+      <h1 class="text-4xl lg:text-5xl font-bold text-gray-900">Predicción de Ventas Semanales con Series Temporales</h1>
+      <div class="flex flex-wrap gap-3">
+        <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">Data Science</span>
+        <span class="bg-purple-100 text-purple-800 px-4 py-2 rounded-full text-sm font-medium">Machine Learning</span>
+        <span class="bg-indigo-100 text-indigo-800 px-4 py-2 rounded-full text-sm font-medium">Series Temporales</span>
+      </div>
+      <p class="text-lg text-gray-600">Estado: Completado (2025)</p>
+    </div>
+
+    <!-- Contenido Principal -->
+    <div class="prose prose-lg max-w-none space-y-8">
+      <section class="bg-white rounded-lg shadow-md p-8 space-y-6">
+        <h2 class="text-3xl font-bold text-gray-900">Resumen Ejecutivo</h2>
+        <p class="text-gray-700">
+          Proyecto de consultoría en Data Science para <strong>NorthRetail Inc.</strong>, una cadena de tiendas departamentales 
+          en Estados Unidos que enfrentaba desafíos críticos en su cadena de suministro debido a proyecciones inadecuadas de demanda.
+        </p>
+        
+        <div class="bg-green-50 border-l-4 border-green-600 p-6 rounded">
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Resultado Principal</h3>
+          <p class="text-gray-700">Modelo híbrido (Prophet + Baselines) con <strong>mejora de 14.48%</strong> sobre el baseline simple, alcanzando un MAE de $2,046.71.</p>
+        </div>
+      </section>
+
+      <section class="bg-white rounded-lg shadow-md p-8 space-y-6">
+        <h2 class="text-3xl font-bold text-gray-900">Contexto de Negocio</h2>
+        
+        <h3 class="text-2xl font-semibold text-gray-900">Problemas Identificados</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="bg-red-50 p-4 rounded">
+            <h4 class="font-semibold text-red-800 mb-2">Proyecciones Inadecuadas</h4>
+            <p class="text-sm text-gray-700">Predicciones basadas en promedios históricos simples</p>
+          </div>
+          <div class="bg-orange-50 p-4 rounded">
+            <h4 class="font-semibold text-orange-800 mb-2">Quiebres de Stock</h4>
+            <p class="text-sm text-gray-700">Durante semanas de alta demanda, generando pérdida de ventas</p>
+          </div>
+          <div class="bg-yellow-50 p-4 rounded">
+            <h4 class="font-semibold text-yellow-800 mb-2">Exceso de Inventario</h4>
+            <p class="text-sm text-gray-700">Post-temporada, causando costos adicionales de almacenamiento</p>
+          </div>
+        </div>
+
+        <h3 class="text-2xl font-semibold text-gray-900 mt-6">Campañas Promocionales</h3>
+        <p class="text-gray-700">La empresa ejecuta 5 tipos de campañas durante el año:</p>
+        <ul class="list-disc list-inside text-gray-700 space-y-1">
+          <li><strong>Super Bowl</strong> (Febrero)</li>
+          <li><strong>Labor Day</strong> (Septiembre)</li>
+          <li><strong>Thanksgiving</strong> (Noviembre)</li>
+          <li><strong>Christmas</strong> (Diciembre)</li>
+        </ul>
+      </section>
+
+      <section class="bg-white rounded-lg shadow-md p-8 space-y-6">
+        <h2 class="text-3xl font-bold text-gray-900">Análisis de Datos</h2>
+        
+        <div class="space-y-4">
+          <div>
+            <h3 class="text-xl font-semibold text-gray-900">Dataset</h3>
+            <ul class="list-disc list-inside text-gray-700 space-y-1">
+              <li>Período: 2010-02-05 hasta 2012-10-26</li>
+              <li>Registros totales: 421,570</li>
+              <li>Tiendas: 45</li>
+              <li>Departamentos: 81</li>
+              <li>Combinaciones tienda-departamento: 3,331</li>
+            </ul>
+          </div>
+
+          <div class="bg-blue-50 p-6 rounded">
+            <h3 class="text-xl font-semibold text-blue-900 mb-3">Hallazgos Clave del EDA</h3>
+            <div class="space-y-2">
+              <p class="text-gray-700"><strong>✓ Thanksgiving:</strong> Feriado más importante (+39.60% en ventas)</p>
+              <p class="text-gray-700"><strong>✓ Christmas:</strong> Comportamiento contraintuitivo (-8.64% en semana exacta)</p>
+              <p class="text-gray-700"><strong>✓ Estacionalidad:</strong> Domina >99% de la variabilidad</p>
+              <p class="text-gray-700"><strong>✓ Volatilidad:</strong> CV varía de <50% a >100% según departamento</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-white rounded-lg shadow-md p-8 space-y-6">
+        <h2 class="text-3xl font-bold text-gray-900">Modelado y Resultados</h2>
+        
+        <h3 class="text-2xl font-semibold text-gray-900">Modelos Evaluados</h3>
+        
+        <div class="space-y-4">
+          <div class="border-l-4 border-gray-400 pl-4">
+            <h4 class="text-lg font-semibold text-gray-900">XGBoost sin Covariables</h4>
+            <p class="text-gray-700">WMAE: $13,386.08 | Baseline</p>
+          </div>
+
+          <div class="border-l-4 border-blue-400 pl-4">
+            <h4 class="text-lg font-semibold text-gray-900">XGBoost con Covariables</h4>
+            <p class="text-gray-700">WMAE: $9,325.57 | Mejora: 30.33%</p>
+          </div>
+
+          <div class="border-l-4 border-green-400 pl-4">
+            <h4 class="text-lg font-semibold text-gray-900">Prophet Base</h4>
+            <p class="text-gray-700">WMAE: $5,987.69 | Mejora: 55.26%</p>
+          </div>
+
+          <div class="border-l-4 border-green-600 pl-4 bg-green-50 p-4 rounded">
+            <h4 class="text-lg font-semibold text-green-900">Prophet Optimizado 🏆</h4>
+            <p class="text-green-800 font-medium">WMAE: $5,856.30 | Mejora: 56.24%</p>
+            <p class="text-sm text-gray-700 mt-2">Modelo ganador con Grid Search y optimización de hiperparámetros</p>
+          </div>
+
+          <div class="border-l-4 border-blue-600 pl-4 bg-blue-50 p-4 rounded">
+            <h4 class="text-lg font-semibold text-blue-900">Modelo Híbrido Final</h4>
+            <p class="text-blue-800 font-medium">MAE: $2,046.71 | Mejora: 14.48% vs baseline</p>
+            <p class="text-sm text-gray-700 mt-2">Combina Prophet optimizado + Block Bootstrap + Baselines estacionales</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-white rounded-lg shadow-md p-8 space-y-6">
+        <h2 class="text-3xl font-bold text-gray-900">Recomendaciones Estratégicas</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">Gestión de Inventario</h3>
+            <ul class="list-disc list-inside text-gray-700 space-y-2">
+              <li>Preparación anticipada para Thanksgiving: Stock +40%</li>
+              <li>Productos críticos: Deptos 99, 72, 6, 47</li>
+              <li>Reducción pre-Christmas: Anticipar caída</li>
+              <li>Monitoreo de volatilidad (CV > 100%)</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">Estrategia Promocional</h3>
+            <ul class="list-disc list-inside text-gray-700 space-y-2">
+              <li>Inversión limitada en promociones genéricas</li>
+              <li>Focalización en departamentos sensibles</li>
+              <li>Timing estratégico con feriados naturales</li>
+              <li>A/B testing para validar impacto</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">Mejoras del Modelo</h3>
+            <ul class="list-disc list-inside text-gray-700 space-y-2">
+              <li>Implementar Prophet en producción</li>
+              <li>Modelo híbrido para robustez</li>
+              <li>Actualización continua cada trimestre</li>
+              <li>Segmentación por tipo de producto</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">Impacto Esperado</h3>
+            <ul class="list-disc list-inside text-gray-700 space-y-2">
+              <li>Reducción de quiebres: 30-40%</li>
+              <li>Optimización inventario: -15-20% costos</li>
+              <li>Mejor planificación de recursos</li>
+              <li>Mayor satisfacción del cliente</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-white rounded-lg shadow-md p-8 space-y-6">
+        <h2 class="text-3xl font-bold text-gray-900">Stack Tecnológico</h2>
+        
+        <div class="bg-gray-50 p-6 rounded">
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="text-center">
+              <p class="font-semibold text-gray-900">Python</p>
+              <p class="text-sm text-gray-600">3.10+</p>
+            </div>
+            <div class="text-center">
+              <p class="font-semibold text-gray-900">Prophet</p>
+              <p class="text-sm text-gray-600">Series Temporales</p>
+            </div>
+            <div class="text-center">
+              <p class="font-semibold text-gray-900">XGBoost</p>
+              <p class="text-sm text-gray-600">Gradient Boosting</p>
+            </div>
+            <div class="text-center">
+              <p class="font-semibold text-gray-900">Pandas</p>
+              <p class="text-sm text-gray-600">Análisis de Datos</p>
+            </div>
+            <div class="text-center">
+              <p class="font-semibold text-gray-900">Scikit-learn</p>
+              <p class="text-sm text-gray-600">Machine Learning</p>
+            </div>
+            <div class="text-center">
+              <p class="font-semibold text-gray-900">Matplotlib</p>
+              <p class="text-sm text-gray-600">Visualización</p>
+            </div>
+            <div class="text-center">
+              <p class="font-semibold text-gray-900">Seaborn</p>
+              <p class="text-sm text-gray-600">Visualización</p>
+            </div>
+            <div class="text-center">
+              <p class="font-semibold text-gray-900">Jupyter</p>
+              <p class="text-sm text-gray-600">Notebooks</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg shadow-md p-8">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">Valor del Proyecto</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div>
+            <h3 class="text-lg font-semibold text-blue-800 mb-2">Para el Negocio</h3>
+            <p class="text-gray-700">Reducción de costos, optimización de inventario, mejor planificación de recursos y satisfacción del cliente.</p>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-indigo-800 mb-2">Para Data Science</h3>
+            <p class="text-gray-700">Metodología replicable, comparación exhaustiva de modelos, manejo robusto de estacionalidad.</p>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-purple-800 mb-2">Habilidades Demostradas</h3>
+            <p class="text-gray-700">EDA profundo, modelado avanzado, optimización de hiperparámetros, ensamble de modelos.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Botón de retorno -->
+    <div class="pt-8">
+      <a href={`${base}proyectos`} class="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+        </svg>
+        Volver a todos los proyectos
+      </a>
+    </div>
+  </div>
+</Layout>
