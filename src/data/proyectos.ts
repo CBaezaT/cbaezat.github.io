@@ -22,7 +22,7 @@ export const proyectos: Proyecto[] = [
     color: "red",
     emoji: "👥",
     año: "2025",
-    link: "/proyectos/sochiab-presidencia/"
+    link: "proyectos/sochiab-presidencia/"
   },
   {
     id: 2,
@@ -34,7 +34,7 @@ export const proyectos: Proyecto[] = [
     color: "blue",
     emoji: "📊",
     año: "2025",
-    link: "/proyectos/prediccion-ventas/"
+    link: "proyectos/prediccion-ventas/"
   },
   {
     id: 3,
@@ -46,7 +46,7 @@ export const proyectos: Proyecto[] = [
     color: "green",
     emoji: "🧬",
     año: "2025",
-    link: "/proyectos/sexo-osteometrico/"
+    link: "proyectos/sexo-osteometrico/"
   },
   {
     id: 4,
