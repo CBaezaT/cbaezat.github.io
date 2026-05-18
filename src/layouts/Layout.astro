@@ -23,13 +23,41 @@ const base = import.meta.env.BASE_URL;
       <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <div class="flex justify-between items-center">
           <a href={base} class="text-2xl font-bold text-white">Cristian Baeza Torres</a>
-          <div class="space-x-6">
-            <a href={`${base}about`} class="text-white hover:text-gray-200 transition">About me</a>
+
+          <!-- Desktop nav -->
+          <div class="hidden md:flex space-x-6">
+            <a href={`${base}about`} class="text-white hover:text-gray-200 transition">Sobre mí</a>
             <a href={`${base}proyectos`} class="text-white hover:text-gray-200 transition">Proyectos</a>
+            <a href={`${base}publications`} class="text-white hover:text-gray-200 transition">Publicaciones</a>
             <a href={`${base}repositorios`} class="text-white hover:text-gray-200 transition">Repositorios</a>
             <a href={`${base}docencia`} class="text-white hover:text-gray-200 transition">Docencia</a>
             <a href={`${base}contacto`} class="text-white hover:text-gray-200 transition">Contacto</a>
           </div>
+
+          <!-- Hamburger button (mobile) -->
+          <button
+            id="menu-toggle"
+            class="md:hidden text-white focus:outline-none"
+            aria-label="Abrir menú"
+            aria-expanded="false"
+          >
+            <svg id="icon-open" class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+            <svg id="icon-close" class="w-7 h-7 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden pt-4 pb-2 flex flex-col gap-3">
+          <a href={`${base}about`} class="text-white hover:text-gray-200 transition py-1">Sobre mí</a>
+          <a href={`${base}proyectos`} class="text-white hover:text-gray-200 transition py-1">Proyectos</a>
+          <a href={`${base}publications`} class="text-white hover:text-gray-200 transition py-1">Publicaciones</a>
+          <a href={`${base}repositorios`} class="text-white hover:text-gray-200 transition py-1">Repositorios</a>
+          <a href={`${base}docencia`} class="text-white hover:text-gray-200 transition py-1">Docencia</a>
+          <a href={`${base}contacto`} class="text-white hover:text-gray-200 transition py-1">Contacto</a>
         </div>
       </nav>
     </header>
@@ -49,5 +77,20 @@ const base = import.meta.env.BASE_URL;
         </div>
       </div>
     </footer>
+
+    <script>
+      const toggle = document.getElementById('menu-toggle');
+      const menu = document.getElementById('mobile-menu');
+      const iconOpen = document.getElementById('icon-open');
+      const iconClose = document.getElementById('icon-close');
+
+      toggle?.addEventListener('click', () => {
+        const isOpen = !menu?.classList.contains('hidden');
+        menu?.classList.toggle('hidden', isOpen);
+        iconOpen?.classList.toggle('hidden', !isOpen);
+        iconClose?.classList.toggle('hidden', isOpen);
+        toggle.setAttribute('aria-expanded', String(!isOpen));
+      });
+    </script>
   </body>
 </html>
