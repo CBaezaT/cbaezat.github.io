@@ -3,7 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 const base = import.meta.env.BASE_URL;
 ---
 
-<Layout title="Estimación de Sexo Biológico - Cristian Baeza Torres">
+<Layout title="Goldman Osteometric Dataset - Estimación de Sexo Biológico - Cristian Baeza Torres">
   <div class="max-w-4xl mx-auto space-y-8">
     <!-- Header -->
     <div class="space-y-4">
@@ -13,13 +13,13 @@ const base = import.meta.env.BASE_URL;
         </svg>
         Volver a Proyectos
       </a>
-      <h1 class="text-4xl lg:text-5xl font-bold text-gray-900">Estimación de Sexo Biológico mediante Análisis Osteométrico y Machine Learning</h1>
+      <h1 class="text-4xl lg:text-5xl font-bold text-gray-900">Goldman Osteometric Dataset: Estimación de Sexo Biológico con Machine Learning</h1>
       <div class="flex flex-wrap gap-3">
         <span class="bg-teal-100 text-teal-800 px-4 py-2 rounded-full text-sm font-medium">Antropología Forense</span>
         <span class="bg-purple-100 text-purple-800 px-4 py-2 rounded-full text-sm font-medium">Machine Learning</span>
-        <span class="bg-cyan-100 text-cyan-800 px-4 py-2 rounded-full text-sm font-medium">Bioarqueología</span>
+        <span class="bg-cyan-100 text-cyan-800 px-4 py-2 rounded-full text-sm font-medium">Analítica de Datos · UdeC 2025</span>
       </div>
-      <p class="text-lg text-gray-600">Colaboradores: Felipe Olivares, Claudio Velquen, Felipe Romero</p>
+      <p class="text-lg text-gray-600">Colaboradores: Felipe Olivares, Felipe Romero, Claudio Velquén</p>
     </div>
 
     <!-- Contenido Principal -->
@@ -27,16 +27,19 @@ const base = import.meta.env.BASE_URL;
       <section class="bg-white rounded-lg shadow-md p-8 space-y-6">
         <h2 class="text-3xl font-bold text-gray-900">Descripción del Proyecto</h2>
         <p class="text-gray-700">
-          Este proyecto aplica <strong>Machine Learning</strong> para estimar el sexo biológico a partir de medidas osteométricas 
-          del dataset <strong>Goldman</strong> (1,538 registros, 69 variables). El análisis se realizó de forma sistemática para 
-          todas las extremidades del cuerpo: húmero, radio, fémur, tibia y pelvis.
+          Proyecto de la asignatura <strong>Analítica de Datos</strong> (Universidad de Concepción, 2025) que aplica
+          <strong>6 modelos de Machine Learning supervisado</strong> para estimar el sexo biológico a partir de medidas
+          osteométricas de huesos largos. Se utilizó el <strong>Goldman Osteometric Dataset</strong> (Dr. Benjamin Auerbach,
+          UTK), con 1.538 individuos y mediciones de extremidades superiores e inferiores, segmentadas por continente
+          de origen para reducir el sesgo poblacional.
         </p>
-        
+
         <div class="bg-green-50 border-l-4 border-green-600 p-6 rounded">
-          <h3 class="text-xl font-bold text-gray-900 mb-2">Resultado Principal</h3>
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Mejor Resultado</h3>
           <p class="text-gray-700">
-            <strong>86.31% de accuracy</strong> con Regresión Logística en extremidad superior izquierda, 
-            superando métodos tradicionales de antropología forense.
+            <strong>88.7% de accuracy</strong> con Random Forest (modelo reducido, 5 variables) en extremidad
+            superior derecha — ROC-AUC 94.1%. Los modelos reducidos a 4–5 mediciones óseas mantienen
+            desempeño comparable al modelo completo.
           </p>
         </div>
       </section>
@@ -88,17 +91,27 @@ const base = import.meta.env.BASE_URL;
         
         <div class="space-y-6">
           <div>
-            <h3 class="text-2xl font-semibold text-gray-900 mb-3">1. Análisis Exploratorio (EDA)</h3>
+            <h3 class="text-2xl font-semibold text-gray-900 mb-3">1. EDA + Segmentación Geográfica</h3>
             <ul class="list-disc list-inside text-gray-700 space-y-1">
-              <li>Limpieza de datos con codificación latina</li>
-              <li>Pruebas t-student: <strong>43 variables significativas</strong> (p &lt; 0.05)</li>
-              <li>Detección de outliers mediante IQR</li>
-              <li>Visualizaciones: boxplots, heatmaps, scatter plots</li>
+              <li>Limpieza exhaustiva de valores nulos y estandarización de formatos</li>
+              <li>Segmentación por variable <strong>Location</strong> (continente) para reducir sesgo poblacional</li>
+              <li>Detección de outliers, análisis de distribución y correlaciones</li>
+              <li>Variables derivadas: índices braquial y crural para detectar patrones dimórficos</li>
             </ul>
           </div>
 
           <div>
-            <h3 class="text-2xl font-semibold text-gray-900 mb-3">2. Modelos Evaluados</h3>
+            <h3 class="text-2xl font-semibold text-gray-900 mb-3">2. Clustering (K-Means + PCA)</h3>
+            <ul class="list-disc list-inside text-gray-700 space-y-1">
+              <li>K-Means por extremidad para detectar agrupaciones naturales</li>
+              <li>PCA para visualizar separación morfológica por sexo y continente</li>
+              <li>ARI con Sexo ~0.43 en las 4 extremidades — el clustering detecta dimorfismo sin supervisión</li>
+              <li>Identificación de distancia morfológica en población asiática</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-2xl font-semibold text-gray-900 mb-3">3. Modelos Evaluados</h3>
             <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
               <div class="bg-blue-100 text-blue-900 px-4 py-2 rounded text-center font-medium">Árbol de Decisión</div>
               <div class="bg-green-100 text-green-900 px-4 py-2 rounded text-center font-medium">Random Forest</div>
@@ -110,11 +123,13 @@ const base = import.meta.env.BASE_URL;
           </div>
 
           <div>
-            <h3 class="text-2xl font-semibold text-gray-900 mb-3">3. Pipeline de Evaluación</h3>
-            <div class="bg-gray-50 p-4 rounded">
-              <p class="text-gray-700"><strong>División:</strong> Train 64% / Validación 16% / Test 20%</p>
-              <p class="text-gray-700"><strong>Optimización:</strong> Grid Search exhaustivo (504+ combinaciones)</p>
+            <h3 class="text-2xl font-semibold text-gray-900 mb-3">4. Pipeline de Evaluación y Optimización</h3>
+            <div class="bg-gray-50 p-4 rounded space-y-1">
+              <p class="text-gray-700"><strong>División:</strong> Train / Validación / Test por extremidad</p>
+              <p class="text-gray-700"><strong>Optimización:</strong> Búsqueda de hiperparámetros para cada modelo</p>
+              <p class="text-gray-700"><strong>Reducción:</strong> Modelos optimizados con 4–5 variables más importantes</p>
               <p class="text-gray-700"><strong>Métricas:</strong> Accuracy, Precision, Recall, F1-Score, ROC-AUC</p>
+              <p class="text-gray-700"><strong>Validación poblacional:</strong> Accuracy por continente (6 regiones)</p>
             </div>
           </div>
         </div>
@@ -148,62 +163,80 @@ const base = import.meta.env.BASE_URL;
           </div>
 
           <div>
-            <h3 class="text-2xl font-semibold text-gray-900 mb-3">Comparación entre Extremidades</h3>
+            <h3 class="text-2xl font-semibold text-gray-900 mb-3">Resultados por Extremidad (Modelo Reducido)</h3>
             <div class="space-y-2">
-              <div class="flex items-center justify-between bg-purple-50 p-3 rounded">
-                <span class="font-semibold text-purple-900">Pelvis</span>
-                <span class="text-purple-700">88-90% accuracy</span>
+              <div class="flex items-center justify-between bg-green-50 p-3 rounded">
+                <div>
+                  <span class="font-semibold text-green-900">Superior Derecha</span>
+                  <span class="text-xs text-gray-500 ml-2">Random Forest · 5 vars</span>
+                </div>
+                <span class="text-green-700 font-bold">88.7% acc · ROC-AUC 94.1%</span>
               </div>
               <div class="flex items-center justify-between bg-blue-50 p-3 rounded">
-                <span class="font-semibold text-blue-900">Fémur</span>
-                <span class="text-blue-700">85-87% accuracy</span>
-              </div>
-              <div class="flex items-center justify-between bg-green-50 p-3 rounded">
-                <span class="font-semibold text-green-900">Húmero</span>
-                <span class="text-green-700">84-86% accuracy</span>
+                <div>
+                  <span class="font-semibold text-blue-900">Superior Izquierda</span>
+                  <span class="text-xs text-gray-500 ml-2">Reg. Logística · 4 vars</span>
+                </div>
+                <span class="text-blue-700 font-bold">86.7% acc · ROC-AUC 92.1%</span>
               </div>
               <div class="flex items-center justify-between bg-teal-50 p-3 rounded">
-                <span class="font-semibold text-teal-900">Tibia</span>
-                <span class="text-teal-700">83-85% accuracy</span>
+                <div>
+                  <span class="font-semibold text-teal-900">Inferior Izquierda</span>
+                  <span class="text-xs text-gray-500 ml-2">SVM · 5 vars</span>
+                </div>
+                <span class="text-teal-700 font-bold">85.5% acc · ROC-AUC 91.5%</span>
               </div>
-              <div class="flex items-center justify-between bg-gray-50 p-3 rounded">
-                <span class="font-semibold text-gray-900">Radio</span>
-                <span class="text-gray-700">80-82% accuracy</span>
+              <div class="flex items-center justify-between bg-purple-50 p-3 rounded">
+                <div>
+                  <span class="font-semibold text-purple-900">Inferior Derecha</span>
+                  <span class="text-xs text-gray-500 ml-2">MLP · 5 vars</span>
+                </div>
+                <span class="text-purple-700 font-bold">85.3% acc · ROC-AUC 90.4%</span>
               </div>
             </div>
           </div>
 
+          <div class="bg-amber-50 border-l-4 border-amber-500 p-5 rounded">
+            <h3 class="text-xl font-semibold text-amber-900 mb-2">Limitación poblacional: población asiática</h3>
+            <p class="text-gray-700 text-sm">
+              El clustering K-Means + PCA reveló que los especímenes asiáticos forman un agrupamiento morfológicamente
+              distinto (~37-38% de overlap con otros continentes). Esto explica el menor accuracy en Asia (61-74% según
+              extremidad), coherente con diferencias morfológicas reportadas en la literatura. Los modelos generalistas
+              no capturan adecuadamente este dimorfismo diferencial.
+            </p>
+          </div>
+
           <div>
-            <h3 class="text-2xl font-semibold text-gray-900 mb-3">Ranking de Modelos (Promedio General)</h3>
+            <h3 class="text-2xl font-semibold text-gray-900 mb-3">Modelos con mejor desempeño transversal</h3>
             <div class="overflow-x-auto">
               <table class="min-w-full text-sm">
                 <thead class="bg-gray-100">
                   <tr>
                     <th class="px-4 py-2 text-left font-semibold">Modelo</th>
-                    <th class="px-4 py-2 text-left font-semibold">Accuracy</th>
+                    <th class="px-4 py-2 text-left font-semibold">Rango Accuracy</th>
                     <th class="px-4 py-2 text-left font-semibold">Ventajas</th>
                   </tr>
                 </thead>
                 <tbody class="divide-y">
                   <tr class="bg-green-50">
-                    <td class="px-4 py-2 font-medium">Regresión Logística</td>
-                    <td class="px-4 py-2">85-86%</td>
-                    <td class="px-4 py-2">Interpretable, eficiente</td>
+                    <td class="px-4 py-2 font-medium">Random Forest</td>
+                    <td class="px-4 py-2">84–89%</td>
+                    <td class="px-4 py-2">Mejor accuracy general, entrega importancia de variables</td>
                   </tr>
                   <tr>
-                    <td class="px-4 py-2 font-medium">Random Forest</td>
-                    <td class="px-4 py-2">84-86%</td>
-                    <td class="px-4 py-2">Robusto, no linealidad</td>
+                    <td class="px-4 py-2 font-medium">MLP (Perceptrón Multi Capa)</td>
+                    <td class="px-4 py-2">83–88%</td>
+                    <td class="px-4 py-2">Mejor balance accuracy/recall — relevante en contexto forense</td>
+                  </tr>
+                  <tr>
+                    <td class="px-4 py-2 font-medium">Regresión Logística</td>
+                    <td class="px-4 py-2">83–87%</td>
+                    <td class="px-4 py-2">Interpretable, entrega importancia de variables</td>
                   </tr>
                   <tr>
                     <td class="px-4 py-2 font-medium">SVM</td>
-                    <td class="px-4 py-2">84-85%</td>
-                    <td class="px-4 py-2">Mejor separación</td>
-                  </tr>
-                  <tr>
-                    <td class="px-4 py-2 font-medium">XGBoost</td>
-                    <td class="px-4 py-2">83-85%</td>
-                    <td class="px-4 py-2">Balance bias-varianza</td>
+                    <td class="px-4 py-2">84–87%</td>
+                    <td class="px-4 py-2">Consistente entre extremidades</td>
                   </tr>
                 </tbody>
               </table>
@@ -294,23 +327,23 @@ const base = import.meta.env.BASE_URL;
         <div class="space-y-4">
           <div class="flex items-start gap-3">
             <span class="text-2xl">✓</span>
-            <p class="text-gray-700">Machine Learning alcanza <strong>85-86% accuracy</strong>, superando métodos tradicionales</p>
+            <p class="text-gray-700">Los modelos de ML muestran <strong>alto potencial para estimar sexo biológico</strong> usando extremidades aisladas (hasta 88.7% accuracy)</p>
           </div>
           <div class="flex items-start gap-3">
             <span class="text-2xl">✓</span>
-            <p class="text-gray-700">Todas las extremidades son informativas, con <strong>Pelvis > Fémur > Húmero</strong></p>
+            <p class="text-gray-700">Los modelos pueden reducirse a <strong>4–5 mediciones óseas</strong>, manteniendo desempeño predictivo comparable al modelo completo</p>
           </div>
           <div class="flex items-start gap-3">
             <span class="text-2xl">✓</span>
-            <p class="text-gray-700"><strong>Regresión Logística</strong> ofrece mejor balance entre desempeño e interpretabilidad</p>
+            <p class="text-gray-700"><strong>Random Forest, MLP, Reg. Logística y SVM</strong> presentan buen desempeño transversal por extremidad y población</p>
           </div>
           <div class="flex items-start gap-3">
             <span class="text-2xl">✓</span>
-            <p class="text-gray-700"><strong>Diámetros articulares</strong> son las variables más discriminativas del esqueleto</p>
+            <p class="text-gray-700"><strong>Limitación poblacional identificada</strong>: mayor dificultad en población asiática, coherente con diferencias morfológicas reportadas en la literatura</p>
           </div>
           <div class="flex items-start gap-3">
             <span class="text-2xl">✓</span>
-            <p class="text-gray-700">Metodología <strong>reproducible y automatizada</strong>, aplicable en contextos forenses reales</p>
+            <p class="text-gray-700">Línea futura clave: <strong>incorporar casos chilenos contemporáneos</strong> para modelos forenses específicos</p>
           </div>
         </div>
       </section>

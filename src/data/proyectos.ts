@@ -38,26 +38,15 @@ export const proyectos: Proyecto[] = [
   },
   {
     id: 3,
-    titulo: "Estimación de Sexo Biológico con ML",
-    descripcion: "Aplicación de Machine Learning para estimar el sexo biológico a partir de medidas osteométricas. Análisis sistemático de todas las extremidades con 86.31% de accuracy, superando métodos tradicionales.",
-    descripcionCorta: "Machine Learning para estimación de sexo biológico mediante análisis osteométrico",
-    tags: ["Antropología Forense", "Machine Learning", "Bioarqueología"],
-    estado: "Completado",
+    titulo: "Goldman Osteometric Dataset - Estimación de Sexo Biológico",
+    descripcion: "Proyecto de Analítica de Datos (UdeC) que aplica 6 modelos de ML supervisado para estimar sexo biológico desde medidas de huesos largos. Dataset Goldman (1.538 individuos). Accuracy ~89% en extremidad superior derecha con Random Forest. Análisis de clustering + PCA revela limitaciones en población asiática.",
+    descripcionCorta: "6 modelos de ML supervisado para estimar sexo biológico desde medidas osteométricas del Goldman Dataset",
+    tags: ["Analítica de Datos", "Machine Learning", "Antropología Forense"],
+    estado: "Completado - 2025",
     color: "green",
     emoji: "🧬",
     año: "2025",
     link: "proyectos/sexo-osteometrico/"
-  },
-  {
-    id: 4,
-    titulo: "ARIACH - Red de Investigadores",
-    descripcion: "Fundador de la red de investigadores en Antropología, buscando fortalecer colaboraciones interdisciplinarias y promover investigación de calidad.",
-    descripcionCorta: "Red de investigadores en Antropología, fortaleciendo colaboraciones interdisciplinarias",
-    tags: ["Antropología", "Redes", "Liderazgo"],
-    estado: "2020 - Activo",
-    color: "purple",
-    emoji: "🤝",
-    año: "2020"
   }
 ];
 
