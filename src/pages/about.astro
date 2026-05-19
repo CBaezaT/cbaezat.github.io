@@ -4,19 +4,19 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout title="About me - Cristian Baeza Torres">
   <div class="max-w-4xl mx-auto space-y-12">
-    <div class="space-y-2">
-      <h1 class="text-4xl font-bold text-gray-900">About me</h1>
-      <p class="text-lg text-gray-600">Mi trayectoria académica y profesional</p>
-    </div>
-    
-    <!-- Foto de perfil -->
+    <!-- Header con foto igual al inicio -->
     <div class="flex items-center gap-6">
       <img
         src="/bio-photo.jpg"
         alt="Cristian Baeza Torres"
-        class="w-28 h-28 rounded-full object-cover shadow-md flex-shrink-0"
+        class="w-36 h-48 rounded-3xl object-cover shadow-md flex-shrink-0"
       />
-      <p class="text-gray-600">Antropólogo Físico · Data Scientist · Universidad de Concepción</p>
+      <div class="space-y-2">
+        <h1 class="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">Cristian Baeza Torres</h1>
+        <p class="text-xl text-gray-600">Antropólogo Físico</p>
+        <p class="text-lg text-gray-600">Estudiante Magíster en Ciencia de Datos para la Innovación</p>
+        <p class="text-base text-gray-500">Universidad de Concepción - Concepción, Chile</p>
+      </div>
     </div>
 
     <div class="space-y-8 text-gray-700">
@@ -90,13 +90,14 @@ import Layout from '../layouts/Layout.astro';
           </div>
           <div class="border-l-4 border-blue-600 pl-4">
             <h3 class="font-semibold text-gray-900">Colaborador - Universidad de Concepción</h3>
-            <p class="text-sm text-gray-600">Docencia e Investigación</p>
-            <p class="text-gray-700 text-sm mt-1">Enseñanza en análisis cuantitativo y ciencia de datos aplicada</p>
+            <p class="text-sm text-gray-600">Docencia e Investigación desde 2022 a la fecha</p>
           </div>
           <div class="border-l-4 border-purple-600 pl-4">
             <h3 class="font-semibold text-gray-900">Founder - ARIACH</h3>
-            <p class="text-sm text-gray-600">Red de Investigadores en Antropología</p>
-            <p class="text-gray-700 text-sm mt-1">Promoviendo colaboración interdisciplinaria en investigación antropológica</p>
+          </div>
+          <div class="border-l-4 border-green-600 pl-4">
+            <h3 class="font-semibold text-gray-900">Impacto Ambiental</h3>
+            <p class="text-sm text-gray-600">Ejercicio profesional en proyectos de impacto ambiental a lo largo de Chile, ejerciendo como Antropólogo Físico desde 2022</p>
           </div>
         </div>
       </section>
