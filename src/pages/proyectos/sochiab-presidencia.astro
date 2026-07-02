@@ -4,47 +4,47 @@ const base = import.meta.env.BASE_URL;
 ---
 
 <Layout title="SOCHIAB - Presidencia 2025-2026 - Cristian Baeza Torres">
-  <div class="max-w-4xl mx-auto space-y-8">
+  <div class="max-w-4xl mx-auto space-y-10">
     <!-- Header -->
-    <div class="space-y-4">
-      <a href={`${base}proyectos`} class="text-blue-600 hover:text-blue-700 inline-flex items-center gap-2">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+    <div class="space-y-5 border-b border-bone-300 pb-6">
+      <a href={`${base}proyectos`} class="font-mono text-xs uppercase tracking-widest text-ink-light hover:text-clay inline-flex items-center gap-2 transition-colors duration-200">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path>
         </svg>
         Volver a Proyectos
       </a>
-      <h1 class="text-4xl lg:text-5xl font-bold text-gray-900">SOCHIAB - Presidencia 2025-2026</h1>
-      <div class="flex flex-wrap gap-3">
-        <span class="bg-red-100 text-red-800 px-4 py-2 rounded-full text-sm font-medium">Liderazgo</span>
-        <span class="bg-purple-100 text-purple-800 px-4 py-2 rounded-full text-sm font-medium">Sociedad Científica</span>
-        <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">Gestión</span>
+      <h1 class="font-serif text-4xl lg:text-5xl font-semibold text-ink leading-tight">SOCHIAB - Presidencia 2025-2026</h1>
+      <div class="flex flex-wrap gap-2">
+        <span class="border border-bone-300 text-ink-light px-3 py-1 font-mono text-xs uppercase tracking-wide">Liderazgo</span>
+        <span class="border border-bone-300 text-ink-light px-3 py-1 font-mono text-xs uppercase tracking-wide">Sociedad Científica</span>
+        <span class="border border-bone-300 text-ink-light px-3 py-1 font-mono text-xs uppercase tracking-wide">Gestión</span>
       </div>
-      <p class="text-lg text-gray-600">Periodo: 2025-2026</p>
+      <p class="font-mono text-xs text-moss uppercase tracking-wide">[ Periodo: 2025-2026 ]</p>
     </div>
 
     <!-- Contenido Principal -->
-    <div class="prose prose-lg max-w-none">
-      <section class="bg-white rounded-lg shadow-md p-8 space-y-6">
-        <h2 class="text-3xl font-bold text-gray-900">Sobre SOCHIAB</h2>
-        <p class="text-gray-700">
-          La <strong>Sociedad Chilena de Antropología Biológica (SOCHIAB)</strong> es la principal organización científica 
+    <div class="space-y-8">
+      <section class="bg-bone-50 border border-bone-300 p-8 space-y-6">
+        <h2 class="font-serif text-2xl font-semibold text-ink">Sobre SOCHIAB</h2>
+        <p class="text-ink-light leading-relaxed">
+          La <strong class="text-ink">Sociedad Chilena de Antropología Biológica (SOCHIAB)</strong> es la principal organización científica
           que agrupa a investigadores, académicos y profesionales dedicados al estudio de la diversidad biológica humana en Chile.
         </p>
-        
-        <div class="bg-blue-50 border-l-4 border-blue-600 p-6 rounded">
-          <h3 class="text-xl font-bold text-gray-900 mb-3">Contacto</h3>
-          <p class="text-gray-700">Email: <a href="mailto:presidencia@sochiab.cl" class="text-blue-600 hover:text-blue-700">presidencia@sochiab.cl</a></p>
-          <p class="text-gray-700">Sitio web: <a href="https://www.sochiab.cl" target="_blank" class="text-blue-600 hover:text-blue-700">www.sochiab.cl</a></p>
+
+        <div class="border-l-2 border-clay bg-bone-100 p-6">
+          <h3 class="font-serif text-lg font-semibold text-ink mb-2">Contacto</h3>
+          <p class="text-ink-light">Email: <a href="mailto:presidencia@sochiab.cl" class="text-ink hover:text-clay transition-colors duration-200">presidencia@sochiab.cl</a></p>
+          <p class="text-ink-light">Sitio web: <a href="https://www.sochiab.cl" target="_blank" class="text-ink hover:text-clay transition-colors duration-200">www.sochiab.cl</a></p>
         </div>
       </section>
 
-      <section class="bg-white rounded-lg shadow-md p-8 space-y-6">
-        <h2 class="text-3xl font-bold text-gray-900">Rol como Presidente</h2>
-        
-        <div class="space-y-4">
+      <section class="bg-bone-50 border border-bone-300 p-8 space-y-6">
+        <h2 class="font-serif text-2xl font-semibold text-ink">Rol como Presidente</h2>
+
+        <div class="space-y-5">
           <div>
-            <h3 class="text-xl font-semibold text-gray-900 mb-2">1. Liderazgo Institucional</h3>
-            <ul class="list-disc list-inside text-gray-700 space-y-1">
+            <h3 class="font-serif text-lg font-semibold text-ink mb-2">1. Liderazgo Institucional</h3>
+            <ul class="list-disc list-inside text-ink-light space-y-1">
               <li>Representación oficial de SOCHIAB ante instituciones nacionales e internacionales</li>
               <li>Coordinación del directorio y comisiones de trabajo</li>
               <li>Planificación estratégica para el periodo 2025-2026</li>
@@ -52,8 +52,8 @@ const base = import.meta.env.BASE_URL;
           </div>
 
           <div>
-            <h3 class="text-xl font-semibold text-gray-900 mb-2">2. Gestión Académica</h3>
-            <ul class="list-disc list-inside text-gray-700 space-y-1">
+            <h3 class="font-serif text-lg font-semibold text-ink mb-2">2. Gestión Académica</h3>
+            <ul class="list-disc list-inside text-ink-light space-y-1">
               <li>Organización de congresos y seminarios científicos</li>
               <li>Promoción de publicaciones y colaboraciones internacionales</li>
               <li>Vinculación con universidades y centros de investigación</li>
@@ -61,8 +61,8 @@ const base = import.meta.env.BASE_URL;
           </div>
 
           <div>
-            <h3 class="text-xl font-semibold text-gray-900 mb-2">3. Desarrollo de la Disciplina</h3>
-            <ul class="list-disc list-inside text-gray-700 space-y-1">
+            <h3 class="font-serif text-lg font-semibold text-ink mb-2">3. Desarrollo de la Disciplina</h3>
+            <ul class="list-disc list-inside text-ink-light space-y-1">
               <li>Fortalecimiento de la presencia de la antropología biológica en Chile</li>
               <li>Promoción de la investigación interdisciplinaria</li>
               <li>Apoyo a estudiantes y nuevos investigadores</li>
@@ -71,116 +71,96 @@ const base = import.meta.env.BASE_URL;
         </div>
       </section>
 
-      <section class="bg-white rounded-lg shadow-md p-8 space-y-6">
-        <h2 class="text-3xl font-bold text-gray-900">Iniciativas y Proyectos</h2>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div class="border-l-4 border-blue-600 pl-4">
-            <h3 class="text-lg font-semibold text-gray-900 mb-2">Congreso Anual SOCHIAB</h3>
-            <p class="text-gray-700">Espacio de encuentro para investigadores nacionales e internacionales con presentaciones, mesas redondas y talleres metodológicos.</p>
-          </div>
+      <section class="bg-bone-50 border border-bone-300 p-8 space-y-6">
+        <h2 class="font-serif text-2xl font-semibold text-ink">Iniciativas y Proyectos</h2>
 
-          <div class="border-l-4 border-green-600 pl-4">
-            <h3 class="text-lg font-semibold text-gray-900 mb-2">Programa de Mentoría</h3>
-            <p class="text-gray-700">Apoyo a estudiantes de pre y postgrado mediante pareamiento con investigadores establecidos y orientación en proyectos.</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-bone-300 border border-bone-300">
+          <div class="bg-bone-50 p-5">
+            <h3 class="font-serif font-semibold text-ink mb-1.5">Congreso Anual SOCHIAB</h3>
+            <p class="text-sm text-ink-light">Espacio de encuentro para investigadores nacionales e internacionales con presentaciones, mesas redondas y talleres metodológicos.</p>
           </div>
-
-          <div class="border-l-4 border-purple-600 pl-4">
-            <h3 class="text-lg font-semibold text-gray-900 mb-2">Serie de Webinars</h3>
-            <p class="text-gray-700">Sesiones mensuales online con investigadores invitados nacionales e internacionales, acceso gratuito y abierto.</p>
+          <div class="bg-bone-50 p-5">
+            <h3 class="font-serif font-semibold text-ink mb-1.5">Programa de Mentoría</h3>
+            <p class="text-sm text-ink-light">Apoyo a estudiantes de pre y postgrado mediante pareamiento con investigadores establecidos y orientación en proyectos.</p>
           </div>
-
-          <div class="border-l-4 border-red-600 pl-4">
-            <h3 class="text-lg font-semibold text-gray-900 mb-2">Publicaciones</h3>
-            <p class="text-gray-700">Boletín informativo trimestral, promoción de publicaciones de socios y colaboración con revistas especializadas.</p>
+          <div class="bg-bone-50 p-5">
+            <h3 class="font-serif font-semibold text-ink mb-1.5">Serie de Webinars</h3>
+            <p class="text-sm text-ink-light">Sesiones mensuales online con investigadores invitados nacionales e internacionales, acceso gratuito y abierto.</p>
+          </div>
+          <div class="bg-bone-50 p-5">
+            <h3 class="font-serif font-semibold text-ink mb-1.5">Publicaciones</h3>
+            <p class="text-sm text-ink-light">Boletín informativo trimestral, promoción de publicaciones de socios y colaboración con revistas especializadas.</p>
           </div>
         </div>
       </section>
 
-      <section class="bg-white rounded-lg shadow-md p-8 space-y-6">
-        <h2 class="text-3xl font-bold text-gray-900">Metas del Periodo 2025-2026</h2>
-        
+      <section class="bg-bone-50 border border-bone-300 p-8 space-y-6">
+        <h2 class="font-serif text-2xl font-semibold text-ink">Metas del Periodo 2025-2026</h2>
+
         <div class="space-y-6">
           <div>
-            <h3 class="text-2xl font-semibold text-gray-900 mb-3">Corto Plazo (2025)</h3>
+            <p class="font-mono text-xs uppercase tracking-widest text-clay mb-3">Corto plazo · 2025</p>
             <div class="space-y-3">
-              <div class="flex items-start gap-3">
-                <span class="text-2xl">✅</span>
-                <div>
-                  <p class="font-semibold text-gray-900">Reestructuración del sitio web</p>
-                  <p class="text-gray-700">Diseño moderno y responsive, base de datos de socios actualizada, sección de recursos bibliográficos.</p>
-                </div>
+              <div class="border-l-2 border-moss pl-4">
+                <p class="font-serif font-semibold text-ink">Reestructuración del sitio web</p>
+                <p class="text-ink-light text-sm mt-0.5">Diseño moderno y responsive, base de datos de socios actualizada, sección de recursos bibliográficos.</p>
               </div>
-              <div class="flex items-start gap-3">
-                <span class="text-2xl">🔄</span>
-                <div>
-                  <p class="font-semibold text-gray-900">Fortalecimiento de redes</p>
-                  <p class="text-gray-700">Alianzas con sociedades científicas afines, convenios con universidades, vinculación internacional.</p>
-                </div>
+              <div class="border-l-2 border-bone-300 pl-4">
+                <p class="font-serif font-semibold text-ink">Fortalecimiento de redes</p>
+                <p class="text-ink-light text-sm mt-0.5">Alianzas con sociedades científicas afines, convenios con universidades, vinculación internacional.</p>
               </div>
-              <div class="flex items-start gap-3">
-                <span class="text-2xl">📅</span>
-                <div>
-                  <p class="font-semibold text-gray-900">Congreso SOCHIAB 2025</p>
-                  <p class="text-gray-700">Primer congreso presencial post-pandemia con invitados internacionales destacados.</p>
-                </div>
+              <div class="border-l-2 border-bone-300 pl-4">
+                <p class="font-serif font-semibold text-ink">Congreso SOCHIAB 2025</p>
+                <p class="text-ink-light text-sm mt-0.5">Primer congreso presencial post-pandemia con invitados internacionales destacados.</p>
               </div>
             </div>
           </div>
 
           <div>
-            <h3 class="text-2xl font-semibold text-gray-900 mb-3">Mediano Plazo (2026)</h3>
+            <p class="font-mono text-xs uppercase tracking-widest text-clay mb-3">Mediano plazo · 2026</p>
             <div class="space-y-3">
-              <div class="flex items-start gap-3">
-                <span class="text-2xl">📚</span>
-                <div>
-                  <p class="font-semibold text-gray-900">Programa de capacitación continua</p>
-                  <p class="text-gray-700">Talleres metodológicos especializados, cursos de nuevas técnicas, certificaciones profesionales.</p>
-                </div>
+              <div class="border-l-2 border-bone-300 pl-4">
+                <p class="font-serif font-semibold text-ink">Programa de capacitación continua</p>
+                <p class="text-ink-light text-sm mt-0.5">Talleres metodológicos especializados, cursos de nuevas técnicas, certificaciones profesionales.</p>
               </div>
-              <div class="flex items-start gap-3">
-                <span class="text-2xl">🎓</span>
-                <div>
-                  <p class="font-semibold text-gray-900">Apoyo a la formación</p>
-                  <p class="text-gray-700">Becas para estudiantes, fondos para asistencia a congresos, pasantías en laboratorios.</p>
-                </div>
+              <div class="border-l-2 border-bone-300 pl-4">
+                <p class="font-serif font-semibold text-ink">Apoyo a la formación</p>
+                <p class="text-ink-light text-sm mt-0.5">Becas para estudiantes, fondos para asistencia a congresos, pasantías en laboratorios.</p>
               </div>
-              <div class="flex items-start gap-3">
-                <span class="text-2xl">🌐</span>
-                <div>
-                  <p class="font-semibold text-gray-900">Visibilidad internacional</p>
-                  <p class="text-gray-700">Participación en congresos internacionales, publicaciones de alto impacto, colaboraciones.</p>
-                </div>
+              <div class="border-l-2 border-bone-300 pl-4">
+                <p class="font-serif font-semibold text-ink">Visibilidad internacional</p>
+                <p class="text-ink-light text-sm mt-0.5">Participación en congresos internacionales, publicaciones de alto impacto, colaboraciones.</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg shadow-md p-8">
-        <h2 class="text-3xl font-bold text-gray-900 mb-4">Impacto Esperado</h2>
+      <section class="bg-ink text-bone-100 p-8 relative overflow-hidden">
+        <div class="absolute top-0 left-0 h-[3px] w-full bg-gradient-to-r from-clay via-clay-light to-moss"></div>
+        <h2 class="font-serif text-2xl font-semibold mb-5">Impacto Esperado</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div>
-            <h3 class="text-lg font-semibold text-blue-800 mb-2">Comunidad Científica</h3>
-            <p class="text-gray-700">Mayor cohesión entre investigadores, aumento en productividad científica, fortalecimiento de programas de postgrado.</p>
+            <p class="font-mono text-xs uppercase tracking-widest text-clay-light mb-1.5">Comunidad Científica</p>
+            <p class="text-sm text-bone-200/80 leading-relaxed">Mayor cohesión entre investigadores, aumento en productividad científica, fortalecimiento de programas de postgrado.</p>
           </div>
           <div>
-            <h3 class="text-lg font-semibold text-purple-800 mb-2">Sociedad</h3>
-            <p class="text-gray-700">Mayor comprensión pública, aportes a justicia y derechos humanos, contribución a políticas públicas.</p>
+            <p class="font-mono text-xs uppercase tracking-widest text-clay-light mb-1.5">Sociedad</p>
+            <p class="text-sm text-bone-200/80 leading-relaxed">Mayor comprensión pública, aportes a justicia y derechos humanos, contribución a políticas públicas.</p>
           </div>
           <div>
-            <h3 class="text-lg font-semibold text-green-800 mb-2">Estudiantes</h3>
-            <p class="text-gray-700">Más oportunidades de formación, red de contactos, acceso a recursos actualizados.</p>
+            <p class="font-mono text-xs uppercase tracking-widest text-clay-light mb-1.5">Estudiantes</p>
+            <p class="text-sm text-bone-200/80 leading-relaxed">Más oportunidades de formación, red de contactos, acceso a recursos actualizados.</p>
           </div>
         </div>
       </section>
     </div>
 
     <!-- Botón de retorno -->
-    <div class="pt-8">
-      <a href={`${base}proyectos`} class="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+    <div class="pt-4">
+      <a href={`${base}proyectos`} class="font-mono text-xs uppercase tracking-widest text-ink hover:text-clay inline-flex items-center gap-2 transition-colors duration-200">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path>
         </svg>
         Volver a todos los proyectos
       </a>

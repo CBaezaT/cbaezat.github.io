@@ -6,6 +6,15 @@ interface Props {
 
 const { title, description = 'Antropólogo Físico, Estudiante del Magíster en Ciencia de Datos para la Innovación' } = Astro.props;
 const base = import.meta.env.BASE_URL;
+
+const navLinks = [
+  { href: 'about', label: 'Sobre mí' },
+  { href: 'proyectos', label: 'Proyectos' },
+  { href: 'publications', label: 'Publicaciones' },
+  { href: 'repositorios', label: 'Repositorios' },
+  { href: 'docencia', label: 'Docencia' },
+  { href: 'contacto', label: 'Contacto' },
+];
 ---
 
 <!doctype html>
@@ -16,63 +25,78 @@ const base = import.meta.env.BASE_URL;
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
     <title>{title}</title>
   </head>
-  <body class="bg-gray-50 text-gray-900 min-h-screen flex flex-col">
-    <header class="bg-gradient-to-r from-[#0B0B0B] via-[#2B396D] to-[#0B0B0B] shadow-lg">
-      <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+  <body class="bg-bone-100 text-ink min-h-screen flex flex-col font-sans antialiased">
+    <header class="bg-bone-100/95 backdrop-blur border-b border-bone-300 sticky top-0 z-30">
+      <nav class="max-w-6xl mx-auto px-6 sm:px-8 py-5">
         <div class="flex justify-between items-center">
-          <a href={base} class="text-2xl font-bold text-white">Cristian Baeza Torres</a>
+          <a href={base} class="font-serif text-xl font-semibold text-ink tracking-tight">
+            Cristian Baeza Torres
+          </a>
 
           <!-- Desktop nav -->
-          <div class="hidden md:flex space-x-6">
-            <a href={`${base}about`} class="text-white hover:text-gray-200 transition">Sobre mí</a>
-            <a href={`${base}proyectos`} class="text-white hover:text-gray-200 transition">Proyectos</a>
-            <a href={`${base}publications`} class="text-white hover:text-gray-200 transition">Publicaciones</a>
-            <a href={`${base}repositorios`} class="text-white hover:text-gray-200 transition">Repositorios</a>
-            <a href={`${base}docencia`} class="text-white hover:text-gray-200 transition">Docencia</a>
-            <a href={`${base}contacto`} class="text-white hover:text-gray-200 transition">Contacto</a>
+          <div class="hidden md:flex items-center gap-8">
+            {navLinks.map((link) => (
+              <a
+                href={`${base}${link.href}`}
+                class="font-mono text-xs uppercase tracking-widest text-ink-light hover:text-clay transition-colors duration-200"
+              >
+                {link.label}
+              </a>
+            ))}
           </div>
 
           <!-- Hamburger button (mobile) -->
           <button
             id="menu-toggle"
-            class="md:hidden text-white focus:outline-none"
+            class="md:hidden text-ink focus:outline-none"
             aria-label="Abrir menú"
             aria-expanded="false"
           >
-            <svg id="icon-open" class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
             </svg>
-            <svg id="icon-close" class="w-7 h-7 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+            <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
             </svg>
           </button>
         </div>
-
-        <!-- Mobile menu -->
-        <div id="mobile-menu" class="hidden md:hidden pt-4 pb-2 flex flex-col gap-3">
-          <a href={`${base}about`} class="text-white hover:text-gray-200 transition py-1">Sobre mí</a>
-          <a href={`${base}proyectos`} class="text-white hover:text-gray-200 transition py-1">Proyectos</a>
-          <a href={`${base}publications`} class="text-white hover:text-gray-200 transition py-1">Publicaciones</a>
-          <a href={`${base}repositorios`} class="text-white hover:text-gray-200 transition py-1">Repositorios</a>
-          <a href={`${base}docencia`} class="text-white hover:text-gray-200 transition py-1">Docencia</a>
-          <a href={`${base}contacto`} class="text-white hover:text-gray-200 transition py-1">Contacto</a>
-        </div>
       </nav>
     </header>
-    
-    <main class="max-w-[1600px] mx-auto px-6 sm:px-8 lg:px-12 py-8 flex-grow">
+
+    <!-- Mobile menu: full-screen panel -->
+    <div id="mobile-menu" class="hidden md:hidden fixed inset-0 top-[73px] bg-bone-100 z-20 overflow-y-auto">
+      <div class="flex flex-col px-8 py-6">
+        {navLinks.map((link) => (
+          <a
+            href={`${base}${link.href}`}
+            class="font-serif text-2xl text-ink py-4 border-b border-bone-300 min-h-[44px] flex items-center"
+          >
+            {link.label}
+          </a>
+        ))}
+      </div>
+    </div>
+
+    <main class="max-w-6xl mx-auto px-6 sm:px-8 py-12 flex-grow w-full">
       <slot />
     </main>
-    
-    <footer class="bg-gradient-to-r from-[#0B0B0B] via-[#2B396D] to-[#0B0B0B] text-white shadow-lg mt-auto">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div class="flex justify-between items-center">
-          <p>© 2025 Cristian Baeza Torres</p>
-          <div class="space-x-4">
-            <a href="https://github.com/CBaezaT" target="_blank" class="hover:text-gray-200 transition">GitHub</a>
-            <a href="https://www.linkedin.com/in/cristian-baeza-torres" target="_blank" class="hover:text-gray-200 transition">LinkedIn</a>
+
+    <footer class="bg-ink text-bone-200 mt-auto relative">
+      <div class="h-[3px] bg-gradient-to-r from-clay via-clay-light to-moss"></div>
+      <div class="max-w-6xl mx-auto px-6 sm:px-8 py-10">
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+          <p class="font-mono text-xs text-bone-300/70 tracking-wide">© 2025 Cristian Baeza Torres</p>
+          <div class="flex gap-6 font-mono text-xs uppercase tracking-widest">
+            <a href="https://github.com/CBaezaT" target="_blank" class="hover:text-clay-light transition-colors duration-200">GitHub</a>
+            <a href="https://www.linkedin.com/in/cristian-baeza-torres" target="_blank" class="hover:text-clay-light transition-colors duration-200">LinkedIn</a>
           </div>
         </div>
       </div>
@@ -90,6 +114,7 @@ const base = import.meta.env.BASE_URL;
         iconOpen?.classList.toggle('hidden', !isOpen);
         iconClose?.classList.toggle('hidden', isOpen);
         toggle.setAttribute('aria-expanded', String(!isOpen));
+        document.body.classList.toggle('overflow-hidden', !isOpen);
       });
     </script>
   </body>

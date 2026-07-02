@@ -3,169 +3,167 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="About me - Cristian Baeza Torres">
-  <div class="max-w-4xl mx-auto space-y-12">
-    <!-- Header con foto igual al inicio -->
-    <div class="flex items-center gap-6">
+  <div class="max-w-4xl mx-auto space-y-14">
+    <div class="space-y-2 border-b border-bone-300 pb-6">
+      <p class="font-mono text-xs uppercase tracking-widest text-clay">§ Perfil</p>
+      <h1 class="font-serif text-4xl font-semibold text-ink">About me</h1>
+      <p class="text-lg text-ink-light">Mi trayectoria académica y profesional</p>
+    </div>
+
+    <!-- Foto de perfil -->
+    <div class="flex flex-col sm:flex-row items-start sm:items-center gap-6">
       <img
         src="/bio-photo.jpg"
         alt="Cristian Baeza Torres"
-        class="w-36 h-48 rounded-3xl object-cover shadow-md flex-shrink-0"
+        class="w-32 h-40 object-cover border border-bone-300 flex-shrink-0"
       />
       <div class="space-y-2">
-        <h1 class="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">Cristian Baeza Torres</h1>
-        <p class="text-xl text-gray-600">Antropólogo Físico</p>
-        <p class="text-lg text-gray-600">Estudiante Magíster en Ciencia de Datos para la Innovación</p>
-        <p class="text-base text-gray-500">Universidad de Concepción - Concepción, Chile</p>
+        <p class="font-mono text-xs uppercase tracking-wide text-ink-light">
+          Antropólogo Físico / Data Scientist / Universidad de Concepción
+        </p>
         <a
           href="mailto:cbaeza2016@udec.cl"
-          class="inline-block mt-2 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition font-medium text-base shadow-md hover:shadow-lg"
+          class="inline-block mt-2 bg-ink text-bone-100 px-6 py-3 font-mono text-xs uppercase tracking-widest hover:bg-clay-dark transition-colors duration-200"
         >
           Contáctame
         </a>
       </div>
     </div>
 
-    <div class="space-y-8 text-gray-700">
+    <div class="space-y-14">
       <!-- Introducción -->
       <section class="space-y-3">
-        <h2 class="text-2xl font-bold text-gray-900">Introducción</h2>
-        <p>
-          Soy antropólogo físico / Data Scientist con una pasión por la innovación, 
-          la aplicación de métodos cuantitativos y ciencia de datos 
-          en el estudio de las poblaciones humanas y sus problemáticas. 
-        </p>
-        <p>
-          Combino la formación clásica en antropología biológica con 
-          herramientas modernas de análisis de datos e Inteligencia Artificial.
-        </p>
-        <p>
-          Creo que la integración de enfoques interdisciplinarios es clave 
-          para avanzar en la comprensión de distintas problemáticas 
-          y desarrollar soluciones integrales a estas.
-        </p>
+        <h2 class="font-serif text-2xl font-semibold text-ink">Introducción</h2>
+        <div class="space-y-3 text-ink-light leading-relaxed">
+          <p>
+            Soy antropólogo físico / Data Scientist con una pasión por la innovación,
+            la aplicación de métodos cuantitativos y ciencia de datos
+            en el estudio de las poblaciones humanas y sus problemáticas.
+          </p>
+          <p>
+            Combino la formación clásica en antropología biológica con
+            herramientas modernas de análisis de datos e Inteligencia Artificial.
+          </p>
+          <p>
+            Creo que la integración de enfoques interdisciplinarios es clave
+            para avanzar en la comprensión de distintas problemáticas
+            y desarrollar soluciones integrales a estas.
+          </p>
+        </div>
       </section>
 
       <!-- Formación Académica -->
-      <section class="space-y-4">
-        <h2 class="text-2xl font-bold text-gray-900">Formación Académica</h2>
-        <div class="space-y-3">
-          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
-            <h3 class="font-semibold text-gray-900">Magíster en Ciencia de Datos para la Innovación</h3>
-            <p class="text-sm text-gray-600">Facultad de Ingeniería, Universidad de Concepción</p>
-            <p class="text-sm text-gray-500">En curso (2025-2026)</p>
+      <section class="space-y-5">
+        <h2 class="font-serif text-2xl font-semibold text-ink">Formación Académica</h2>
+        <div class="relative pl-8 space-y-8 before:content-[''] before:absolute before:left-[3px] before:top-2 before:bottom-2 before:w-px before:bg-bone-300">
+          <div class="relative">
+            <span class="absolute -left-8 top-1.5 w-2 h-2 rounded-full bg-clay"></span>
+            <h3 class="font-serif text-lg font-semibold text-ink">Magíster en Ciencia de Datos para la Innovación</h3>
+            <p class="text-sm text-ink-light mt-1">Facultad de Ingeniería, Universidad de Concepción</p>
+            <p class="font-mono text-xs text-moss uppercase tracking-wide mt-1">[ En curso · 2025-2026 ]</p>
           </div>
-          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
-            <h3 class="font-semibold text-gray-900">Antropología con mención Física</h3>
-            <p class="text-sm text-gray-600">Facultad de Ciencias Sociales, Universidad de Concepción</p>
-            <p class="text-sm text-gray-500">Egresado</p>
+          <div class="relative">
+            <span class="absolute -left-8 top-1.5 w-2 h-2 rounded-full bg-bone-300"></span>
+            <h3 class="font-serif text-lg font-semibold text-ink">Antropología con mención Física</h3>
+            <p class="text-sm text-ink-light mt-1">Facultad de Ciencias Sociales, Universidad de Concepción</p>
+            <p class="font-mono text-xs text-ink-light uppercase tracking-wide mt-1">[ Egresado ]</p>
           </div>
         </div>
       </section>
 
       <!-- Áreas de Expertise -->
-      <section class="space-y-4">
-        <h2 class="text-2xl font-bold text-gray-900">Áreas de Expertise</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div class="bg-green-50 p-4 rounded">
-            <h4 class="font-semibold text-gray-900 mb-2">Antropología Biológica</h4>
-            <p class="text-sm text-gray-600">Análisis de poblaciones, variación humana, adaptación</p>
+      <section class="space-y-5">
+        <h2 class="font-serif text-2xl font-semibold text-ink">Áreas de Expertise</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-bone-300 border border-bone-300">
+          <div class="bg-bone-50 p-5">
+            <h4 class="font-serif font-semibold text-ink mb-1.5">Antropología Biológica</h4>
+            <p class="text-sm text-ink-light">Análisis de poblaciones, variación humana, adaptación</p>
           </div>
-          <div class="bg-blue-50 p-4 rounded">
-            <h4 class="font-semibold text-gray-900 mb-2">Ciencia de Datos</h4>
-            <p class="text-sm text-gray-600">Machine learning, análisis estadístico, visualización</p>
+          <div class="bg-bone-50 p-5">
+            <h4 class="font-serif font-semibold text-ink mb-1.5">Ciencia de Datos</h4>
+            <p class="text-sm text-ink-light">Machine learning, análisis estadístico, visualización</p>
           </div>
-          <div class="bg-purple-50 p-4 rounded">
-            <h4 class="font-semibold text-gray-900 mb-2">Análisis Cuantitativo</h4>
-            <p class="text-sm text-gray-600">Estadística, modelado, análisis multivariado</p>
+          <div class="bg-bone-50 p-5">
+            <h4 class="font-serif font-semibold text-ink mb-1.5">Análisis Cuantitativo</h4>
+            <p class="text-sm text-ink-light">Estadística, modelado, análisis multivariado</p>
           </div>
-          <div class="bg-red-50 p-4 rounded">
-            <h4 class="font-semibold text-gray-900 mb-2">Programación</h4>
-            <p class="text-sm text-gray-600">Python, R, JavaScript, SQL</p>
+          <div class="bg-bone-50 p-5">
+            <h4 class="font-serif font-semibold text-ink mb-1.5">Programación</h4>
+            <p class="text-sm text-ink-light">Python, R, JavaScript, SQL</p>
           </div>
         </div>
       </section>
 
       <!-- Experiencia Profesional -->
-      <section class="space-y-4">
-        <h2 class="text-2xl font-bold text-gray-900">Experiencia Profesional</h2>
-        <div class="space-y-3">
-          <div class="border-l-4 border-red-600 pl-4">
-            <h3 class="font-semibold text-gray-900">Presidente - SOCHIAB 2025-2026</h3>
-            <p class="text-sm text-gray-600">Sociedad Chilena de Antropología Biológica</p>
-            <p class="text-gray-700 text-sm mt-1">Liderando iniciativas de investigación, educación y promoción de la disciplina en Chile</p>
+      <section class="space-y-5">
+        <h2 class="font-serif text-2xl font-semibold text-ink">Experiencia Profesional</h2>
+        <div class="space-y-6">
+          <div class="border-l border-clay pl-5">
+            <h3 class="font-serif font-semibold text-ink">Presidente - SOCHIAB 2025-2026</h3>
+            <p class="text-sm text-ink-light">Sociedad Chilena de Antropología Biológica</p>
+            <p class="text-ink-light text-sm mt-1.5 leading-relaxed">Liderando iniciativas de investigación, educación y promoción de la disciplina en Chile</p>
           </div>
-          <div class="border-l-4 border-blue-600 pl-4">
-            <h3 class="font-semibold text-gray-900">Colaborador - Universidad de Concepción</h3>
-            <p class="text-sm text-gray-600">Docencia e Investigación desde 2022 a la fecha</p>
+          <div class="border-l border-bone-300 pl-5">
+            <h3 class="font-serif font-semibold text-ink">Colaborador - Universidad de Concepción</h3>
+            <p class="text-sm text-ink-light">Docencia e Investigación desde 2022 a la fecha</p>
           </div>
-          <div class="border-l-4 border-purple-600 pl-4">
-            <h3 class="font-semibold text-gray-900">Founder - ARIACH</h3>
+          <div class="border-l border-bone-300 pl-5">
+            <h3 class="font-serif font-semibold text-ink">Founder - ARIACH</h3>
           </div>
-          <div class="border-l-4 border-green-600 pl-4">
-            <h3 class="font-semibold text-gray-900">Impacto Ambiental</h3>
-            <p class="text-sm text-gray-600">Ejercicio profesional en proyectos de impacto ambiental a lo largo de Chile, ejerciendo como Antropólogo Físico desde 2022</p>
+          <div class="border-l border-bone-300 pl-5">
+            <h3 class="font-serif font-semibold text-ink">Impacto Ambiental</h3>
+            <p class="text-ink-light text-sm mt-1.5 leading-relaxed">Ejercicio profesional en proyectos de impacto ambiental a lo largo de Chile, ejerciendo como Antropólogo Físico desde 2022</p>
           </div>
         </div>
       </section>
 
       <!-- Intereses de Investigación -->
-      <section class="space-y-4">
-        <h2 class="text-2xl font-bold text-gray-900">Intereses de Investigación</h2>
-        <ul class="space-y-2">
-          <li class="flex items-start gap-3">
-            <span class="text-blue-600">→</span>
-            <span> Sistemas basados en Ontología y World Models</span>
+      <section class="space-y-5">
+        <h2 class="font-serif text-2xl font-semibold text-ink">Intereses de Investigación</h2>
+        <ul class="space-y-3">
+          <li class="flex items-start gap-3 text-ink-light leading-relaxed">
+            <span class="font-mono text-clay pt-0.5">→</span>
+            <span>Sistemas basados en Ontología y World Models</span>
           </li>
-          <li class="flex items-start gap-3">
-            <span class="text-blue-600">→</span>
+          <li class="flex items-start gap-3 text-ink-light leading-relaxed">
+            <span class="font-mono text-clay pt-0.5">→</span>
             <span>Análisis de sindemias: interacciones entre enfermedades y factores socioeconómicos</span>
           </li>
-          <li class="flex items-start gap-3">
-            <span class="text-blue-600">→</span>
+          <li class="flex items-start gap-3 text-ink-light leading-relaxed">
+            <span class="font-mono text-clay pt-0.5">→</span>
             <span>Aplicación de machine learning en epidemiología y antropología</span>
           </li>
-          <li class="flex items-start gap-3">
-            <span class="text-blue-600">→</span>
+          <li class="flex items-start gap-3 text-ink-light leading-relaxed">
+            <span class="font-mono text-clay pt-0.5">→</span>
             <span>Procesamiento de lenguaje natural para análisis cualitativo automatizado</span>
           </li>
-          <li class="flex items-start gap-3">
-            <span class="text-blue-600">→</span>
+          <li class="flex items-start gap-3 text-ink-light leading-relaxed">
+            <span class="font-mono text-clay pt-0.5">→</span>
             <span>Integración de métodos cuantitativos y cualitativos en investigación social</span>
           </li>
         </ul>
       </section>
 
       <!-- Valores -->
-      <section class="bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg p-6 border-l-4 border-blue-600">
-        <h2 class="text-2xl font-bold text-gray-900 mb-4">Mis Valores</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-700">
-          <div class="flex items-start gap-3">
-            <span class="text-2xl">📚</span>
-            <div>
-              <p class="font-semibold">Rigor Científico</p>
-              <p class="text-sm">Investigación meticulosa y basada en evidencia</p>
-            </div>
+      <section class="bg-ink text-bone-100 p-8 relative overflow-hidden">
+        <div class="absolute top-0 left-0 h-[3px] w-full bg-gradient-to-r from-clay via-clay-light to-moss"></div>
+        <h2 class="font-serif text-2xl font-semibold mb-5">Mis Valores</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <p class="font-mono text-xs uppercase tracking-widest text-clay-light mb-1.5">Rigor Científico</p>
+            <p class="text-sm text-bone-200/80 leading-relaxed">Investigación meticulosa y basada en evidencia</p>
           </div>
-          <div class="flex items-start gap-3">
-            <span class="text-2xl">🤝</span>
-            <div>
-              <p class="font-semibold">Colaboración</p>
-              <p class="text-sm">Trabajo interdisciplinario y comunicación abierta</p>
-            </div>
+          <div>
+            <p class="font-mono text-xs uppercase tracking-widest text-clay-light mb-1.5">Colaboración</p>
+            <p class="text-sm text-bone-200/80 leading-relaxed">Trabajo interdisciplinario y comunicación abierta</p>
           </div>
-          <div class="flex items-start gap-3">
-            <span class="text-2xl">💡</span>
-            <div>
-              <p class="font-semibold">Innovación</p>
-              <p class="text-sm">Exploración de nuevos métodos y enfoques</p>
-            </div>
+          <div>
+            <p class="font-mono text-xs uppercase tracking-widest text-clay-light mb-1.5">Innovación</p>
+            <p class="text-sm text-bone-200/80 leading-relaxed">Exploración de nuevos métodos y enfoques</p>
           </div>
-          <div class="flex items-start gap-3">
-            <span class="text-2xl">🌍</span>
-            <div>
-              <p class="font-semibold">Impacto Social</p>
-              <p class="text-sm">Investigación que contribuya al bien común</p>
-            </div>
+          <div>
+            <p class="font-mono text-xs uppercase tracking-widest text-clay-light mb-1.5">Impacto Social</p>
+            <p class="text-sm text-bone-200/80 leading-relaxed">Investigación que contribuya al bien común</p>
           </div>
         </div>
       </section>

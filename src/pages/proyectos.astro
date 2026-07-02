@@ -6,79 +6,55 @@ const base = import.meta.env.BASE_URL;
 
 <Layout title="Proyectos - Cristian Baeza Torres">
   <div class="space-y-12">
-    <div class="space-y-2">
-      <h1 class="text-4xl font-bold text-gray-900">Proyectos</h1>
-      <p class="text-lg text-gray-600">Iniciativas de investigación y desarrollo</p>
+    <div class="space-y-2 border-b border-bone-300 pb-6">
+      <p class="font-mono text-xs uppercase tracking-widest text-clay">§ Catálogo</p>
+      <h1 class="font-serif text-4xl font-semibold text-ink">Proyectos</h1>
+      <p class="text-lg text-ink-light">Iniciativas de investigación y desarrollo</p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      {proyectos.map((proyecto) => {
-        const borderColorClass = {
-          'blue': 'border-blue-600',
-          'green': 'border-green-600',
-          'red': 'border-red-600',
-          'purple': 'border-purple-600',
-        }[proyecto.color] || 'border-gray-600';
-        
-        return (
-          <div class={`bg-white rounded-lg shadow-md hover:shadow-lg transition overflow-hidden border-l-4 ${borderColorClass}`}>
-            <div class="p-6 space-y-4">
-              <h3 class="text-xl font-bold text-gray-900">{proyecto.titulo}</h3>
-              <p class="text-gray-700">
-                {proyecto.descripcion}
-              </p>
-              <div class="flex flex-wrap gap-2">
-                {proyecto.tags.map((tag) => {
-                  const colorClasses = {
-                    'Data Science': 'bg-blue-100 text-blue-800',
-                    'Epidemiología': 'bg-green-100 text-green-800',
-                    'Python': 'bg-purple-100 text-purple-800',
-                    'NLP': 'bg-green-100 text-green-800',
-                    'Machine Learning': 'bg-blue-100 text-blue-800',
-                    'Liderazgo': 'bg-red-100 text-red-800',
-                    'Sociedad Científica': 'bg-purple-100 text-purple-800',
-                    'Gestión': 'bg-blue-100 text-blue-800',
-                    'Antropología': 'bg-purple-100 text-purple-800',
-                    'Redes': 'bg-orange-100 text-orange-800',
-                    'Series Temporales': 'bg-indigo-100 text-indigo-800',
-                    'Antropología Forense': 'bg-teal-100 text-teal-800',
-                    'Bioarqueología': 'bg-cyan-100 text-cyan-800',
-                  };
-                  const colorClass = colorClasses[tag] || 'bg-gray-100 text-gray-800';
-                  return (
-                    <span class={`${colorClass} px-3 py-1 rounded text-sm`}>
-                      {tag}
-                    </span>
-                  );
-                })}
-              </div>
-              <div class="flex items-center justify-between pt-2">
-                <p class="text-sm text-gray-500">{proyecto.estado}</p>
-                {proyecto.link && (
-                  <a 
-                    href={`${base}${proyecto.link}`}
-                    class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition font-medium text-sm inline-flex items-center gap-2"
-                  >
-                    Ver proyecto
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                    </svg>
-                  </a>
-                )}
-              </div>
-            </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-bone-300 border border-bone-300">
+      {proyectos.map((proyecto, index) => (
+        <div class="bg-bone-50 hover:bg-bone-100 transition-colors duration-200 p-8 space-y-4">
+          <div class="flex items-start justify-between gap-4">
+            <h3 class="font-serif text-xl font-semibold text-ink">{proyecto.titulo}</h3>
+            <span class="font-mono text-xs text-clay shrink-0 pt-1">{String(index + 1).padStart(2, '0')}</span>
           </div>
-        );
-      })}
+          <p class="text-ink-light leading-relaxed">
+            {proyecto.descripcion}
+          </p>
+          <div class="flex flex-wrap gap-2 pt-1">
+            {proyecto.tags.map((tag) => (
+              <span class="border border-bone-300 text-ink-light px-3 py-1 font-mono text-xs uppercase tracking-wide">
+                {tag}
+              </span>
+            ))}
+          </div>
+          <div class="flex items-center justify-between pt-3 border-t border-bone-300">
+            <p class="font-mono text-xs text-moss uppercase tracking-wide">[ {proyecto.estado} ]</p>
+            {proyecto.link && (
+              <a
+                href={`${base}${proyecto.link}`}
+                class="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-widest text-ink hover:text-clay transition-colors duration-200"
+              >
+                Ver proyecto
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
+                </svg>
+              </a>
+            )}
+          </div>
+        </div>
+      ))}
     </div>
 
-    <div class="bg-blue-50 rounded-lg p-8 border-l-4 border-blue-600">
-      <h2 class="text-2xl font-bold text-gray-900 mb-4">Interesado en colaborar?</h2>
-      <p class="text-gray-700 mb-6">
-        Siempre estoy abierto a nuevas colaboraciones y proyectos interdisciplinarios. 
+    <div class="bg-ink text-bone-100 p-10 relative overflow-hidden">
+      <div class="absolute top-0 left-0 h-[3px] w-full bg-gradient-to-r from-clay via-clay-light to-moss"></div>
+      <h2 class="font-serif text-2xl font-semibold mb-3">¿Interesado en colaborar?</h2>
+      <p class="text-bone-200/80 mb-6 max-w-2xl leading-relaxed">
+        Siempre estoy abierto a nuevas colaboraciones y proyectos interdisciplinarios.
         Si tienes una idea o propuesta que te gustaría discutir, no dudes en contactarme.
       </p>
-      <a href={`${base}/contacto`} class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition font-medium inline-block">
+      <a href={`${base}contacto`} class="inline-block border border-bone-100 px-6 py-3 font-mono text-xs uppercase tracking-widest hover:bg-bone-100 hover:text-ink transition-colors duration-200">
         Ponte en contacto
       </a>
     </div>

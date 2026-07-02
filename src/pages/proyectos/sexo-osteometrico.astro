@@ -4,79 +4,79 @@ const base = import.meta.env.BASE_URL;
 ---
 
 <Layout title="Goldman Osteometric Dataset - Estimación de Sexo Biológico - Cristian Baeza Torres">
-  <div class="max-w-4xl mx-auto space-y-8">
+  <div class="max-w-4xl mx-auto space-y-10">
     <!-- Header -->
-    <div class="space-y-4">
-      <a href={`${base}proyectos`} class="text-blue-600 hover:text-blue-700 inline-flex items-center gap-2">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+    <div class="space-y-5 border-b border-bone-300 pb-6">
+      <a href={`${base}proyectos`} class="font-mono text-xs uppercase tracking-widest text-ink-light hover:text-clay inline-flex items-center gap-2 transition-colors duration-200">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path>
         </svg>
         Volver a Proyectos
       </a>
-      <h1 class="text-4xl lg:text-5xl font-bold text-gray-900">Goldman Osteometric Dataset: Estimación de Sexo Biológico con Machine Learning</h1>
-      <div class="flex flex-wrap gap-3">
-        <span class="bg-teal-100 text-teal-800 px-4 py-2 rounded-full text-sm font-medium">Antropología Forense</span>
-        <span class="bg-purple-100 text-purple-800 px-4 py-2 rounded-full text-sm font-medium">Machine Learning</span>
-        <span class="bg-cyan-100 text-cyan-800 px-4 py-2 rounded-full text-sm font-medium">Analítica de Datos · UdeC 2025</span>
+      <h1 class="font-serif text-4xl lg:text-5xl font-semibold text-ink leading-tight">Goldman Osteometric Dataset: Estimación de Sexo Biológico con Machine Learning</h1>
+      <div class="flex flex-wrap gap-2">
+        <span class="border border-bone-300 text-ink-light px-3 py-1 font-mono text-xs uppercase tracking-wide">Antropología Forense</span>
+        <span class="border border-bone-300 text-ink-light px-3 py-1 font-mono text-xs uppercase tracking-wide">Machine Learning</span>
+        <span class="border border-bone-300 text-ink-light px-3 py-1 font-mono text-xs uppercase tracking-wide">Analítica de Datos · UdeC 2025</span>
       </div>
-      <p class="text-lg text-gray-600">Colaboradores: Felipe Olivares, Felipe Romero, Claudio Velquén</p>
+      <p class="text-ink-light">Colaboradores: Felipe Olivares, Felipe Romero, Claudio Velquén</p>
     </div>
 
     <!-- Contenido Principal -->
-    <div class="prose prose-lg max-w-none space-y-8">
-      <section class="bg-white rounded-lg shadow-md p-8 space-y-6">
-        <h2 class="text-3xl font-bold text-gray-900">Descripción del Proyecto</h2>
-        <p class="text-gray-700">
-          Proyecto de la asignatura <strong>Analítica de Datos</strong> (Universidad de Concepción, 2025) que aplica
-          <strong>6 modelos de Machine Learning supervisado</strong> para estimar el sexo biológico a partir de medidas
-          osteométricas de huesos largos. Se utilizó el <strong>Goldman Osteometric Dataset</strong> (Dr. Benjamin Auerbach,
+    <div class="space-y-8">
+      <section class="bg-bone-50 border border-bone-300 p-8 space-y-6">
+        <h2 class="font-serif text-2xl font-semibold text-ink">Descripción del Proyecto</h2>
+        <p class="text-ink-light leading-relaxed">
+          Proyecto de la asignatura <strong class="text-ink">Analítica de Datos</strong> (Universidad de Concepción, 2025) que aplica
+          <strong class="text-ink">6 modelos de Machine Learning supervisado</strong> para estimar el sexo biológico a partir de medidas
+          osteométricas de huesos largos. Se utilizó el <strong class="text-ink">Goldman Osteometric Dataset</strong> (Dr. Benjamin Auerbach,
           UTK), con 1.538 individuos y mediciones de extremidades superiores e inferiores, segmentadas por continente
           de origen para reducir el sesgo poblacional.
         </p>
 
-        <div class="bg-green-50 border-l-4 border-green-600 p-6 rounded">
-          <h3 class="text-xl font-bold text-gray-900 mb-2">Mejor Resultado</h3>
-          <p class="text-gray-700">
-            <strong>88.7% de accuracy</strong> con Random Forest (modelo reducido, 5 variables) en extremidad
+        <div class="border-l-2 border-clay bg-bone-100 p-6">
+          <h3 class="font-serif text-lg font-semibold text-ink mb-2">Mejor Resultado</h3>
+          <p class="text-ink-light">
+            <strong class="text-ink">88.7% de accuracy</strong> con Random Forest (modelo reducido, 5 variables) en extremidad
             superior derecha — ROC-AUC 94.1%. Los modelos reducidos a 4–5 mediciones óseas mantienen
             desempeño comparable al modelo completo.
           </p>
         </div>
       </section>
 
-      <section class="bg-white rounded-lg shadow-md p-8 space-y-6">
-        <h2 class="text-3xl font-bold text-gray-900">Contexto Científico</h2>
-        
-        <div class="space-y-4">
+      <section class="bg-bone-50 border border-bone-300 p-8 space-y-6">
+        <h2 class="font-serif text-2xl font-semibold text-ink">Contexto Científico</h2>
+
+        <div class="space-y-5">
           <div>
-            <h3 class="text-xl font-semibold text-gray-900">Dimorfismo Sexual en Antropología</h3>
-            <p class="text-gray-700">
-              El dimorfismo sexual se refiere a las diferencias morfológicas y métricas entre individuos masculinos y femeninos. 
+            <h3 class="font-serif text-lg font-semibold text-ink mb-2">Dimorfismo Sexual en Antropología</h3>
+            <p class="text-ink-light leading-relaxed">
+              El dimorfismo sexual se refiere a las diferencias morfológicas y métricas entre individuos masculinos y femeninos.
               En antropología forense y bioarqueología, la estimación del sexo biológico es fundamental para el perfil biológico.
             </p>
           </div>
 
           <div>
-            <h3 class="text-xl font-semibold text-gray-900">Métodos Tradicionales</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div class="bg-orange-50 p-4 rounded">
-                <h4 class="font-semibold text-orange-800 mb-2">Morfoscopia</h4>
-                <p class="text-sm text-gray-700">Evaluación visual</p>
-                <p class="text-sm text-gray-700">Precisión: 70-80%</p>
-                <p class="text-sm text-gray-700">Limitación: Subjetividad</p>
+            <h3 class="font-serif text-lg font-semibold text-ink mb-2">Métodos Tradicionales</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-bone-300 border border-bone-300">
+              <div class="bg-bone-50 p-4">
+                <h4 class="font-serif font-semibold text-ink mb-1.5">Morfoscopia</h4>
+                <p class="text-sm text-ink-light">Evaluación visual</p>
+                <p class="font-mono text-xs text-moss mt-1">Precisión: 70-80%</p>
+                <p class="text-sm text-ink-light mt-1">Limitación: Subjetividad</p>
               </div>
-              <div class="bg-blue-50 p-4 rounded">
-                <h4 class="font-semibold text-blue-800 mb-2">Ecuaciones Discriminantes</h4>
-                <p class="text-sm text-gray-700">Regresión estadística</p>
-                <p class="text-sm text-gray-700">Precisión: 80-90%</p>
-                <p class="text-sm text-gray-700">Limitación: Población-específicas</p>
+              <div class="bg-bone-50 p-4">
+                <h4 class="font-serif font-semibold text-ink mb-1.5">Ecuaciones Discriminantes</h4>
+                <p class="text-sm text-ink-light">Regresión estadística</p>
+                <p class="font-mono text-xs text-moss mt-1">Precisión: 80-90%</p>
+                <p class="text-sm text-ink-light mt-1">Limitación: Población-específicas</p>
               </div>
             </div>
           </div>
 
-          <div class="bg-purple-50 border-l-4 border-purple-600 p-6 rounded">
-            <h3 class="text-xl font-semibold text-purple-900 mb-2">Ventaja del Machine Learning</h3>
-            <ul class="list-disc list-inside text-gray-700 space-y-1">
+          <div class="border-l-2 border-clay bg-bone-100 p-6">
+            <h3 class="font-serif text-lg font-semibold text-ink mb-2">Ventaja del Machine Learning</h3>
+            <ul class="list-disc list-inside text-ink-light space-y-1">
               <li>Análisis simultáneo de múltiples variables</li>
               <li>Detección de patrones complejos no lineales</li>
               <li>Reproducibilidad total</li>
@@ -86,23 +86,23 @@ const base = import.meta.env.BASE_URL;
         </div>
       </section>
 
-      <section class="bg-white rounded-lg shadow-md p-8 space-y-6">
-        <h2 class="text-3xl font-bold text-gray-900">Metodología</h2>
-        
+      <section class="bg-bone-50 border border-bone-300 p-8 space-y-6">
+        <h2 class="font-serif text-2xl font-semibold text-ink">Metodología</h2>
+
         <div class="space-y-6">
           <div>
-            <h3 class="text-2xl font-semibold text-gray-900 mb-3">1. EDA + Segmentación Geográfica</h3>
-            <ul class="list-disc list-inside text-gray-700 space-y-1">
+            <h3 class="font-serif text-lg font-semibold text-ink mb-2">1. EDA + Segmentación Geográfica</h3>
+            <ul class="list-disc list-inside text-ink-light space-y-1">
               <li>Limpieza exhaustiva de valores nulos y estandarización de formatos</li>
-              <li>Segmentación por variable <strong>Location</strong> (continente) para reducir sesgo poblacional</li>
+              <li>Segmentación por variable <strong class="text-ink">Location</strong> (continente) para reducir sesgo poblacional</li>
               <li>Detección de outliers, análisis de distribución y correlaciones</li>
               <li>Variables derivadas: índices braquial y crural para detectar patrones dimórficos</li>
             </ul>
           </div>
 
           <div>
-            <h3 class="text-2xl font-semibold text-gray-900 mb-3">2. Clustering (K-Means + PCA)</h3>
-            <ul class="list-disc list-inside text-gray-700 space-y-1">
+            <h3 class="font-serif text-lg font-semibold text-ink mb-2">2. Clustering (K-Means + PCA)</h3>
+            <ul class="list-disc list-inside text-ink-light space-y-1">
               <li>K-Means por extremidad para detectar agrupaciones naturales</li>
               <li>PCA para visualizar separación morfológica por sexo y continente</li>
               <li>ARI con Sexo ~0.43 en las 4 extremidades — el clustering detecta dimorfismo sin supervisión</li>
@@ -111,94 +111,91 @@ const base = import.meta.env.BASE_URL;
           </div>
 
           <div>
-            <h3 class="text-2xl font-semibold text-gray-900 mb-3">3. Modelos Evaluados</h3>
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
-              <div class="bg-blue-100 text-blue-900 px-4 py-2 rounded text-center font-medium">Árbol de Decisión</div>
-              <div class="bg-green-100 text-green-900 px-4 py-2 rounded text-center font-medium">Random Forest</div>
-              <div class="bg-purple-100 text-purple-900 px-4 py-2 rounded text-center font-medium">Regresión Logística</div>
-              <div class="bg-red-100 text-red-900 px-4 py-2 rounded text-center font-medium">SVM</div>
-              <div class="bg-yellow-100 text-yellow-900 px-4 py-2 rounded text-center font-medium">XGBoost</div>
-              <div class="bg-indigo-100 text-indigo-900 px-4 py-2 rounded text-center font-medium">MLP</div>
+            <h3 class="font-serif text-lg font-semibold text-ink mb-2">3. Modelos Evaluados</h3>
+            <div class="flex flex-wrap gap-2">
+              {['Árbol de Decisión', 'Random Forest', 'Regresión Logística', 'SVM', 'XGBoost', 'MLP'].map((model) => (
+                <span class="border border-bone-300 text-ink-light px-3 py-1.5 font-mono text-xs uppercase tracking-wide">{model}</span>
+              ))}
             </div>
           </div>
 
           <div>
-            <h3 class="text-2xl font-semibold text-gray-900 mb-3">4. Pipeline de Evaluación y Optimización</h3>
-            <div class="bg-gray-50 p-4 rounded space-y-1">
-              <p class="text-gray-700"><strong>División:</strong> Train / Validación / Test por extremidad</p>
-              <p class="text-gray-700"><strong>Optimización:</strong> Búsqueda de hiperparámetros para cada modelo</p>
-              <p class="text-gray-700"><strong>Reducción:</strong> Modelos optimizados con 4–5 variables más importantes</p>
-              <p class="text-gray-700"><strong>Métricas:</strong> Accuracy, Precision, Recall, F1-Score, ROC-AUC</p>
-              <p class="text-gray-700"><strong>Validación poblacional:</strong> Accuracy por continente (6 regiones)</p>
+            <h3 class="font-serif text-lg font-semibold text-ink mb-2">4. Pipeline de Evaluación y Optimización</h3>
+            <div class="border border-bone-300 p-4 space-y-1 font-mono text-sm text-ink-light">
+              <p><span class="text-clay">División:</span> Train / Validación / Test por extremidad</p>
+              <p><span class="text-clay">Optimización:</span> Búsqueda de hiperparámetros para cada modelo</p>
+              <p><span class="text-clay">Reducción:</span> Modelos optimizados con 4–5 variables más importantes</p>
+              <p><span class="text-clay">Métricas:</span> Accuracy, Precision, Recall, F1-Score, ROC-AUC</p>
+              <p><span class="text-clay">Validación poblacional:</span> Accuracy por continente (6 regiones)</p>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="bg-white rounded-lg shadow-md p-8 space-y-6">
-        <h2 class="text-3xl font-bold text-gray-900">Resultados</h2>
-        
+      <section class="bg-bone-50 border border-bone-300 p-8 space-y-6">
+        <h2 class="font-serif text-2xl font-semibold text-ink">Resultados</h2>
+
         <div class="space-y-6">
-          <div class="bg-green-50 border-l-4 border-green-600 p-6 rounded">
-            <h3 class="text-2xl font-semibold text-green-900 mb-3">Extremidad Superior Izquierda (Mejor Rendimiento) 🏆</h3>
+          <div class="border-l-2 border-clay bg-bone-100 p-6">
+            <h3 class="font-serif text-xl font-semibold text-ink mb-4">Extremidad Superior Derecha <span class="font-mono text-xs text-moss uppercase tracking-wide">[ Mejor rendimiento ]</span></h3>
             <div class="grid grid-cols-2 gap-4">
               <div>
-                <p class="text-sm text-gray-600">Modelo Ganador</p>
-                <p class="text-lg font-bold text-green-800">Regresión Logística</p>
+                <p class="font-mono text-xs uppercase tracking-widest text-ink-light">Modelo Ganador</p>
+                <p class="text-lg font-serif font-semibold text-ink">Random Forest</p>
               </div>
               <div>
-                <p class="text-sm text-gray-600">Accuracy</p>
-                <p class="text-lg font-bold text-green-800">86.31%</p>
+                <p class="font-mono text-xs uppercase tracking-widest text-ink-light">Accuracy</p>
+                <p class="text-lg font-serif font-semibold text-ink">88.7%</p>
               </div>
               <div>
-                <p class="text-sm text-gray-600">ROC-AUC</p>
-                <p class="text-lg font-bold text-green-800">92.09%</p>
+                <p class="font-mono text-xs uppercase tracking-widest text-ink-light">ROC-AUC</p>
+                <p class="text-lg font-serif font-semibold text-ink">94.1%</p>
               </div>
               <div>
-                <p class="text-sm text-gray-600">Variable Clave</p>
-                <p class="text-lg font-bold text-green-800">LHHD (35.7%)</p>
+                <p class="font-mono text-xs uppercase tracking-widest text-ink-light">Variables</p>
+                <p class="text-lg font-serif font-semibold text-ink">5 (modelo reducido)</p>
               </div>
             </div>
-            <p class="text-sm text-gray-700 mt-3">LHHD: Diámetro cabeza del húmero - Mayor dimorfismo sexual</p>
+            <p class="text-sm text-ink-light mt-3">Los modelos reducidos a 4–5 mediciones óseas mantienen desempeño comparable al modelo completo</p>
           </div>
 
           <div>
-            <h3 class="text-2xl font-semibold text-gray-900 mb-3">Resultados por Extremidad (Modelo Reducido)</h3>
-            <div class="space-y-2">
-              <div class="flex items-center justify-between bg-green-50 p-3 rounded">
+            <h3 class="font-serif text-lg font-semibold text-ink mb-3">Resultados por Extremidad (Modelo Reducido)</h3>
+            <div class="divide-y divide-bone-300 border-y border-bone-300">
+              <div class="flex items-center justify-between py-3">
                 <div>
-                  <span class="font-semibold text-green-900">Superior Derecha</span>
-                  <span class="text-xs text-gray-500 ml-2">Random Forest · 5 vars</span>
+                  <span class="font-serif font-semibold text-ink">Superior Derecha</span>
+                  <span class="font-mono text-xs text-ink-light/60 ml-2">Random Forest · 5 vars</span>
                 </div>
-                <span class="text-green-700 font-bold">88.7% acc · ROC-AUC 94.1%</span>
+                <span class="font-mono text-sm text-moss">88.7% acc · ROC-AUC 94.1%</span>
               </div>
-              <div class="flex items-center justify-between bg-blue-50 p-3 rounded">
+              <div class="flex items-center justify-between py-3">
                 <div>
-                  <span class="font-semibold text-blue-900">Superior Izquierda</span>
-                  <span class="text-xs text-gray-500 ml-2">Reg. Logística · 4 vars</span>
+                  <span class="font-serif font-semibold text-ink">Superior Izquierda</span>
+                  <span class="font-mono text-xs text-ink-light/60 ml-2">Reg. Logística · 4 vars</span>
                 </div>
-                <span class="text-blue-700 font-bold">86.7% acc · ROC-AUC 92.1%</span>
+                <span class="font-mono text-sm text-moss">86.7% acc · ROC-AUC 92.1%</span>
               </div>
-              <div class="flex items-center justify-between bg-teal-50 p-3 rounded">
+              <div class="flex items-center justify-between py-3">
                 <div>
-                  <span class="font-semibold text-teal-900">Inferior Izquierda</span>
-                  <span class="text-xs text-gray-500 ml-2">SVM · 5 vars</span>
+                  <span class="font-serif font-semibold text-ink">Inferior Izquierda</span>
+                  <span class="font-mono text-xs text-ink-light/60 ml-2">SVM · 5 vars</span>
                 </div>
-                <span class="text-teal-700 font-bold">85.5% acc · ROC-AUC 91.5%</span>
+                <span class="font-mono text-sm text-moss">85.5% acc · ROC-AUC 91.5%</span>
               </div>
-              <div class="flex items-center justify-between bg-purple-50 p-3 rounded">
+              <div class="flex items-center justify-between py-3">
                 <div>
-                  <span class="font-semibold text-purple-900">Inferior Derecha</span>
-                  <span class="text-xs text-gray-500 ml-2">MLP · 5 vars</span>
+                  <span class="font-serif font-semibold text-ink">Inferior Derecha</span>
+                  <span class="font-mono text-xs text-ink-light/60 ml-2">MLP · 5 vars</span>
                 </div>
-                <span class="text-purple-700 font-bold">85.3% acc · ROC-AUC 90.4%</span>
+                <span class="font-mono text-sm text-moss">85.3% acc · ROC-AUC 90.4%</span>
               </div>
             </div>
           </div>
 
-          <div class="bg-amber-50 border-l-4 border-amber-500 p-5 rounded">
-            <h3 class="text-xl font-semibold text-amber-900 mb-2">Limitación poblacional: población asiática</h3>
-            <p class="text-gray-700 text-sm">
+          <div class="border-l-2 border-clay bg-bone-100 p-5">
+            <h3 class="font-serif text-lg font-semibold text-ink mb-2">Limitación poblacional: población asiática</h3>
+            <p class="text-ink-light text-sm leading-relaxed">
               El clustering K-Means + PCA reveló que los especímenes asiáticos forman un agrupamiento morfológicamente
               distinto (~37-38% de overlap con otros continentes). Esto explica el menor accuracy en Asia (61-74% según
               extremidad), coherente con diferencias morfológicas reportadas en la literatura. Los modelos generalistas
@@ -207,36 +204,36 @@ const base = import.meta.env.BASE_URL;
           </div>
 
           <div>
-            <h3 class="text-2xl font-semibold text-gray-900 mb-3">Modelos con mejor desempeño transversal</h3>
-            <div class="overflow-x-auto">
+            <h3 class="font-serif text-lg font-semibold text-ink mb-3">Modelos con mejor desempeño transversal</h3>
+            <div class="overflow-x-auto border border-bone-300">
               <table class="min-w-full text-sm">
-                <thead class="bg-gray-100">
+                <thead class="bg-ink text-bone-100">
                   <tr>
-                    <th class="px-4 py-2 text-left font-semibold">Modelo</th>
-                    <th class="px-4 py-2 text-left font-semibold">Rango Accuracy</th>
-                    <th class="px-4 py-2 text-left font-semibold">Ventajas</th>
+                    <th class="px-4 py-2 text-left font-mono text-xs uppercase tracking-widest font-medium">Modelo</th>
+                    <th class="px-4 py-2 text-left font-mono text-xs uppercase tracking-widest font-medium">Rango Accuracy</th>
+                    <th class="px-4 py-2 text-left font-mono text-xs uppercase tracking-widest font-medium">Ventajas</th>
                   </tr>
                 </thead>
-                <tbody class="divide-y">
-                  <tr class="bg-green-50">
-                    <td class="px-4 py-2 font-medium">Random Forest</td>
-                    <td class="px-4 py-2">84–89%</td>
-                    <td class="px-4 py-2">Mejor accuracy general, entrega importancia de variables</td>
+                <tbody class="divide-y divide-bone-300">
+                  <tr class="bg-bone-100">
+                    <td class="px-4 py-2.5 font-serif font-medium text-ink">Random Forest</td>
+                    <td class="px-4 py-2.5 font-mono text-ink-light">84–89%</td>
+                    <td class="px-4 py-2.5 text-ink-light">Mejor accuracy general, entrega importancia de variables</td>
                   </tr>
                   <tr>
-                    <td class="px-4 py-2 font-medium">MLP (Perceptrón Multi Capa)</td>
-                    <td class="px-4 py-2">83–88%</td>
-                    <td class="px-4 py-2">Mejor balance accuracy/recall — relevante en contexto forense</td>
+                    <td class="px-4 py-2.5 font-serif font-medium text-ink">MLP (Perceptrón Multi Capa)</td>
+                    <td class="px-4 py-2.5 font-mono text-ink-light">83–88%</td>
+                    <td class="px-4 py-2.5 text-ink-light">Mejor balance accuracy/recall — relevante en contexto forense</td>
                   </tr>
                   <tr>
-                    <td class="px-4 py-2 font-medium">Regresión Logística</td>
-                    <td class="px-4 py-2">83–87%</td>
-                    <td class="px-4 py-2">Interpretable, entrega importancia de variables</td>
+                    <td class="px-4 py-2.5 font-serif font-medium text-ink">Regresión Logística</td>
+                    <td class="px-4 py-2.5 font-mono text-ink-light">83–87%</td>
+                    <td class="px-4 py-2.5 text-ink-light">Interpretable, entrega importancia de variables</td>
                   </tr>
                   <tr>
-                    <td class="px-4 py-2 font-medium">SVM</td>
-                    <td class="px-4 py-2">84–87%</td>
-                    <td class="px-4 py-2">Consistente entre extremidades</td>
+                    <td class="px-4 py-2.5 font-serif font-medium text-ink">SVM</td>
+                    <td class="px-4 py-2.5 font-mono text-ink-light">84–87%</td>
+                    <td class="px-4 py-2.5 text-ink-light">Consistente entre extremidades</td>
                   </tr>
                 </tbody>
               </table>
@@ -245,13 +242,13 @@ const base = import.meta.env.BASE_URL;
         </div>
       </section>
 
-      <section class="bg-white rounded-lg shadow-md p-8 space-y-6">
-        <h2 class="text-3xl font-bold text-gray-900">Aplicaciones</h2>
-        
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <section class="bg-bone-50 border border-bone-300 p-8 space-y-6">
+        <h2 class="font-serif text-2xl font-semibold text-ink">Aplicaciones</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-6">
           <div>
-            <h3 class="text-xl font-semibold text-blue-800 mb-3">Antropología Forense</h3>
-            <ul class="list-disc list-inside text-gray-700 space-y-1 text-sm">
+            <h3 class="font-serif text-lg font-semibold text-ink mb-2">Antropología Forense</h3>
+            <ul class="list-disc list-inside text-ink-light space-y-1 text-sm">
               <li>Identificación en desastres masivos</li>
               <li>Perfiles biológicos médico-legales</li>
               <li>Investigación de derechos humanos</li>
@@ -260,8 +257,8 @@ const base = import.meta.env.BASE_URL;
           </div>
 
           <div>
-            <h3 class="text-xl font-semibold text-purple-800 mb-3">Bioarqueología</h3>
-            <ul class="list-disc list-inside text-gray-700 space-y-1 text-sm">
+            <h3 class="font-serif text-lg font-semibold text-ink mb-2">Bioarqueología</h3>
+            <ul class="list-disc list-inside text-ink-light space-y-1 text-sm">
               <li>Estudios de poblaciones antiguas</li>
               <li>Análisis de dimorfismo histórico</li>
               <li>Reconstrucción demográfica</li>
@@ -270,8 +267,8 @@ const base = import.meta.env.BASE_URL;
           </div>
 
           <div>
-            <h3 class="text-xl font-semibold text-green-800 mb-3">Medicina Legal</h3>
-            <ul class="list-disc list-inside text-gray-700 space-y-1 text-sm">
+            <h3 class="font-serif text-lg font-semibold text-ink mb-2">Medicina Legal</h3>
+            <ul class="list-disc list-inside text-ink-light space-y-1 text-sm">
               <li>Complemento a morfoscopia</li>
               <li>Segunda opinión automatizada</li>
               <li>Casos con preservación diferencial</li>
@@ -281,79 +278,48 @@ const base = import.meta.env.BASE_URL;
         </div>
       </section>
 
-      <section class="bg-white rounded-lg shadow-md p-8 space-y-6">
-        <h2 class="text-3xl font-bold text-gray-900">Stack Tecnológico</h2>
-        
-        <div class="bg-gray-50 p-6 rounded">
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div class="text-center">
-              <p class="font-semibold text-gray-900">Python</p>
-              <p class="text-sm text-gray-600">3.10+</p>
-            </div>
-            <div class="text-center">
-              <p class="font-semibold text-gray-900">Scikit-learn</p>
-              <p class="text-sm text-gray-600">ML Framework</p>
-            </div>
-            <div class="text-center">
-              <p class="font-semibold text-gray-900">XGBoost</p>
-              <p class="text-sm text-gray-600">Boosting</p>
-            </div>
-            <div class="text-center">
-              <p class="font-semibold text-gray-900">Pandas</p>
-              <p class="text-sm text-gray-600">Datos</p>
-            </div>
-            <div class="text-center">
-              <p class="font-semibold text-gray-900">NumPy</p>
-              <p class="text-sm text-gray-600">Cómputo</p>
-            </div>
-            <div class="text-center">
-              <p class="font-semibold text-gray-900">Matplotlib</p>
-              <p class="text-sm text-gray-600">Visualización</p>
-            </div>
-            <div class="text-center">
-              <p class="font-semibold text-gray-900">Seaborn</p>
-              <p class="text-sm text-gray-600">Gráficos</p>
-            </div>
-            <div class="text-center">
-              <p class="font-semibold text-gray-900">SciPy</p>
-              <p class="text-sm text-gray-600">Estadística</p>
-            </div>
-          </div>
+      <section class="bg-bone-50 border border-bone-300 p-8 space-y-5">
+        <h2 class="font-serif text-2xl font-semibold text-ink">Stack Tecnológico</h2>
+        <div class="flex flex-wrap gap-2">
+          {['Python 3.10+', 'Scikit-learn', 'XGBoost', 'Pandas', 'NumPy', 'Matplotlib', 'Seaborn', 'SciPy'].map((tech) => (
+            <span class="border border-bone-300 text-ink-light px-3 py-1.5 font-mono text-xs uppercase tracking-wide">{tech}</span>
+          ))}
         </div>
       </section>
 
-      <section class="bg-gradient-to-r from-teal-50 to-cyan-50 rounded-lg shadow-md p-8">
-        <h2 class="text-3xl font-bold text-gray-900 mb-4">Conclusiones</h2>
-        <div class="space-y-4">
+      <section class="bg-ink text-bone-100 p-8 relative overflow-hidden">
+        <div class="absolute top-0 left-0 h-[3px] w-full bg-gradient-to-r from-clay via-clay-light to-moss"></div>
+        <h2 class="font-serif text-2xl font-semibold mb-5">Conclusiones</h2>
+        <div class="space-y-3">
           <div class="flex items-start gap-3">
-            <span class="text-2xl">✓</span>
-            <p class="text-gray-700">Los modelos de ML muestran <strong>alto potencial para estimar sexo biológico</strong> usando extremidades aisladas (hasta 88.7% accuracy)</p>
+            <span class="font-mono text-clay-light pt-0.5">→</span>
+            <p class="text-bone-200/80 leading-relaxed">Los modelos de ML muestran <strong class="text-bone-100">alto potencial para estimar sexo biológico</strong> usando extremidades aisladas (hasta 88.7% accuracy)</p>
           </div>
           <div class="flex items-start gap-3">
-            <span class="text-2xl">✓</span>
-            <p class="text-gray-700">Los modelos pueden reducirse a <strong>4–5 mediciones óseas</strong>, manteniendo desempeño predictivo comparable al modelo completo</p>
+            <span class="font-mono text-clay-light pt-0.5">→</span>
+            <p class="text-bone-200/80 leading-relaxed">Los modelos pueden reducirse a <strong class="text-bone-100">4–5 mediciones óseas</strong>, manteniendo desempeño predictivo comparable al modelo completo</p>
           </div>
           <div class="flex items-start gap-3">
-            <span class="text-2xl">✓</span>
-            <p class="text-gray-700"><strong>Random Forest, MLP, Reg. Logística y SVM</strong> presentan buen desempeño transversal por extremidad y población</p>
+            <span class="font-mono text-clay-light pt-0.5">→</span>
+            <p class="text-bone-200/80 leading-relaxed"><strong class="text-bone-100">Random Forest, MLP, Reg. Logística y SVM</strong> presentan buen desempeño transversal por extremidad y población</p>
           </div>
           <div class="flex items-start gap-3">
-            <span class="text-2xl">✓</span>
-            <p class="text-gray-700"><strong>Limitación poblacional identificada</strong>: mayor dificultad en población asiática, coherente con diferencias morfológicas reportadas en la literatura</p>
+            <span class="font-mono text-clay-light pt-0.5">→</span>
+            <p class="text-bone-200/80 leading-relaxed"><strong class="text-bone-100">Limitación poblacional identificada</strong>: mayor dificultad en población asiática, coherente con diferencias morfológicas reportadas en la literatura</p>
           </div>
           <div class="flex items-start gap-3">
-            <span class="text-2xl">✓</span>
-            <p class="text-gray-700">Línea futura clave: <strong>incorporar casos chilenos contemporáneos</strong> para modelos forenses específicos</p>
+            <span class="font-mono text-clay-light pt-0.5">→</span>
+            <p class="text-bone-200/80 leading-relaxed">Línea futura clave: <strong class="text-bone-100">incorporar casos chilenos contemporáneos</strong> para modelos forenses específicos</p>
           </div>
         </div>
       </section>
     </div>
 
     <!-- Botón de retorno -->
-    <div class="pt-8">
-      <a href={`${base}proyectos`} class="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+    <div class="pt-4">
+      <a href={`${base}proyectos`} class="font-mono text-xs uppercase tracking-widest text-ink hover:text-clay inline-flex items-center gap-2 transition-colors duration-200">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path>
         </svg>
         Volver a todos los proyectos
       </a>
