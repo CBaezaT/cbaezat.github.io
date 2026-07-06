@@ -5,8 +5,6 @@ export interface Proyecto {
   descripcionCorta: string;
   tags: string[];
   estado: string;
-  color: string;
-  emoji: string;
   año: string;
   link?: string; // Enlace opcional a la página del proyecto
 }
@@ -19,8 +17,6 @@ export const proyectos: Proyecto[] = [
     descripcionCorta: "Presidente de la Sociedad Chilena de Antropología Biológica, liderando iniciativas de investigación",
     tags: ["Liderazgo", "Sociedad Científica", "Gestión"],
     estado: "2025 - 2026",
-    color: "red",
-    emoji: "👥",
     año: "2025",
     link: "proyectos/sochiab-presidencia/"
   },
@@ -31,8 +27,6 @@ export const proyectos: Proyecto[] = [
     descripcionCorta: "Modelo de predicción de ventas semanales con Prophet y XGBoost para retail",
     tags: ["Data Science", "Machine Learning", "Series Temporales"],
     estado: "Completado - 2025",
-    color: "blue",
-    emoji: "📊",
     año: "2025",
     link: "proyectos/prediccion-ventas/"
   },
@@ -43,8 +37,6 @@ export const proyectos: Proyecto[] = [
     descripcionCorta: "6 modelos de ML supervisado para estimar sexo biológico desde medidas osteométricas del Goldman Dataset",
     tags: ["Analítica de Datos", "Machine Learning", "Antropología Forense"],
     estado: "Completado - 2025",
-    color: "green",
-    emoji: "🧬",
     año: "2025",
     link: "proyectos/sexo-osteometrico/"
   }

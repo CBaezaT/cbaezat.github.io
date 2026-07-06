@@ -46,10 +46,10 @@ src/
 | # | Problema | Detalle | Solución |
 |---|----------|---------|----------|
 | 6 | **`package-lock.json` ignorado en git** | El `.gitignore` (heredado de Jekyll) excluía el lockfile. CI hacía `npm install` sin lockfile → builds no reproducibles. | ✅ *Corregido: lockfile versionado y workflow usando `npm ci`.* |
-| 7 | **Assets legacy de Jekyll** | `assets/` contiene jQuery, lunr.js, plugins jQuery, `main.scss` y `main.min.js` del theme Minimal Mistakes. Nada de esto se usa en Astro (~1 MB de peso muerto versionado). | Eliminar `assets/js/` y `assets/css/`; conservar solo `assets/images/` si esas imágenes se van a usar (o moverlas a `public/`). |
+| 7 | **Assets legacy de Jekyll** | `assets/` contenía jQuery, lunr.js, plugins jQuery, `main.scss` y `main.min.js` del theme Minimal Mistakes (~1 MB sin uso). | ✅ *Corregido: `assets/js/` y `assets/css/` eliminados; se conserva `assets/images/` (imágenes personales).* |
 | 8 | **Colecciones de contenido vacías y sin esquema** | `src/content/blog/` y `src/content/publications/` existen pero están vacías y no hay `src/content/config.ts`. El blog y las publicaciones se editan a mano en `.astro`. | Migrar a Content Collections de Astro (ver §3.1). Es el cambio de mayor retorno a mediano plazo. |
-| 9 | **README desactualizado** | Menciona Docker, `docker-compose.yml`, `Dockerfile` y `src/components/` — ninguno existe en el repo. | Actualizar el README al flujo real (`npm install && npm run dev`). |
-| 10 | **Campos muertos en `proyectos.ts`** | `color` y `emoji` quedaron del diseño anterior y ya no se usan en ninguna página. | Eliminar los campos de la interfaz y de los datos. |
+| 9 | **README desactualizado** | Mencionaba Docker, `docker-compose.yml`, `Dockerfile` y `src/components/` — ninguno existía en el repo. | ✅ *Corregido: README reescrito con el flujo real y enlaces a la documentación en `docs/`.* |
+| 10 | **Campos muertos en `proyectos.ts`** | `color` y `emoji` quedaron del diseño anterior y no se usaban en ninguna página. | ✅ *Corregido: campos eliminados de la interfaz, los datos y la guía de contenido.* |
 
 ### Prioridad baja
 
@@ -59,7 +59,7 @@ src/
 | 12 | **Imágenes duplicadas y pesadas** | `bio-photo.jpg` y `perfil.JPG` aparecen en `public/`, `assets/images/` y `dist/`. `perfil.JPG` (extensión en mayúscula, típica de cámara) no se usa en ninguna página. Elegir una fuente única en `public/` y considerar convertir a WebP. |
 | 13 | **Texto duplicado en docencia** | La frase "Esta asignatura introdujo a los estudiantes a métodos estadísticos avanzados…" aparece idéntica en dos cursos distintos (`docencia.astro`). Parece copy-paste. |
 | 14 | **`© 2025` fijo en el footer** | ✅ *Corregido: ahora usa el año actual dinámicamente.* |
-| 15 | **Sin `robots.txt`** | Agregar `public/robots.txt` apuntando al sitemap: mejora el rastreo. |
+| 15 | **Sin `robots.txt`** | ✅ *Corregido: `public/robots.txt` creado apuntando al sitemap.* |
 
 ---
 

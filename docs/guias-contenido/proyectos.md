@@ -17,8 +17,6 @@ Agrega el objeto **al inicio del array** `proyectos` (el home muestra los 3 prim
   descripcionCorta: "Una sola oración para la card del home (máx ~100 caracteres)",
   tags: ["Data Science", "Machine Learning"], // 2-3 tags, reutiliza los existentes
   estado: "En curso - 2026", // o "Completado - 2026"
-  color: "", // legacy, no se usa — dejar vacío
-  emoji: "",  // legacy, no se usa — dejar vacío
   año: "2026",
   link: "proyectos/mi-proyecto/" // omitir si aún no hay página de detalle
 },

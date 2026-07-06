@@ -1,96 +1,62 @@
-# Cristian Baeza Torres - Sitio Personal
+# Cristian Baeza Torres — Sitio Personal
 
-Sitio personal migrado de Jekyll a Astro con Docker para desarrollo local.
+Sitio personal publicado en **[crisbaezatorres.cl](https://crisbaezatorres.cl)**. Construido con [Astro](https://astro.build) y [Tailwind CSS](https://tailwindcss.com), desplegado automáticamente en GitHub Pages. Migrado desde Jekyll (Minimal Mistakes) en 2025-2026.
 
-## 👨‍🔬 Sobre mí
+## Sobre mí
 
-Antropólogo Físico, estudiante de postgrado de Ciencia de Datos.  
-Presidente de la Sociedad Chilena de Antropología Biologica (SOCHIAB) 2025-2026.  
-Colaborador recurrente de la Carrera de Antropología de la Universidad de Concepción.  
-Founder en ARIACH (Academia de Robotica e Inteligencia Artificial).  
+Antropólogo Físico, estudiante del Magíster en Ciencia de Datos para la Innovación (Universidad de Concepción).
+Presidente de la Sociedad Chilena de Antropología Biológica (SOCHIAB) 2025-2026.
+Colaborador recurrente de la Carrera de Antropología de la Universidad de Concepción.
+Founder en ARIACH (Academia de Robótica e Inteligencia Artificial).
 De Concepción, Chile.
 
-### Stack Tecnológico
-- Python
-- R 
-- SQL (PostgreSQL)
-- JASP
-- JavaScript/TypeScript
-- Astro + Tailwind CSS
+## Desarrollo local
 
-## 🚀 Desarrollo Local
-
-### Requisitos
-- Docker Desktop
-- Docker Compose
-- Node.js 20+ (opcional, si no usas Docker)
-
-### Inicio Rápido
+Requiere Node.js 20+.
 
 ```bash
-# Con Docker (recomendado)
-docker-compose up
-
-# Sin Docker
 npm install
-npm run dev
+npm run dev        # http://localhost:4321
 ```
-
-El sitio estará disponible en: `http://localhost:4321`
-
-## 📦 Comandos
 
 | Comando | Acción |
 |---------|--------|
-| `npm install` | Instala dependencias |
-| `npm run dev` | Inicia servidor de desarrollo |
+| `npm run dev` | Servidor de desarrollo |
 | `npm run build` | Build de producción en `./dist/` |
 | `npm run preview` | Vista previa del build |
-| `docker-compose up` | Servidor con Docker |
 
-## 🏗️ Estructura del Proyecto
+## Estructura
 
 ```
-/
-├── public/          # Assets estáticos
-├── src/
-│   ├── components/  # Componentes reutilizables
-│   ├── content/     # Contenido en Markdown
-│   ├── layouts/     # Layouts de página
-│   └── pages/       # Rutas del sitio
-├── astro.config.mjs
-├── Dockerfile
-└── docker-compose.yml
+src/
+├── layouts/Layout.astro    # Layout único (head, nav, footer)
+├── data/proyectos.ts       # Datos de proyectos
+└── pages/                  # Una página por sección + detalles de proyecto
+public/                     # Assets estáticos (foto, favicon, CNAME, robots.txt)
+docs/                       # Documentación del proyecto
 ```
 
-## 🌐 Deploy a GitHub Pages
+## Documentación
 
-El sitio se despliega automáticamente con GitHub Actions en cada push a `master`.
+- [Documento de diseño](docs/documento-diseno.md) — sistema visual "estratigrafía digital" y sus reglas.
+- [Revisión y sugerencias de desarrollo](docs/revision-sugerencias-desarrollo.md) — estado del repo y roadmap.
+- [Guías de contenido](docs/guias-contenido/) — cómo agregar proyectos, publicaciones, posts, repositorios y cursos.
 
-## 📧 Contacto Profesional
+## Deploy
+
+Push a `master` → GitHub Actions ([deploy.yml](.github/workflows/deploy.yml)) construye y publica en GitHub Pages con el dominio `crisbaezatorres.cl`.
+
+## Contacto
 
 - **Email**: crisbaezatorres@gmail.com
-- **Email Institucional**: cbaeza2016@udec.cl
 - **LinkedIn**: [Cristian Baeza Torres](https://www.linkedin.com/in/cristian-baeza-torres/)
+- **GitHub**: [@CBaezaT](https://github.com/CBaezaT)
 
 ### SOCHIAB
 
-- **Web**: [sochiab.cl](https://sochiab.cl/)
-- **Email**: presidencia@sochiab.cl
-- **LinkedIn**: [SOCHIAB](https://www.linkedin.com/company/sochiab/)
-- **Instagram**: [@sochiab](https://www.instagram.com/sochiab/)
+- **Web**: [sochiab.cl](https://sochiab.cl/) · **Email**: presidencia@sochiab.cl
+- [LinkedIn](https://www.linkedin.com/company/sochiab/) · [Instagram](https://www.instagram.com/sochiab/)
 
-## 🛠️ Tecnologías
-
-- [Astro](https://astro.build) - Framework web
-- [Tailwind CSS](https://tailwindcss.com) - Estilos
-- [MDX](https://mdxjs.com) - Markdown con componentes
-- Docker + Nginx - Containerización y deploy
-
-## 📝 Migración desde Jekyll
-
-Este proyecto fue migrado desde Jekyll (Minimal Mistakes theme).
-
-## 📄 Licencia
+## Licencia
 
 MIT
