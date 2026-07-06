@@ -6,6 +6,11 @@ interface Props {
 
 const { title, description = 'Antropólogo Físico, Estudiante del Magíster en Ciencia de Datos para la Innovación' } = Astro.props;
 const base = import.meta.env.BASE_URL;
+const currentYear = new Date().getFullYear();
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const ogImage = new URL('/bio-photo.jpg', Astro.site);
+// Primer segmento de la URL: marca la sección activa en el nav
+const currentSection = Astro.url.pathname.split('/').filter(Boolean)[0] ?? '';
 
 const navLinks = [
   { href: 'about', label: 'Sobre mí' },
@@ -25,6 +30,17 @@ const navLinks = [
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+    <link rel="canonical" href={canonicalURL} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:locale" content="es_CL" />
+    <meta property="og:site_name" content="Cristian Baeza Torres" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -32,6 +48,12 @@ const navLinks = [
       rel="stylesheet"
     />
     <title>{title}</title>
+    <style is:global>
+      :focus-visible {
+        outline: 2px solid #b45309;
+        outline-offset: 2px;
+      }
+    </style>
   </head>
   <body class="bg-bone-100 text-ink min-h-screen flex flex-col font-sans antialiased">
     <header class="bg-bone-100/95 backdrop-blur border-b border-bone-300 sticky top-0 z-30">
@@ -46,7 +68,11 @@ const navLinks = [
             {navLinks.map((link) => (
               <a
                 href={`${base}${link.href}`}
-                class="font-mono text-xs uppercase tracking-widest text-ink-light hover:text-clay transition-colors duration-200"
+                aria-current={link.href === currentSection ? 'page' : undefined}
+                class:list={[
+                  'font-mono text-xs uppercase tracking-widest transition-colors duration-200',
+                  link.href === currentSection ? 'text-clay' : 'text-ink-light hover:text-clay',
+                ]}
               >
                 {link.label}
               </a>
@@ -93,10 +119,10 @@ const navLinks = [
       <div class="h-[3px] bg-gradient-to-r from-clay via-clay-light to-moss"></div>
       <div class="max-w-6xl mx-auto px-6 sm:px-8 py-10">
         <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-          <p class="font-mono text-xs text-bone-300/70 tracking-wide">© 2025 Cristian Baeza Torres</p>
+          <p class="font-mono text-xs text-bone-300/70 tracking-wide">© {currentYear} Cristian Baeza Torres</p>
           <div class="flex gap-6 font-mono text-xs uppercase tracking-widest">
-            <a href="https://github.com/CBaezaT" target="_blank" class="hover:text-clay-light transition-colors duration-200">GitHub</a>
-            <a href="https://www.linkedin.com/in/cristian-baeza-torres" target="_blank" class="hover:text-clay-light transition-colors duration-200">LinkedIn</a>
+            <a href="https://github.com/CBaezaT" target="_blank" rel="noopener noreferrer" class="hover:text-clay-light transition-colors duration-200">GitHub</a>
+            <a href="https://www.linkedin.com/in/cristian-baeza-torres" target="_blank" rel="noopener noreferrer" class="hover:text-clay-light transition-colors duration-200">LinkedIn</a>
           </div>
         </div>
       </div>

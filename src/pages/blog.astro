@@ -1,6 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-const base = import.meta.env.BASE_URL;
 ---
 
 <Layout title="Blog - Cristian Baeza Torres">
@@ -14,11 +13,7 @@ const base = import.meta.env.BASE_URL;
       <article class="py-8 flex gap-6">
         <span class="font-mono text-sm text-clay shrink-0 pt-1">2021</span>
         <div class="space-y-2">
-          <h2 class="font-serif text-xl font-semibold text-ink">
-            <a href={`${base}blog/transcripcion-automatica`} class="hover:text-clay transition-colors duration-200">
-              Transcripción Automática
-            </a>
-          </h2>
+          <h2 class="font-serif text-xl font-semibold text-ink">Transcripción Automática</h2>
           <p class="font-mono text-xs text-ink-light uppercase tracking-wide">15 de Septiembre, 2021</p>
           <p class="text-ink-light leading-relaxed">
             Explorando herramientas de transcripción automática para investigación cualitativa.
@@ -29,11 +24,7 @@ const base = import.meta.env.BASE_URL;
       <article class="py-8 flex gap-6">
         <span class="font-mono text-sm text-clay shrink-0 pt-1">2022</span>
         <div class="space-y-2">
-          <h2 class="font-serif text-xl font-semibold text-ink">
-            <a href={`${base}blog/tesis-post`} class="hover:text-clay transition-colors duration-200">
-              Proyecto de Tesis
-            </a>
-          </h2>
+          <h2 class="font-serif text-xl font-semibold text-ink">Proyecto de Tesis</h2>
           <p class="font-mono text-xs text-ink-light uppercase tracking-wide">15 de Febrero, 2022</p>
           <p class="text-ink-light leading-relaxed">
             Detalles sobre mi proyecto de investigación y metodología.
