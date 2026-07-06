@@ -20,8 +20,8 @@ Astro 4 + Tailwind CSS 3, sitio estático multipágina sin framework de UI.
 - `src/layouts/Layout.astro` — layout único: `<head>` (SEO/OG), nav desktop + menú móvil, footer. Los links de navegación se definen en el array `navLinks` de este archivo.
 - `src/pages/*.astro` — una página por sección (index, about, proyectos, publications, repositorios, docencia, contacto, blog). Blog no está en el nav (contenido pendiente).
 - `src/pages/proyectos/<slug>.astro` — páginas de detalle de proyectos.
-- `src/data/proyectos.ts` — única fuente de datos estructurados: alimenta la grilla de `/proyectos` y los "recientes" del home.
-- `src/content/` — colecciones vacías reservadas para futura migración a Content Collections; hoy el contenido de blog/publicaciones está hardcodeado en las páginas.
+- `src/data/proyectos.ts` — datos de proyectos: alimenta la grilla de `/proyectos` y los "recientes" del home.
+- `src/content/` — Content Collections (esquemas zod en `config.ts`): `blog/` y `publications/` en Markdown. El índice del blog solo enlaza posts **con cuerpo**; un post con solo frontmatter se lista sin link y no genera página (evita links rotos). Los estilos del Markdown de posts viven en `src/pages/blog/[...slug].astro`.
 - `public/` — assets estáticos (foto, CNAME, favicon, robots.txt). `assets/images/` en la raíz guarda imágenes personales no publicadas; el resto del `assets/` de Jekyll fue eliminado.
 - Usar `const base = import.meta.env.BASE_URL` para links internos: `href={`${base}proyectos`}`.
 

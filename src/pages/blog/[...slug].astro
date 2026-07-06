@@ -1,0 +1,85 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+const base = import.meta.env.BASE_URL;
+
+export async function getStaticPaths() {
+  // Solo se genera página para posts con cuerpo escrito; los demás
+  // aparecen en el índice sin enlace (evita páginas vacías / links rotos)
+  const posts = await getCollection('blog', (entry) => !entry.data.draft && entry.body.trim().length > 0);
+  return posts.map((post) => ({ params: { slug: post.slug }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+
+const meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+const fecha = post.data.date;
+const fechaLegible = `${fecha.getUTCDate()} de ${meses[fecha.getUTCMonth()]}, ${fecha.getUTCFullYear()}`;
+---
+
+<Layout title={`${post.data.title} - Cristian Baeza Torres`} description={post.data.description}>
+  <article class="max-w-3xl mx-auto space-y-8">
+    <div class="space-y-3 border-b border-bone-300 pb-6">
+      <a href={`${base}blog`} class="font-mono text-xs uppercase tracking-widest text-ink-light hover:text-clay inline-flex items-center gap-2 transition-colors duration-200">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path>
+        </svg>
+        Volver al blog
+      </a>
+      <p class="font-mono text-xs uppercase tracking-widest text-clay">§ Bitácora</p>
+      <h1 class="font-serif text-4xl font-semibold text-ink leading-tight">{post.data.title}</h1>
+      <p class="font-mono text-xs text-ink-light uppercase tracking-wide">{fechaLegible}</p>
+    </div>
+
+    <div class="post-body">
+      <Content />
+    </div>
+  </article>
+</Layout>
+
+<style>
+  .post-body :global(p) {
+    @apply text-ink-light leading-relaxed mb-5;
+  }
+  .post-body :global(h2) {
+    @apply font-serif text-2xl font-semibold text-ink pt-4 mb-4;
+  }
+  .post-body :global(h3) {
+    @apply font-serif text-xl font-semibold text-ink pt-2 mb-3;
+  }
+  .post-body :global(a) {
+    @apply text-clay hover:text-clay-dark underline underline-offset-2 transition-colors duration-200;
+  }
+  .post-body :global(ul),
+  .post-body :global(ol) {
+    @apply text-ink-light leading-relaxed mb-5 pl-6 space-y-2;
+  }
+  .post-body :global(ul) {
+    @apply list-disc;
+  }
+  .post-body :global(ol) {
+    @apply list-decimal;
+  }
+  .post-body :global(blockquote) {
+    @apply border-l-2 border-clay bg-bone-200 p-6 text-ink mb-5;
+  }
+  .post-body :global(blockquote p) {
+    @apply text-ink mb-0;
+  }
+  .post-body :global(pre) {
+    @apply p-6 overflow-x-auto font-mono text-sm mb-5;
+  }
+  .post-body :global(:not(pre) > code) {
+    @apply font-mono text-sm bg-bone-200 text-ink px-1.5 py-0.5;
+  }
+  .post-body :global(img) {
+    @apply border border-bone-300 w-full mb-2;
+  }
+  .post-body :global(figcaption) {
+    @apply font-mono text-xs text-ink-light mb-5;
+  }
+  .post-body :global(hr) {
+    @apply border-bone-300 my-8;
+  }
+</style>

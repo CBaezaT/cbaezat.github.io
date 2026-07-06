@@ -47,7 +47,7 @@ src/
 |---|----------|---------|----------|
 | 6 | **`package-lock.json` ignorado en git** | El `.gitignore` (heredado de Jekyll) excluía el lockfile. CI hacía `npm install` sin lockfile → builds no reproducibles. | ✅ *Corregido: lockfile versionado y workflow usando `npm ci`.* |
 | 7 | **Assets legacy de Jekyll** | `assets/` contenía jQuery, lunr.js, plugins jQuery, `main.scss` y `main.min.js` del theme Minimal Mistakes (~1 MB sin uso). | ✅ *Corregido: `assets/js/` y `assets/css/` eliminados; se conserva `assets/images/` (imágenes personales).* |
-| 8 | **Colecciones de contenido vacías y sin esquema** | `src/content/blog/` y `src/content/publications/` existen pero están vacías y no hay `src/content/config.ts`. El blog y las publicaciones se editan a mano en `.astro`. | Migrar a Content Collections de Astro (ver §3.1). Es el cambio de mayor retorno a mediano plazo. |
+| 8 | **Colecciones de contenido vacías y sin esquema** | `src/content/blog/` y `src/content/publications/` existían vacías, sin `config.ts`; blog y publicaciones se editaban a mano en `.astro`. | ✅ *Corregido: Content Collections con esquemas zod; blog y publicaciones ahora son archivos Markdown (ver guías actualizadas). Posts sin cuerpo se listan sin enlace.* |
 | 9 | **README desactualizado** | Mencionaba Docker, `docker-compose.yml`, `Dockerfile` y `src/components/` — ninguno existía en el repo. | ✅ *Corregido: README reescrito con el flujo real y enlaces a la documentación en `docs/`.* |
 | 10 | **Campos muertos en `proyectos.ts`** | `color` y `emoji` quedaron del diseño anterior y no se usaban en ninguna página. | ✅ *Corregido: campos eliminados de la interfaz, los datos y la guía de contenido.* |
 
@@ -65,19 +65,11 @@ src/
 
 ## 3. Sugerencias de desarrollo (roadmap)
 
-### 3.1 Migrar contenido a Content Collections (la mejora más importante)
+### 3.1 Migrar contenido a Content Collections ✅ (hecho para blog y publicaciones)
 
-Hoy, publicar una publicación o un post implica editar HTML dentro de un `.astro`. Con Content Collections, cada pieza de contenido es un archivo Markdown con frontmatter validado:
+Implementado en julio 2026: `src/content/config.ts` define esquemas zod para `blog` y `publications`; cada pieza es un Markdown con frontmatter validado en build, el índice del blog y las páginas de detalle se generan solas, y las guías de contenido quedaron reducidas a "crear un archivo .md".
 
-```
-src/content/
-├── config.ts          # esquemas zod: blog, publicaciones, proyectos
-├── blog/mi-post.md
-├── publicaciones/sindemia-chile.md
-└── proyectos/prediccion-ventas.md
-```
-
-Beneficios: escribir en Markdown (más rápido y menos propenso a errores), validación de frontmatter en build, páginas de detalle generadas automáticamente con `getStaticPaths`, y orden/filtrado programático. Las guías de contenido en `docs/guias-contenido/` documentan el flujo actual y quedarán aún más simples tras esta migración.
+Pendiente opcional: migrar también **proyectos** (hoy en `proyectos.ts` + páginas `.astro` manuales). Menos urgente porque los datos ya están centralizados y las páginas de detalle tienen layouts ricos que Markdown puro no cubre bien.
 
 ### 3.2 Extraer componentes reutilizables
 

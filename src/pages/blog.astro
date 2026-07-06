@@ -1,5 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+const base = import.meta.env.BASE_URL;
+
+const meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+const formatearFecha = (d: Date) => `${d.getUTCDate()} de ${meses[d.getUTCMonth()]}, ${d.getUTCFullYear()}`;
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime()
+);
 ---
 
 <Layout title="Blog - Cristian Baeza Torres">
@@ -10,27 +19,24 @@ import Layout from '../layouts/Layout.astro';
     </div>
 
     <div class="divide-y divide-bone-300 border-t border-bone-300">
-      <article class="py-8 flex gap-6">
-        <span class="font-mono text-sm text-clay shrink-0 pt-1">2021</span>
-        <div class="space-y-2">
-          <h2 class="font-serif text-xl font-semibold text-ink">Transcripción Automática</h2>
-          <p class="font-mono text-xs text-ink-light uppercase tracking-wide">15 de Septiembre, 2021</p>
-          <p class="text-ink-light leading-relaxed">
-            Explorando herramientas de transcripción automática para investigación cualitativa.
-          </p>
-        </div>
-      </article>
-
-      <article class="py-8 flex gap-6">
-        <span class="font-mono text-sm text-clay shrink-0 pt-1">2022</span>
-        <div class="space-y-2">
-          <h2 class="font-serif text-xl font-semibold text-ink">Proyecto de Tesis</h2>
-          <p class="font-mono text-xs text-ink-light uppercase tracking-wide">15 de Febrero, 2022</p>
-          <p class="text-ink-light leading-relaxed">
-            Detalles sobre mi proyecto de investigación y metodología.
-          </p>
-        </div>
-      </article>
+      {posts.map((post) => (
+        <article class="py-8 flex gap-6">
+          <span class="font-mono text-sm text-clay shrink-0 pt-1">{post.data.date.getUTCFullYear()}</span>
+          <div class="space-y-2">
+            <h2 class="font-serif text-xl font-semibold text-ink">
+              {post.body.trim().length > 0 ? (
+                <a href={`${base}blog/${post.slug}`} class="hover:text-clay transition-colors duration-200">
+                  {post.data.title}
+                </a>
+              ) : (
+                post.data.title
+              )}
+            </h2>
+            <p class="font-mono text-xs text-ink-light uppercase tracking-wide">{formatearFecha(post.data.date)}</p>
+            <p class="text-ink-light leading-relaxed">{post.data.description}</p>
+          </div>
+        </article>
+      ))}
     </div>
   </div>
 </Layout>
