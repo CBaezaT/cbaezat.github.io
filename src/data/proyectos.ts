@@ -11,6 +11,16 @@ export interface Proyecto {
 
 export const proyectos: Proyecto[] = [
   {
+    id: 4,
+    titulo: "Pharos - Inteligencia Territorial",
+    descripcion: "Plataforma de inteligencia territorial para la Región del Biobío: ontología de alertas geoespaciales en PostGIS, API en tiempo real con WebSockets y enriquecimiento automático de contexto (hospitales, riesgo geológico, áreas protegidas) para cada evento. Trabajo del Magíster en Ciencia de Datos para la Innovación (MACI).",
+    descripcionCorta: "Plataforma de alertas territoriales en tiempo real con PostGIS, Express y MapLibre GL",
+    tags: ["Ingeniería de Datos", "Geoespacial", "Arquitectura de Software"],
+    estado: "Completado - 2026",
+    año: "2026",
+    link: "proyectos/pharos/"
+  },
+  {
     id: 1,
     titulo: "SOCHIAB - Presidencia 2025-2026",
     descripcion: "Presidente de la Sociedad Chilena de Antropología Biológica, liderando iniciativas de investigación, educación y promoción de la disciplina en Chile.",

@@ -1,0 +1,207 @@
+---
+import Layout from '../../layouts/Layout.astro';
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout title="Pharos - Inteligencia Territorial - Cristian Baeza Torres">
+  <div class="max-w-4xl mx-auto space-y-10">
+    <!-- Header -->
+    <div class="space-y-5 border-b border-bone-300 pb-6">
+      <a href={`${base}proyectos`} class="font-mono text-xs uppercase tracking-widest text-ink-light hover:text-clay inline-flex items-center gap-2 transition-colors duration-200">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path>
+        </svg>
+        Volver a Proyectos
+      </a>
+      <h1 class="font-serif text-4xl lg:text-5xl font-semibold text-ink leading-tight">Pharos — Inteligencia Territorial</h1>
+      <div class="flex flex-wrap gap-2">
+        <span class="border border-bone-300 text-ink-light px-3 py-1 font-mono text-xs uppercase tracking-wide">Ingeniería de Datos</span>
+        <span class="border border-bone-300 text-ink-light px-3 py-1 font-mono text-xs uppercase tracking-wide">Geoespacial</span>
+        <span class="border border-bone-300 text-ink-light px-3 py-1 font-mono text-xs uppercase tracking-wide">Arquitectura de Software</span>
+      </div>
+      <p class="font-mono text-xs text-moss uppercase tracking-wide">[ Completado · 2026 ]</p>
+      <p class="text-ink-light">Código: <a href="https://github.com/CBaezaT/pharos-demo" target="_blank" rel="noopener noreferrer" class="text-ink hover:text-clay transition-colors duration-200">github.com/CBaezaT/pharos-demo</a></p>
+    </div>
+
+    <!-- Contenido Principal -->
+    <div class="space-y-8">
+      <section class="bg-bone-50 border border-bone-300 p-8 space-y-6">
+        <h2 class="font-serif text-2xl font-semibold text-ink">Resumen Ejecutivo</h2>
+        <p class="text-ink-light leading-relaxed">
+          Plataforma de inteligencia territorial que centraliza alertas de emergencia (sismos, incendios,
+          inundaciones, remociones en masa, contaminación) sobre un modelo geoespacial en <strong class="text-ink">PostGIS</strong>,
+          con API en tiempo real y dashboard interactivo. Desarrollado como trabajo del Magíster en Ciencia de
+          Datos para la Innovación (MACI), aplicado al caso de la Región del Biobío.
+        </p>
+
+        <div class="border-l-2 border-clay bg-bone-100 p-6">
+          <h3 class="font-serif text-lg font-semibold text-ink mb-2">Resultado Principal</h3>
+          <p class="text-ink-light">Cada alerta nueva se enriquece <strong class="text-ink">automáticamente y en el momento de su creación</strong> con el contexto territorial que la rodea — hospitales cercanos, historial geológico, áreas protegidas, sitios de riesgo — resuelto con funciones espaciales PostGIS, sin intervención manual.</p>
+        </div>
+      </section>
+
+      <section class="bg-bone-50 border border-bone-300 p-8 space-y-6">
+        <h2 class="font-serif text-2xl font-semibold text-ink">Contexto y Problema</h2>
+        <p class="text-ink-light">
+          Municipios y organismos de emergencia en Chile gestionan alertas de forma fragmentada — planillas,
+          mensajería, sistemas sin componente geoespacial. No existe correlación automática entre un evento y
+          el contexto territorial que lo rodea.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-bone-300 border border-bone-300">
+          <div class="bg-bone-50 p-4">
+            <h4 class="font-serif font-semibold text-ink mb-1.5">Sin correlación espacial</h4>
+            <p class="text-sm text-ink-light">Alertas registradas como coordenadas sueltas, sin cruce con infraestructura o riesgo circundante</p>
+          </div>
+          <div class="bg-bone-50 p-4">
+            <h4 class="font-serif font-semibold text-ink mb-1.5">Fuentes fragmentadas</h4>
+            <p class="text-sm text-ink-light">Datos públicos (SERNAGEOMIN, MINSAL, CONAF, MMA) dispersos en formatos distintos, sin integrar</p>
+          </div>
+          <div class="bg-bone-50 p-4">
+            <h4 class="font-serif font-semibold text-ink mb-1.5">Sin tiempo real</h4>
+            <p class="text-sm text-ink-light">Los cambios de estado no se propagan instantáneamente a quienes deben verlos</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-bone-50 border border-bone-300 p-8 space-y-6">
+        <h2 class="font-serif text-2xl font-semibold text-ink">Datos y Arquitectura</h2>
+
+        <div class="space-y-5">
+          <div>
+            <h3 class="font-serif text-lg font-semibold text-ink mb-2">Fuentes públicas integradas</h3>
+            <ul class="list-disc list-inside text-ink-light space-y-1">
+              <li>33 comunas / 3 provincias — límites administrativos oficiales</li>
+              <li>21 hospitales — MINSAL / DEIS</li>
+              <li>124 eventos históricos de remoción en masa — SERNAGEOMIN</li>
+              <li>45 áreas protegidas — CONAF, Registro Nacional de Áreas Protegidas</li>
+              <li>547 sitios con potencial de contaminación — Ministerio del Medio Ambiente</li>
+            </ul>
+          </div>
+
+          <div class="border-l-2 border-clay bg-bone-100 p-6">
+            <h3 class="font-serif text-lg font-semibold text-ink mb-3">Decisiones de Arquitectura</h3>
+            <div class="space-y-1.5 font-mono text-sm text-ink-light">
+              <p><span class="text-moss">Motor de correlación:</span> PostgreSQL + PostGIS, sin Kafka/Spark prematuro</p>
+              <p><span class="text-moss">Sin ORM:</span> SQL directo para control total de funciones geoespaciales</p>
+              <p><span class="text-moss">Ontología propia:</span> 7 categorías × 13 tipos de alerta con umbral configurable</p>
+              <p><span class="text-moss">comuna_desde_punto():</span> resuelve comuna por contención, fallback a 10 km</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-bone-50 border border-bone-300 p-8 space-y-6">
+        <h2 class="font-serif text-2xl font-semibold text-ink">Hitos Técnicos</h2>
+
+        <div class="space-y-3">
+          <div class="border-l-2 border-bone-300 pl-4 py-1">
+            <h4 class="font-serif font-semibold text-ink">Ontología de alertas + motor de reglas</h4>
+            <p class="font-mono text-sm text-ink-light">Categoría → tipo → regla → alerta, con umbral y severidad automática</p>
+          </div>
+
+          <div class="border-l-2 border-bone-300 pl-4 py-1">
+            <h4 class="font-serif font-semibold text-ink">Autenticación JWT + roles</h4>
+            <p class="font-mono text-sm text-ink-light">Refresh token rotante — invalida el anterior en cada uso</p>
+          </div>
+
+          <div class="border-l-2 border-bone-300 pl-4 py-1">
+            <h4 class="font-serif font-semibold text-ink">WebSockets en tiempo real</h4>
+            <p class="font-mono text-sm text-ink-light">Socket.io con autenticación en el handshake — sin ventana de datos sin auth</p>
+          </div>
+
+          <div class="border-l-2 border-bone-300 pl-4 py-1">
+            <h4 class="font-serif font-semibold text-ink">Creación de alertas desde el mapa</h4>
+            <p class="font-mono text-sm text-ink-light">Clic → formulario → comuna autoasignada por PostGIS</p>
+          </div>
+
+          <div class="border-l-2 border-moss bg-bone-100 pl-4 p-4">
+            <h4 class="font-serif font-semibold text-ink">Enriquecimiento espacial automático <span class="font-mono text-xs text-moss uppercase tracking-wide">[ Núcleo del sistema ]</span></h4>
+            <p class="font-mono text-sm text-ink font-medium mt-1">4 funciones PostGIS resueltas en el momento de creación</p>
+            <p class="text-sm text-ink-light mt-2">Hospitales cercanos, remociones históricas cercanas, contención en área protegida, sitios contaminantes cercanos — todo adjunto a la respuesta y al evento WebSocket</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-bone-50 border border-bone-300 p-8 space-y-6">
+        <h2 class="font-serif text-2xl font-semibold text-ink">Aprendizajes y Alcance</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+          <div>
+            <h3 class="font-serif text-lg font-semibold text-ink mb-2">Manejo de Datos Públicos</h3>
+            <ul class="list-disc list-inside text-ink-light space-y-1.5 text-sm">
+              <li>ETL idempotente sobre formatos heterogéneos (SHP, GPKG, GeoJSON)</li>
+              <li>Normalización de nombres y códigos oficiales de comuna</li>
+              <li>Simplificación de geometría para la versión demo pública</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="font-serif text-lg font-semibold text-ink mb-2">Seguridad y Tiempo Real</h3>
+            <ul class="list-disc list-inside text-ink-light space-y-1.5 text-sm">
+              <li>Auth verificada antes de abrir la conexión WebSocket</li>
+              <li>Un solo proceso/puerto para REST y WS — sin CORS extra</li>
+              <li>Roles diferenciados (viewer a superadmin)</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="font-serif text-lg font-semibold text-ink mb-2">Qué no incluye esta versión</h3>
+            <ul class="list-disc list-inside text-ink-light space-y-1.5 text-sm">
+              <li>Clasificador LLM de texto libre → alerta (diseñado, no implementado)</li>
+              <li>Polígonos dinámicos y su ciclo de vida temporal</li>
+              <li>Notificaciones por email/webhook y suscripciones por zona</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="font-serif text-lg font-semibold text-ink mb-2">Versión publicada</h3>
+            <ul class="list-disc list-inside text-ink-light space-y-1.5 text-sm">
+              <li>Dataset reducido y con atribución explícita a cada fuente</li>
+              <li>Alertas de demostración ficticias, no eventos reales</li>
+              <li>Sin credenciales ni datos de un entorno productivo</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-bone-50 border border-bone-300 p-8 space-y-5">
+        <h2 class="font-serif text-2xl font-semibold text-ink">Stack Tecnológico</h2>
+        <div class="flex flex-wrap gap-2">
+          {['PostgreSQL 13', 'PostGIS', 'Express', 'TypeScript', 'Socket.io', 'MapLibre GL', 'JWT', 'Docker', 'Google Gemini (adapter)'].map((tech) => (
+            <span class="border border-bone-300 text-ink-light px-3 py-1.5 font-mono text-xs uppercase tracking-wide">{tech}</span>
+          ))}
+        </div>
+      </section>
+
+      <section class="bg-ink text-bone-100 p-8 relative overflow-hidden">
+        <div class="absolute top-0 left-0 h-[3px] w-full bg-gradient-to-r from-clay via-clay-light to-moss"></div>
+        <h2 class="font-serif text-2xl font-semibold mb-5">Valor del Proyecto</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div>
+            <p class="font-mono text-xs uppercase tracking-widest text-clay-light mb-1.5">Para el MACI</p>
+            <p class="text-sm text-bone-200/80 leading-relaxed">Aplicación práctica de modelado geoespacial, diseño de ontologías de datos y sistemas en tiempo real a un caso real de gestión de riesgo territorial.</p>
+          </div>
+          <div>
+            <p class="font-mono text-xs uppercase tracking-widest text-clay-light mb-1.5">Para Ingeniería de Datos</p>
+            <p class="text-sm text-bone-200/80 leading-relaxed">Arquitectura reproducible que combina PostGIS, APIs en tiempo real e integración de múltiples fuentes públicas heterogéneas, sin frameworks innecesarios.</p>
+          </div>
+          <div>
+            <p class="font-mono text-xs uppercase tracking-widest text-clay-light mb-1.5">Habilidades Demostradas</p>
+            <p class="text-sm text-bone-200/80 leading-relaxed">Diseño de ontologías, funciones espaciales PostGIS, WebSockets autenticados, APIs REST, ETL sobre datos geoespaciales oficiales.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Botón de retorno -->
+    <div class="pt-4">
+      <a href={`${base}proyectos`} class="font-mono text-xs uppercase tracking-widest text-ink hover:text-clay inline-flex items-center gap-2 transition-colors duration-200">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path>
+        </svg>
+        Volver a todos los proyectos
+      </a>
+    </div>
+  </div>
+</Layout>
