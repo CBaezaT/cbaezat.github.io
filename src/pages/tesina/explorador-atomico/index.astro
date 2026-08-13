@@ -37,6 +37,16 @@ const base = import.meta.env.BASE_URL;
           <h3 class="font-serif text-lg font-semibold text-ink mb-2">Propósito</h3>
           <p class="text-ink-light">Dar acceso real a los datos que el KG atómico ya contiene por manzana o entidad rural — a una persona vía el mapa, y a un LLM vía el servidor MCP — sin depender de que el experimento predictivo paralelo tenga éxito.</p>
         </div>
+
+        <figure class="space-y-2">
+          <img
+            src={`${base}tesina/explorador-atomico/capturas/mapa-concepcion-poblacion.webp`}
+            width="1600" height="1066" loading="eager"
+            alt="Mapa del explorador atómico mostrando Concepción coloreada por población, con la comuna completa fitteada en el visor y el panel lateral listo para mostrar el detalle de una unidad al hacer clic."
+            class="w-full border border-bone-300"
+          />
+          <figcaption class="font-mono text-xs text-ink-light">Captura real — Concepción coloreada por población (Censo 2024)</figcaption>
+        </figure>
       </section>
 
       <section class="bg-bone-50 border border-bone-300 p-8 space-y-6">
@@ -82,6 +92,26 @@ const base = import.meta.env.BASE_URL;
           producto anulaba la vulnerabilidad cuando la amenaza era 0. El panel de detalle y las tools del MCP la
           aplican como invariante, no como corrección puntual.
         </p>
+
+        <figure class="space-y-2">
+          <img
+            src={`${base}tesina/explorador-atomico/capturas/mapa-concepcion-detalle-unidad.webp`}
+            width="1600" height="1066" loading="lazy"
+            alt="Panel de detalle real de una manzana de Concepción con 644 habitantes: dimensiones biológica, cultural y socioeconómica del BVI desglosadas en porcentajes, y el mapa de fondo coloreado por nivel de riesgo experimental."
+            class="w-full border border-bone-300"
+          />
+          <figcaption class="font-mono text-xs text-ink-light">Captura real — panel de detalle de una manzana, con BVI desglosado</figcaption>
+        </figure>
+
+        <figure class="space-y-2">
+          <img
+            src={`${base}tesina/explorador-atomico/capturas/mapa-concepcion-nivel-riesgo.webp`}
+            width="1600" height="1066" loading="lazy"
+            alt="Mismo mapa de Concepción coloreado por nivel de riesgo experimental (bajo, medio, alto), con la nota de transparencia sobre el veredicto H0 visible en la leyenda."
+            class="w-full border border-bone-300"
+          />
+          <figcaption class="font-mono text-xs text-ink-light">Captura real — coloreado por nivel de riesgo experimental, con la nota de transparencia H0 en la leyenda</figcaption>
+        </figure>
       </section>
 
       <section class="bg-bone-50 border border-bone-300 p-8 space-y-6">
