@@ -53,6 +53,11 @@
   .foot{margin-top:18px;font-size:clamp(12px,1.35vw,16px);color:var(--muted);
      border-top:1px solid var(--line);padding-top:14px}
   .foot b{color:var(--ink)}
+  .cta-link{display:inline-block;background:var(--teal);color:#fff;text-decoration:none;
+     border-radius:999px;padding:10px 22px;font-weight:700;font-size:clamp(12.5px,1.4vw,15px)}
+  .cta-link:hover{background:#0b5c56}
+  .cta-link--secondary{background:transparent;color:var(--teal);border:1.5px solid var(--teal)}
+  .cta-link--secondary:hover{background:rgba(15,118,110,.08)}
 
   /* Title slide */
   .title-slide{justify-content:center;background:
@@ -306,6 +311,10 @@
       </tbody>
     </table>
     <div class="foot">Los <b>ingredientes reales</b> ya están conectados y hablando el mismo idioma. La variable a predecir ya es construible.</div>
+    <div style="margin-top:16px;display:flex;gap:12px;flex-wrap:wrap">
+      <a class="cta-link" href="/tesina/explorador-atomico/">Ver el explorador atómico del KG (mapa + API + MCP) →</a>
+      <a class="cta-link cta-link--secondary" href="/tesina/prototipo/">Ver el mockup del panel de riesgo →</a>
+    </div>
   </section>
 
 </div>

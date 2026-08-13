@@ -1,0 +1,99 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout title="Pre-MVP — Panel de riesgo territorial · Tesina MACI — Cristian Baeza Torres" description="Mockup interactivo del panel operativo de riesgo territorial, prototipo de validación UX para la Tesina del Magíster en Ciencia de Datos para la Innovación (MACI, U. de Concepción).">
+  <div class="max-w-4xl mx-auto space-y-10">
+    <!-- Header -->
+    <div class="space-y-5 border-b border-bone-300 pb-6">
+      <a href={base} class="font-mono text-xs uppercase tracking-widest text-ink-light hover:text-clay inline-flex items-center gap-2 transition-colors duration-200">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path>
+        </svg>
+        Volver al inicio
+      </a>
+      <h1 class="font-serif text-4xl lg:text-5xl font-semibold text-ink leading-tight">Pre-MVP — Panel de riesgo territorial</h1>
+      <div class="flex flex-wrap gap-2">
+        <span class="border border-bone-300 text-ink-light px-3 py-1 font-mono text-xs uppercase tracking-wide">Knowledge Graph</span>
+        <span class="border border-bone-300 text-ink-light px-3 py-1 font-mono text-xs uppercase tracking-wide">Ciencia de Datos</span>
+        <span class="border border-bone-300 text-ink-light px-3 py-1 font-mono text-xs uppercase tracking-wide">Gestión de Riesgo</span>
+      </div>
+      <p class="font-mono text-xs text-moss uppercase tracking-wide">[ Prototipo de validación UX · 2026 ]</p>
+    </div>
+
+    <!-- Contenido Principal -->
+    <div class="space-y-8">
+      <section class="bg-bone-50 border border-bone-300 p-8 space-y-6">
+        <h2 class="font-serif text-2xl font-semibold text-ink">Qué es</h2>
+        <p class="text-ink-light leading-relaxed">
+          Mockup interactivo autocontenido del panel operativo de riesgo territorial descrito como MVP
+          en la propuesta de mi Tesina del <strong class="text-ink">Magíster en Ciencia de Datos para la Innovación (MACI), Universidad de Concepción</strong>:
+          predicción de riesgo de emergencias territoriales en Chile mediante un Knowledge Graph semántico.
+        </p>
+
+        <div class="border-l-2 border-clay bg-bone-100 p-6">
+          <h3 class="font-serif text-lg font-semibold text-ink mb-2">Propósito</h3>
+          <p class="text-ink-light">Validar la dirección de UX del panel con el profesor guía <strong class="text-ink">antes de invertir</strong> en construir el dashboard real sobre Pharos. El profesor guía ya lo revisó y dio su visto bueno.</p>
+        </div>
+      </section>
+
+      <section class="bg-bone-50 border border-bone-300 p-8 space-y-6">
+        <h2 class="font-serif text-2xl font-semibold text-ink">Qué es real y qué es ilustrativo</h2>
+        <p class="text-ink-light">
+          El mockup lo deja marcado de forma explícita en su propia interfaz — el detalle completo:
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-bone-300 border border-bone-300">
+          <div class="bg-bone-50 p-4">
+            <h4 class="font-serif font-semibold text-ink mb-1.5">✔ Real</h4>
+            <ul class="list-disc list-inside text-sm text-ink-light space-y-1">
+              <li>Población y % rural del Censo 2024</li>
+              <li>Numeradores del BVI (dimensiones biológica, cultural y socioeconómica)</li>
+              <li>Las cuatro amenazas detectadas: volcánica, remoción en masa, tsunami e incendio forestal</li>
+            </ul>
+          </div>
+          <div class="bg-bone-50 p-4">
+            <h4 class="font-serif font-semibold text-ink mb-1.5">◐ Ilustrativo</h4>
+            <ul class="list-disc list-inside text-sm text-ink-light space-y-1">
+              <li>Nivel de riesgo (Bajo/Medio/Alto): fórmula simple solo para este mockup — el modelo predictivo real todavía no existe</li>
+              <li>Dimensión institucional del BVI: pendiente</li>
+              <li>Actores institucionales y zonas adyacentes en riesgo: pendientes</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-bone-50 border border-bone-300 p-8 space-y-6">
+        <h2 class="font-serif text-2xl font-semibold text-ink">Alcance</h2>
+        <p class="text-ink-light leading-relaxed">
+          Muestra <strong class="text-ink">12 comunas de ejemplo</strong> (no las 346 comunas de Chile), elegidas para ilustrar
+          variedad de amenazas y de BVI. Su posición en el panel está ordenada esquemáticamente de norte a sur por región —
+          no es un mapa geográfico real.
+        </p>
+      </section>
+
+      <section class="bg-ink text-bone-100 p-8 relative overflow-hidden text-center space-y-5">
+        <div class="absolute top-0 left-0 h-[3px] w-full bg-gradient-to-r from-clay via-clay-light to-moss"></div>
+        <h2 class="font-serif text-2xl font-semibold">Ver el mockup</h2>
+        <p class="text-sm text-bone-200/80 leading-relaxed max-w-xl mx-auto">
+          Se abre en una pestaña nueva. Es un archivo HTML autocontenido — funciona igual sin conexión.
+        </p>
+        <a href={`${base}tesina/prototipo/dashboard/`} target="_blank" rel="noopener noreferrer" class="inline-block bg-bone-100 text-ink px-8 py-3.5 font-mono text-xs uppercase tracking-widest hover:bg-clay-light transition-colors duration-200">
+          Ver el dashboard interactivo →
+        </a>
+      </section>
+
+      <section class="bg-bone-50 border border-bone-300 p-8 text-center space-y-4">
+        <h2 class="font-serif text-2xl font-semibold text-ink">El otro pre-MVP de esta tesina</h2>
+        <p class="text-sm text-ink-light leading-relaxed max-w-xl mx-auto">
+          El más reciente y más central: un explorador con mapa interactivo, API REST y servidor MCP sobre el
+          Knowledge Graph atómico de la Región del Biobío.
+        </p>
+        <a href={`${base}tesina/explorador-atomico/`} class="inline-block border border-ink text-ink px-8 py-3.5 font-mono text-xs uppercase tracking-widest hover:border-clay hover:text-clay transition-colors duration-200">
+          Ver el explorador atómico del KG →
+        </a>
+      </section>
+    </div>
+  </div>
+</Layout>

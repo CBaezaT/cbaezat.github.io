@@ -1,0 +1,674 @@
+<meta charset="UTF-8">
+<title>Pharos — Módulo de Riesgo Territorial (pre-prototipo)</title>
+<style>
+  :root {
+    --bg: #eceeed;
+    --surface: #f8f9f8;
+    --surface-2: #ffffff;
+    --text: #1a2023;
+    --text-muted: #5c6569;
+    --text-faint: #8a9195;
+    --border: #d7dad8;
+    --border-strong: #b9bdba;
+    --accent: #33478c;
+    --accent-soft: #33478c1a;
+    --accent-contrast: #f4f5f8;
+    --risk-bajo: #5f7a5c;
+    --risk-bajo-bg: #5f7a5c1c;
+    --risk-medio: #a8792f;
+    --risk-medio-bg: #a8792f1e;
+    --risk-alto: #9b3e36;
+    --risk-alto-bg: #9b3e361e;
+    --pending: #8a9195;
+    --pending-bg: #8a919514;
+    --mono: ui-monospace, "SF Mono", "Cascadia Mono", "Liberation Mono", Menlo, Consolas, monospace;
+    --serif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+    --shadow: 0 1px 2px rgba(20, 24, 26, 0.06), 0 8px 24px -12px rgba(20, 24, 26, 0.18);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #10141a;
+      --surface: #171c22;
+      --surface-2: #1d232a;
+      --text: #e7eaec;
+      --text-muted: #9aa3ab;
+      --text-faint: #6b747c;
+      --border: #2a323a;
+      --border-strong: #3a434c;
+      --accent: #7c93d6;
+      --accent-soft: #7c93d61f;
+      --accent-contrast: #10141a;
+      --risk-bajo: #8fae8a;
+      --risk-bajo-bg: #8fae8a20;
+      --risk-medio: #d1a355;
+      --risk-medio-bg: #d1a35522;
+      --risk-alto: #d1746a;
+      --risk-alto-bg: #d1746a22;
+      --pending: #7d858c;
+      --pending-bg: #7d858c1c;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px -12px rgba(0, 0, 0, 0.5);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #10141a; --surface: #171c22; --surface-2: #1d232a; --text: #e7eaec;
+    --text-muted: #9aa3ab; --text-faint: #6b747c; --border: #2a323a; --border-strong: #3a434c;
+    --accent: #7c93d6; --accent-soft: #7c93d61f; --accent-contrast: #10141a;
+    --risk-bajo: #8fae8a; --risk-bajo-bg: #8fae8a20; --risk-medio: #d1a355; --risk-medio-bg: #d1a35522;
+    --risk-alto: #d1746a; --risk-alto-bg: #d1746a22; --pending: #7d858c; --pending-bg: #7d858c1c;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px -12px rgba(0, 0, 0, 0.5);
+  }
+  :root[data-theme="light"] {
+    --bg: #eceeed; --surface: #f8f9f8; --surface-2: #ffffff; --text: #1a2023;
+    --text-muted: #5c6569; --text-faint: #8a9195; --border: #d7dad8; --border-strong: #b9bdba;
+    --accent: #33478c; --accent-soft: #33478c1a; --accent-contrast: #f4f5f8;
+    --risk-bajo: #5f7a5c; --risk-bajo-bg: #5f7a5c1c; --risk-medio: #a8792f; --risk-medio-bg: #a8792f1e;
+    --risk-alto: #9b3e36; --risk-alto-bg: #9b3e361e; --pending: #8a9195; --pending-bg: #8a919514;
+    --shadow: 0 1px 2px rgba(20, 24, 26, 0.06), 0 8px 24px -12px rgba(20, 24, 26, 0.18);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--serif);
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection { background: var(--accent-soft); }
+
+  .eyebrow {
+    font-family: var(--mono);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+  }
+  .tabular { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+
+  .app {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 28px 24px 56px;
+  }
+
+  /* ---- Header ---- */
+  header.topbar {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--border-strong);
+    flex-wrap: wrap;
+  }
+  .wordmark {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+  }
+  .wordmark .mark {
+    font-family: var(--mono);
+    font-weight: 600;
+    font-size: 1.35rem;
+    letter-spacing: 0.03em;
+  }
+  .wordmark .mark span { color: var(--accent); }
+  .wordmark .subtitle {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+  }
+  .status-chip {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    border: 1px solid var(--accent);
+    border-radius: 3px;
+    color: var(--accent);
+    background: var(--accent-soft);
+    white-space: nowrap;
+  }
+
+  /* ---- Honesty banner ---- */
+  .banner {
+    margin-top: 18px;
+    padding: 12px 16px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: 2px;
+    font-size: 0.85rem;
+    line-height: 1.55;
+    color: var(--text-muted);
+  }
+  .banner strong { color: var(--text); }
+  .banner code {
+    font-family: var(--mono);
+    font-size: 0.82em;
+    background: var(--accent-soft);
+    padding: 0.1em 0.35em;
+    border-radius: 2px;
+    color: var(--text);
+  }
+
+  /* ---- Main layout ---- */
+  main.console {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 22px;
+    margin-top: 24px;
+    align-items: start;
+  }
+  @media (max-width: 760px) {
+    main.console { grid-template-columns: 1fr; }
+  }
+
+  /* ---- Left: stratigraphic strip ---- */
+  .strip-panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 16px 14px 14px;
+    box-shadow: var(--shadow);
+  }
+  .strip-panel h2.eyebrow { margin: 0 0 12px; }
+  .strip {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+  .region-band {
+    position: relative;
+    padding: 10px 0 14px 20px;
+    border-left: 2px solid var(--border-strong);
+  }
+  .region-band:first-child { padding-top: 2px; }
+  .region-band .region-label {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    margin-bottom: 8px;
+    display: block;
+  }
+  .comuna-node {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 5px 6px 5px 0;
+    margin-left: -22px;
+    padding-left: 22px;
+    cursor: pointer;
+    text-align: left;
+    border-radius: 4px;
+    font-family: var(--serif);
+    font-size: 0.88rem;
+    color: var(--text);
+    position: relative;
+  }
+  .comuna-node:hover { background: var(--surface-2); }
+  .comuna-node.active { background: var(--accent-soft); }
+  .comuna-node .dot {
+    width: 9px; height: 9px; border-radius: 50%;
+    flex-shrink: 0;
+    position: absolute;
+    left: 14px;
+    box-shadow: 0 0 0 3px var(--surface);
+  }
+  .comuna-node .label { margin-left: 14px; }
+  .comuna-node .pop {
+    margin-left: auto;
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    color: var(--text-faint);
+    font-variant-numeric: tabular-nums;
+  }
+  .dot.bajo { background: var(--risk-bajo); }
+  .dot.medio { background: var(--risk-medio); }
+  .dot.alto { background: var(--risk-alto); }
+
+  .strip-caption {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px dashed var(--border);
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    color: var(--text-faint);
+    line-height: 1.5;
+  }
+  .legend { display: flex; gap: 12px; margin-top: 8px; flex-wrap: wrap; }
+  .legend span { display: inline-flex; align-items: center; gap: 5px; font-family: var(--mono); font-size: 0.63rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.04em; }
+  .legend .swatch { width: 8px; height: 8px; border-radius: 50%; }
+
+  /* ---- Right: detail panel ---- */
+  .detail {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .detail-header {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 20px 22px;
+    box-shadow: var(--shadow);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+  .detail-header h1 {
+    font-size: 1.6rem;
+    margin: 2px 0 4px;
+    text-wrap: balance;
+    font-weight: 600;
+  }
+  .detail-header .region-line {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+  }
+  .stat-row {
+    display: flex;
+    gap: 22px;
+    margin-top: 12px;
+    flex-wrap: wrap;
+  }
+  .stat { display: flex; flex-direction: column; gap: 1px; }
+  .stat .eyebrow { font-size: 0.62rem; }
+  .stat .value { font-family: var(--mono); font-size: 1.05rem; font-variant-numeric: tabular-nums; }
+
+  .risk-badge {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+    min-width: 150px;
+  }
+  .risk-pill {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 6px 12px;
+    border-radius: 3px;
+    font-weight: 600;
+  }
+  .risk-pill.bajo { color: var(--risk-bajo); background: var(--risk-bajo-bg); border: 1px solid var(--risk-bajo); }
+  .risk-pill.medio { color: var(--risk-medio); background: var(--risk-medio-bg); border: 1px solid var(--risk-medio); }
+  .risk-pill.alto { color: var(--risk-alto); background: var(--risk-alto-bg); border: 1px solid var(--risk-alto); }
+  .risk-badge .risk-caption {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    color: var(--text-faint);
+    text-align: right;
+    max-width: 170px;
+    line-height: 1.4;
+  }
+
+  .card-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  @media (max-width: 620px) { .card-grid { grid-template-columns: 1fr; } }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 18px 20px;
+    box-shadow: var(--shadow);
+  }
+  .card h3 {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin: 0 0 14px;
+    font-weight: 600;
+  }
+
+  .meter-row { display: flex; flex-direction: column; gap: 3px; margin-bottom: 12px; }
+  .meter-row:last-child { margin-bottom: 0; }
+  .meter-label {
+    display: flex; justify-content: space-between; align-items: baseline;
+    font-size: 0.82rem;
+  }
+  .meter-label .val { font-family: var(--mono); font-size: 0.78rem; color: var(--text-muted); font-variant-numeric: tabular-nums; }
+  .meter-track {
+    height: 6px;
+    background: var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .meter-fill { height: 100%; background: var(--accent); border-radius: 3px; }
+  .meter-row.pending .meter-track { background: repeating-linear-gradient(135deg, var(--pending-bg), var(--pending-bg) 4px, transparent 4px, transparent 8px); }
+  .meter-row.pending .meter-label { color: var(--text-faint); font-style: italic; }
+
+  .hazard-list { display: flex; flex-direction: column; gap: 10px; }
+  .hazard-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 10px;
+    border-radius: 4px;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+  }
+  .hazard-item.inactive { opacity: 0.45; }
+  .hazard-glyph {
+    font-family: var(--mono);
+    width: 20px; text-align: center; font-size: 0.9rem; color: var(--accent);
+    flex-shrink: 0;
+  }
+  .hazard-item.inactive .hazard-glyph { color: var(--text-faint); }
+  .hazard-text { font-size: 0.82rem; flex: 1; }
+  .hazard-text .name { display: block; }
+  .hazard-text .detail-note { font-family: var(--mono); font-size: 0.68rem; color: var(--text-muted); }
+
+  .pending-note {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    font-style: italic;
+  }
+  .pending-note .eyebrow { display: block; font-style: normal; margin-bottom: 6px; }
+
+  details.formula {
+    margin-top: 2px;
+    font-size: 0.8rem;
+  }
+  details.formula summary {
+    cursor: pointer;
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  details.formula .formula-body {
+    margin-top: 10px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+  details.formula code {
+    display: block;
+    font-family: var(--mono);
+    font-size: 0.76rem;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    padding: 10px 12px;
+    border-radius: 4px;
+    margin: 8px 0;
+    white-space: pre-wrap;
+  }
+
+  footer.foot {
+    margin-top: 28px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    color: var(--text-faint);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  footer.foot a { color: var(--text-muted); }
+
+  button:focus-visible, .comuna-node:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .card, .detail-header { transition: box-shadow 0.15s ease; }
+  }
+</style>
+
+<div class="app">
+  <header class="topbar">
+    <div class="wordmark">
+      <span class="mark">PHAROS<span>·</span>RIESGO</span>
+      <span class="subtitle">Módulo de riesgo territorial — panel operativo</span>
+    </div>
+    <span class="status-chip">Pre-prototipo · v0.1</span>
+  </header>
+
+  <div class="banner">
+    <strong>Esto es un mockup de validación, no el sistema final.</strong>
+    Las cifras de población, dimensión biológica/cultural/socioeconómica del BVI y amenazas detectadas
+    son <strong>datos reales</strong> (Censo 2024 y perfilado de Fuente 2 — ver <code>data/processed/</code>).
+    El <strong>nivel de riesgo y la dimensión institucional son ilustrativos</strong>: el modelo predictivo (Componente 3)
+    y la variable objetivo aún están en propuesta (<code>docs/propuesta_variable_objetivo.md</code>, issue #3).
+  </div>
+
+  <main class="console">
+    <nav class="strip-panel" aria-label="Selector de comunas">
+      <h2 class="eyebrow">Chile · norte → sur (esquemático)</h2>
+      <div class="strip" id="strip"></div>
+      <div class="legend">
+        <span><i class="swatch" style="background:var(--risk-bajo)"></i>Bajo</span>
+        <span><i class="swatch" style="background:var(--risk-medio)"></i>Medio</span>
+        <span><i class="swatch" style="background:var(--risk-alto)"></i>Alto</span>
+      </div>
+      <div class="strip-caption">
+        12 comunas de ejemplo, no las 346. Posición ordinal por región, no a escala cartográfica.
+      </div>
+    </nav>
+
+    <section class="detail" id="detail"></section>
+  </main>
+
+  <footer class="foot">
+    <span>Fuentes: INE Censo 2024 · SERNAGEOMIN · CONAF · ONEMI/SHOA (Visor Chile Preparado)</span>
+    <span>Tesina MACI · Cristian Baeza Torres · 2026-07-10</span>
+  </footer>
+</div>
+
+<script>
+  const REGIONS = [
+    {
+      name: "Norte Grande",
+      comunas: [
+        { cut: "01403", nombre: "Colchane", region: "Tarapacá", poblacion: 665, pct_rural: 100.0,
+          bvi: { biologica: 24.7, cultural: 91.0, socioeconomica: 8.3 },
+          hazards: { volcanica: false, remocion: false, tsunami: false, incendio: 0 },
+          nivel: "medio", score: 0.437 },
+        { cut: "01107", nombre: "Alto Hospicio", region: "Tarapacá", poblacion: 139583, pct_rural: 2.0,
+          bvi: { biologica: 9.0, cultural: 28.9, socioeconomica: 3.7 },
+          hazards: { volcanica: false, remocion: true, remocion_n: 45, tsunami: false, incendio: 0 },
+          nivel: "bajo", score: 0.255 },
+        { cut: "01101", nombre: "Iquique", region: "Tarapacá", poblacion: 193339, pct_rural: 0.8,
+          bvi: { biologica: 17.4, cultural: 16.5, socioeconomica: 2.8 },
+          hazards: { volcanica: false, remocion: true, remocion_n: 86, tsunami: true, incendio: 0 },
+          nivel: "medio", score: 0.387 }
+      ]
+    },
+    {
+      name: "Centro",
+      comunas: [
+        { cut: "13124", nombre: "Pudahuel", region: "Metropolitana", poblacion: 224986, pct_rural: 1.6,
+          bvi: { biologica: 18.8, cultural: 9.2, socioeconomica: 1.9 },
+          hazards: { volcanica: false, remocion: true, remocion_n: 1, tsunami: false, incendio: 0 },
+          nivel: "bajo", score: 0.273 },
+        { cut: "13123", nombre: "Providencia", region: "Metropolitana", poblacion: 142742, pct_rural: 0.0,
+          bvi: { biologica: 20.5, cultural: 2.9, socioeconomica: 0.8 },
+          hazards: { volcanica: false, remocion: true, remocion_n: 1, tsunami: false, incendio: 23.9 },
+          nivel: "bajo", score: 0.328 }
+      ]
+    },
+    {
+      name: "Sur",
+      comunas: [
+        { cut: "08106", nombre: "Lota", region: "Bío-Bío", poblacion: 39782, pct_rural: 0.4,
+          bvi: { biologica: 24.8, cultural: 10.4, socioeconomica: 2.2 },
+          hazards: { volcanica: false, remocion: true, remocion_n: 11, tsunami: true, incendio: 31.2 },
+          nivel: "alto", score: 0.641 },
+        { cut: "08314", nombre: "Alto Biobío", region: "Bío-Bío", poblacion: 5946, pct_rural: 84.4,
+          bvi: { biologica: 13.6, cultural: 87.6, socioeconomica: 4.1 },
+          hazards: { volcanica: true, volcanica_n: 15, remocion: false, tsunami: false, incendio: 0 },
+          nivel: "alto", score: 0.440 },
+        { cut: "09207", nombre: "Lumaco", region: "La Araucanía", poblacion: 9220, pct_rural: 60.0,
+          bvi: { biologica: 23.6, cultural: 49.3, socioeconomica: 2.7 },
+          hazards: { volcanica: false, remocion: true, remocion_n: 1, tsunami: false, incendio: 1.5 },
+          nivel: "medio", score: 0.434 }
+      ]
+    },
+    {
+      name: "Austral",
+      comunas: [
+        { cut: "10101", nombre: "Puerto Montt", region: "Los Lagos", poblacion: 268917, pct_rural: 13.2,
+          bvi: { biologica: 15.4, cultural: 19.8, socioeconomica: 1.8 },
+          hazards: { volcanica: false, remocion: true, remocion_n: 33, tsunami: true, incendio: 9.7 },
+          nivel: "alto", score: 0.500 },
+        { cut: "10401", nombre: "Chaitén", region: "Los Lagos", poblacion: 3939, pct_rural: 55.8,
+          bvi: { biologica: 21.5, cultural: 26.6, socioeconomica: 1.4 },
+          hazards: { volcanica: true, volcanica_n: 4, remocion: true, remocion_n: 23, tsunami: true, incendio: 0 },
+          nivel: "alto", score: 0.560 },
+        { cut: "10103", nombre: "Cochamó", region: "Los Lagos", poblacion: 4161, pct_rural: 86.8,
+          bvi: { biologica: 27.4, cultural: 15.9, socioeconomica: 1.3 },
+          hazards: { volcanica: false, remocion: false, tsunami: true, incendio: 0 },
+          nivel: "bajo", score: 0.340 },
+        { cut: "12101", nombre: "Punta Arenas", region: "Magallanes", poblacion: 130524, pct_rural: 4.2,
+          bvi: { biologica: 21.3, cultural: 21.7, socioeconomica: 1.5 },
+          hazards: { volcanica: false, remocion: true, remocion_n: 415, tsunami: true, incendio: 0 },
+          nivel: "medio", score: 0.405 }
+      ]
+    }
+  ];
+
+  const NIVEL_LABEL = { bajo: "Bajo", medio: "Medio", alto: "Alto" };
+  const fmtInt = n => n.toLocaleString("es-CL");
+  const fmtPct = n => n.toLocaleString("es-CL", { maximumFractionDigits: 1 }) + "%";
+
+  function buildStrip() {
+    const strip = document.getElementById("strip");
+    REGIONS.forEach(region => {
+      const band = document.createElement("div");
+      band.className = "region-band";
+      const label = document.createElement("span");
+      label.className = "region-label";
+      label.textContent = region.name;
+      band.appendChild(label);
+      region.comunas.forEach(c => {
+        const btn = document.createElement("button");
+        btn.className = "comuna-node";
+        btn.dataset.cut = c.cut;
+        btn.innerHTML = `<span class="dot ${c.nivel}"></span><span class="label">${c.nombre}</span><span class="pop">${fmtInt(c.poblacion)}</span>`;
+        btn.addEventListener("click", () => selectComuna(c.cut));
+        band.appendChild(btn);
+      });
+      strip.appendChild(band);
+    });
+  }
+
+  function allComunas() {
+    return REGIONS.flatMap(r => r.comunas);
+  }
+
+  function hazardChip(active, glyph, name, note) {
+    return `<div class="hazard-item ${active ? "" : "inactive"}">
+      <span class="hazard-glyph">${glyph}</span>
+      <span class="hazard-text"><span class="name">${name}</span>${active && note ? `<span class="detail-note">${note}</span>` : ""}</span>
+    </div>`;
+  }
+
+  function render(c) {
+    const detail = document.getElementById("detail");
+    const h = c.hazards;
+    detail.innerHTML = `
+      <div class="detail-header">
+        <div>
+          <span class="eyebrow">Comuna · CUT ${c.cut}</span>
+          <h1>${c.nombre}</h1>
+          <div class="region-line">${c.region}</div>
+          <div class="stat-row">
+            <div class="stat"><span class="eyebrow">Población</span><span class="value">${fmtInt(c.poblacion)}</span></div>
+            <div class="stat"><span class="eyebrow">% rural</span><span class="value">${fmtPct(c.pct_rural)}</span></div>
+          </div>
+        </div>
+        <div class="risk-badge">
+          <span class="risk-pill ${c.nivel}">Riesgo ${NIVEL_LABEL[c.nivel]}</span>
+          <span class="risk-caption">Ilustrativo — ver fórmula abajo. No es salida del modelo (C3 no implementado).</span>
+        </div>
+      </div>
+
+      <div class="card-grid">
+        <div class="card">
+          <h3>Vulnerabilidad biocultural (BVI)</h3>
+          ${meterRow("Biológica", "% adultos 60+ (proxy)", c.bvi.biologica, 30)}
+          ${meterRow("Cultural", "% pueblos originarios", c.bvi.cultural, 95)}
+          ${meterRow("Socioeconómica", "% viviendas hacinadas", c.bvi.socioeconomica, 9)}
+          ${pendingMeterRow("Institucional", "capacidad municipal / SAT — SUBDERE-SINIM pendiente (2ª ola)")}
+        </div>
+
+        <div class="card">
+          <h3>Amenazas detectadas</h3>
+          <div class="hazard-list">
+            ${hazardChip(h.volcanica, "▲", "Volcánica", h.volcanica ? `${h.volcanica_n} vías de evacuación cercanas` : null)}
+            ${hazardChip(h.remocion, "◆", "Remoción en masa", h.remocion ? `${h.remocion_n} evento(s) registrados 1762–2021` : null)}
+            ${hazardChip(h.tsunami, "〜", "Tsunami", h.tsunami ? "área/vía de evacuación registrada" : null)}
+            ${hazardChip(h.incendio > 0.05 * 100 || h.incendio > 5, "🜂".replace("🜂","※"), "Incendio forestal", h.incendio > 0 ? `${fmtPct(h.incendio)} del área comunal en clase alta` : null)}
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Actores institucionales relevantes</h3>
+          <p class="pending-note"><span class="eyebrow">Pendiente — Fuente 4</span>
+          Requiere integrar los datos internos de Pharos (municipios, bomberos, SAT locales). Sin iniciar —
+          ver <code>docs/plan_descarga_perfilado_datos.md</code>, Fuente 4.</p>
+        </div>
+
+        <div class="card">
+          <h3>Zonas adyacentes en riesgo</h3>
+          <p class="pending-note"><span class="eyebrow">Pendiente — issue #11</span>
+          Requiere la matriz de adyacencia comunal (features de grafo, MVP), aún no calculada desde los
+          polígonos de BCN.</p>
+        </div>
+      </div>
+
+      <details class="formula">
+        <summary>Cómo se calculó el nivel ilustrativo</summary>
+        <div class="formula-body">
+          Solo para este mockup — no es el pipeline de modelado real (ver <code>docs/propuesta_variable_objetivo.md</code>).
+          <code>score = 0.5 × (amenazas reales detectadas / 4) + 0.5 × (promedio normalizado de BVI biológica/cultural/socioeconómica)</code>
+          Los 12 ejemplos se ordenan y se dividen en terciles (Bajo/Medio/Alto) — el mismo criterio de
+          discretización propuesto para la variable objetivo real en el issue #3, aplicado aquí solo como demostración.
+          Puntaje de ${c.nombre}: <strong class="tabular">${c.score.toFixed(3)}</strong>.
+        </div>
+      </details>
+    `;
+  }
+
+  function meterRow(label, sub, value, max) {
+    const pct = Math.min(100, (value / max) * 100);
+    return `<div class="meter-row">
+      <div class="meter-label"><span>${label} <span style="color:var(--text-faint)">— ${sub}</span></span><span class="val">${fmtPct(value)}</span></div>
+      <div class="meter-track"><div class="meter-fill" style="width:${pct}%"></div></div>
+    </div>`;
+  }
+  function pendingMeterRow(label, sub) {
+    return `<div class="meter-row pending">
+      <div class="meter-label"><span>${label} — <em>${sub}</em></span><span class="val">S/D</span></div>
+      <div class="meter-track"></div>
+    </div>`;
+  }
+
+  function selectComuna(cut) {
+    document.querySelectorAll(".comuna-node").forEach(n => n.classList.toggle("active", n.dataset.cut === cut));
+    const c = allComunas().find(x => x.cut === cut);
+    render(c);
+  }
+
+  buildStrip();
+  selectComuna("08106"); // Lota — abre en un ejemplo de riesgo alto real
+</script>

@@ -1,0 +1,120 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout title="Explorador atómico del KG — Región del Biobío · Tesina MACI — Cristian Baeza Torres" description="Pre-MVP más reciente de la Tesina MACI: mapa interactivo, API REST y servidor MCP sobre el Knowledge Graph atómico de la Región del Biobío.">
+  <div class="max-w-4xl mx-auto space-y-10">
+    <!-- Header -->
+    <div class="space-y-5 border-b border-bone-300 pb-6">
+      <a href={base} class="font-mono text-xs uppercase tracking-widest text-ink-light hover:text-clay inline-flex items-center gap-2 transition-colors duration-200">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path>
+        </svg>
+        Volver al inicio
+      </a>
+      <h1 class="font-serif text-4xl lg:text-5xl font-semibold text-ink leading-tight">Explorador atómico del Knowledge Graph — Región del Biobío</h1>
+      <div class="flex flex-wrap gap-2">
+        <span class="border border-bone-300 text-ink-light px-3 py-1 font-mono text-xs uppercase tracking-wide">Knowledge Graph</span>
+        <span class="border border-bone-300 text-ink-light px-3 py-1 font-mono text-xs uppercase tracking-wide">API + MCP</span>
+        <span class="border border-bone-300 text-ink-light px-3 py-1 font-mono text-xs uppercase tracking-wide">Geoespacial</span>
+      </div>
+      <p class="font-mono text-xs text-moss uppercase tracking-wide">[ Pre-MVP más reciente · 2026 ]</p>
+    </div>
+
+    <!-- Contenido Principal -->
+    <div class="space-y-8">
+      <section class="bg-bone-50 border border-bone-300 p-8 space-y-6">
+        <h2 class="font-serif text-2xl font-semibold text-ink">Qué es</h2>
+        <p class="text-ink-light leading-relaxed">
+          Un mapa interactivo (MapLibre GL) para explorar el Knowledge Graph atómico de la Región del Biobío de mi
+          Tesina del <strong class="text-ink">Magíster en Ciencia de Datos para la Innovación (MACI), Universidad de Concepción</strong>:
+          <strong class="text-ink">23.266 unidades atómicas</strong> (manzanas censales y entidades rurales) más
+          <strong class="text-ink">719 unidades vecinales</strong>, instanciadas como <strong class="text-ink">597.807 tripletas RDF</strong>.
+        </p>
+
+        <div class="border-l-2 border-clay bg-bone-100 p-6">
+          <h3 class="font-serif text-lg font-semibold text-ink mb-2">Propósito</h3>
+          <p class="text-ink-light">Dar acceso real a los datos que el KG atómico ya contiene por manzana o entidad rural — a una persona vía el mapa, y a un LLM vía el servidor MCP — sin depender de que el experimento predictivo paralelo tenga éxito.</p>
+        </div>
+      </section>
+
+      <section class="bg-bone-50 border border-bone-300 p-8 space-y-6">
+        <h2 class="font-serif text-2xl font-semibold text-ink">Arquitectura: un solo módulo de consulta, tres puertas de entrada</h2>
+        <p class="text-ink-light leading-relaxed">
+          Toda la lógica de consulta vive en un único módulo Python determinista. La API REST y el servidor MCP son
+          <strong class="text-ink">adaptadores delgados</strong> sobre ese módulo — ninguno reimplementa lógica propia,
+          así que un humano y un LLM consultan exactamente los mismos datos con exactamente la misma lógica. Es el
+          mismo principio que ya validé en Pharos.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-bone-300 border border-bone-300">
+          <div class="bg-bone-50 p-4">
+            <h4 class="font-serif font-semibold text-ink mb-1.5">🗺️ Mapa</h4>
+            <p class="text-sm text-ink-light">MapLibre GL, sin build step. Colorea por población, índice de precariedad (BVI), score estructural o nivel de riesgo experimental; clic en una unidad abre su panel de detalle.</p>
+          </div>
+          <div class="bg-bone-50 p-4">
+            <h4 class="font-serif font-semibold text-ink mb-1.5">🔌 API REST</h4>
+            <p class="text-sm text-ink-light">FastAPI. Sirve el GeoJSON por comuna y el detalle de cada unidad (población, BVI, amenazas, scores) al mapa.</p>
+          </div>
+          <div class="bg-bone-50 p-4">
+            <h4 class="font-serif font-semibold text-ink mb-1.5">🤖 Servidor MCP</h4>
+            <p class="text-sm text-ink-light">Transporte stdio (Claude Desktop/Code). 6 tools: consultar una unidad, sus vecinas, una unidad vecinal, listar por comuna, la cascada de afectación comuna→unidad vecinal→manzana, y un glosario.</p>
+          </div>
+        </div>
+
+        <div class="border-l-2 border-clay bg-bone-100 p-6">
+          <h3 class="font-serif text-lg font-semibold text-ink mb-2">Por qué importa el MCP aquí</h3>
+          <p class="text-ink-light">Cada tool del servidor MCP declara en su propia descripción el estado de validación del dato que devuelve — para que un LLM que la consuma no presente como certeza una estimación de investigación. Es la misma regla de no-fusión de scores aplicada también a cómo un modelo de lenguaje puede (y no puede) hablar de estos datos.</p>
+        </div>
+      </section>
+
+      <section class="bg-bone-50 border border-bone-300 p-8 space-y-6">
+        <h2 class="font-serif text-2xl font-semibold text-ink">Qué muestra el panel de detalle</h2>
+        <ul class="list-disc list-inside text-ink-light space-y-1.5">
+          <li>Población y jerarquía territorial (Censo 2024)</li>
+          <li>Vulnerabilidad biocultural (BVI): las dimensiones biológica, cultural y socioeconómica</li>
+          <li>Exposición a amenazas — <strong class="text-ink">cada una con su procedencia declarada</strong>: solo tsunami es una relación real del grafo; remoción en masa e incendio forestal son datos tabulares, no relacionales; la amenaza volcánica solo existe a nivel comunal</li>
+          <li>Dos bloques de riesgo, <strong class="text-ink">nunca combinados en un solo número</strong>: el score estructural (Capa 3, validado parcialmente contra tsunami) y el nivel de riesgo del experimento paralelo KG-vs-tabular (experimental, veredicto H0)</li>
+        </ul>
+        <p class="text-sm text-ink-light">
+          Esa regla de no-fusión existe porque ya se detectó una vez el problema contrario: combinar amenaza × BVI por
+          producto anulaba la vulnerabilidad cuando la amenaza era 0. El panel de detalle y las tools del MCP la
+          aplican como invariante, no como corrección puntual.
+        </p>
+      </section>
+
+      <section class="bg-bone-50 border border-bone-300 p-8 space-y-6">
+        <h2 class="font-serif text-2xl font-semibold text-ink">Por qué es el pre-MVP más central</h2>
+        <p class="text-ink-light leading-relaxed">
+          Es la primera implementación ejecutable de <strong class="text-ink">CQ-16</strong> (cascada de afectación
+          comuna → unidad vecinal → manzana), una Competency Question de la ontología que hasta ahora estaba diseñada
+          pero sin código que la respondiera bajo demanda. También materializa el "endpoint del MVP" descrito en la
+          arquitectura de tres capas de la tesina: dado un punto o una unidad atómica del Biobío, devolver su score de
+          riesgo desagregado y su posición relativa dentro de la comuna.
+        </p>
+      </section>
+
+      <section class="bg-bone-50 border border-bone-300 p-8 space-y-6">
+        <h2 class="font-serif text-2xl font-semibold text-ink">Alcance y límites</h2>
+        <p class="text-ink-light leading-relaxed">
+          Cubre solo la <strong class="text-ink">Región del Biobío</strong> (33 comunas) — es la única región con un
+          KG RDF atómico realmente instanciado. Es una <strong class="text-ink">herramienta de investigación local,
+          sin autenticación</strong>: decisión de diseño declarada explícitamente, no un descuido. No corre expuesta
+          remotamente.
+        </p>
+      </section>
+
+      <section class="bg-ink text-bone-100 p-8 relative overflow-hidden text-center space-y-4">
+        <div class="absolute top-0 left-0 h-[3px] w-full bg-gradient-to-r from-clay via-clay-light to-moss"></div>
+        <h2 class="font-serif text-2xl font-semibold">El otro pre-MVP de esta tesina</h2>
+        <p class="text-sm text-bone-200/80 leading-relaxed max-w-xl mx-auto">
+          También existe un mockup interactivo del panel operativo de riesgo territorial, validado con el profesor guía.
+        </p>
+        <a href={`${base}tesina/prototipo/`} class="inline-block bg-bone-100 text-ink px-8 py-3.5 font-mono text-xs uppercase tracking-widest hover:bg-clay-light transition-colors duration-200">
+          Ver el mockup del panel de riesgo →
+        </a>
+      </section>
+    </div>
+  </div>
+</Layout>
