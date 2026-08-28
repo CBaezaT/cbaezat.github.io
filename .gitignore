@@ -24,6 +24,9 @@ dist/
 # macOS
 .DS_Store
 
+# Fotos de referencia sin publicar
+/fotos/
+
 # Jekyll generated files
 .jekyll-cache
 .jekyll-metadata
